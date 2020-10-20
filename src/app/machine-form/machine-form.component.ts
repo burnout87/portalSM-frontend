@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Machine } from "../machine";
+import { ConnectivityService } from "../connectivity.service";
 
 @Component({
   selector: "app-machine-form",
@@ -7,7 +8,7 @@ import { Machine } from "../machine";
   styleUrls: ["./machine-form.component.css"],
 })
 export class MachineFormComponent implements OnInit {
-  constructor() {}
+  constructor(private csService: ConnectivityService) {}
 
   ngOnInit(): void {}
 
@@ -18,6 +19,15 @@ export class MachineFormComponent implements OnInit {
   submitted = false;
 
   onSubmit() {
+    var newMachine: Machine = new Machine(
+      0,
+      this.machine.name,
+      this.machine.type,
+      this.machine.year
+    );
+    this.csService.InsertNewMachine(newMachine).subscribe((data) => {
+      console.log(data);
+    });
     this.submitted = true;
   }
 

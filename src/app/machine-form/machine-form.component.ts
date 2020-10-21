@@ -14,13 +14,13 @@ export class MachineFormComponent implements OnInit {
 
   types = ["first", "Second", "Third", "Fourth"];
 
-  machine = new Machine(1, "first", this.types[0], 1987);
+  machine = new Machine();
 
   submitted = false;
 
   onSubmit() {
     var newMachine: Machine = new Machine(
-      0,
+      this.machine.id,
       this.machine.name,
       this.machine.type,
       this.machine.year

@@ -1,1 +1,6 @@
+
+<router-outlet></router-outlet>
+
 <app-machine-form></app-machine-form>
+
+<app-machine *ngFor="let machine of machines" [machineData]=machine></app-machine>

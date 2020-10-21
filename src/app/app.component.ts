@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ConnectivityService } from './connectivity.service';
+import { Machine } from './machine';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portalSM-frontend';
+  machines:Array<Machine> = new Array();
+
+  constructor(private csService: ConnectivityService) {
+    this.csService.GetMachines().subscribe(data => {
+      this.machines = data;
+    })
+  }
+
 }

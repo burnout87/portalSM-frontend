@@ -6,9 +6,10 @@ import { AppComponent } from "./app.component";
 import { MachineFormComponent } from "./machine-form/machine-form.component";
 import { ConnectivityService } from "./connectivity.service";
 import { HttpClientModule } from "@angular/common/http";
+import { MachineComponent } from './machine/machine.component';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent],
+  declarations: [AppComponent, MachineFormComponent, MachineComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],

@@ -7,10 +7,12 @@ import { MachineFormComponent } from "./machine-form/machine-form.component";
 import { ConnectivityService } from "./connectivity.service";
 import { HttpClientModule } from "@angular/common/http";
 import { MachineComponent } from './machine/machine.component';
+import { MaterialModule } from './material.modules';
+import { ListMachineComponent } from './list-machine/list-machine.component';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent, MachineComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],
 })

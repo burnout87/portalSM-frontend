@@ -9,12 +9,7 @@ import { Machine } from './machine';
 })
 export class AppComponent {
   title = 'portalSM-frontend';
-  machines:Array<Machine> = new Array();
 
-  constructor(private csService: ConnectivityService) {
-    this.csService.GetMachines().subscribe(data => {
-      this.machines = data;
-    })
-  }
+  constructor() { }
 
 }

@@ -1,11 +1,11 @@
 <section>
-    <button mat-raised-button color="warn">List delle macchine da cucire</button>
-    <button mat-raised-button color="warn">Registra una nuova macchina</button>
+    <div class="button-container">
+        <button routerLink='/listsms' mat-raised-button color="warn">List delle macchine da cucire</button>
+    </div>
+    <div class="button-container">
+        <button routerLink='/addsm' mat-raised-button color="warn">Registra una nuova macchina</button>
+    </div>
 </section>
 
 
 <router-outlet></router-outlet>
-
-<app-machine-form></app-machine-form>
-
-<app-machine *ngFor="let machine of machines" [machineData]=machine></app-machine>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnectivityService } from '../connectivity.service';
+import { Machine } from '../machine';
 
 @Component({
   selector: 'app-list-machine',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListMachineComponent implements OnInit {
 
-  constructor() { }
+  machines:Array<Machine> = new Array();
+  constructor(private csService: ConnectivityService) {
+    this.csService.GetMachines().subscribe(data => {
+      this.machines = data;
+    })
+  }
 
   ngOnInit(): void {
   }

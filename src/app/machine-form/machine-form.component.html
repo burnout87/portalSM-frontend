@@ -19,23 +19,23 @@
       </div>
 
       <div class="form-group">
-        <label for="alterEgo">Type</label>
+        <label for="alterEgo">Year</label>
         <input
           type="text"
           class="form-control"
           id="alterEgo"
-          [(ngModel)]="machine.type"
+          [(ngModel)]="machine.year"
           name="alterEgo"
         />
       </div>
 
       <div class="form-group">
-        <label for="power">Year</label>
+        <label for="power">Type</label>
         <select
           class="form-control"
           id="power"
           required
-          [(ngModel)]="machine.year"
+          [(ngModel)]="machine.type"
           name="power"
           #power="ngModel"
         >
@@ -49,6 +49,62 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div ng2FileDrop
+          [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+           (fileOver)="fileOverBase($event)"
+           [uploader]="uploader"
+           class="well my-drop-zone">
+        Base drop zone
+      </div>
+      <input type="file" 
+            name="photo" 
+            ng2FileSelect [uploader]="uploader" 
+            accept="image/x-png,image/gif,image/jpeg" />
+      </div>
+      
+      <table class="table">
+        <thead>
+        <tr>
+          <th width="50%">Name</th>
+          <th>Size</th>
+          <th>Progress</th>
+          <th>Status</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of uploader.queue">
+            <td><strong>{{ item?.file?.name }}</strong></td>
+            <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+            <td *ngIf="uploader.options.isHTML5">
+              <div class="progress" style="margin-bottom: 0;">
+                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+              </div>
+            </td>
+            <!-- <td class="text-center">
+              <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+              <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+              <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+            </td> -->
+            <!-- <td nowrap>
+              <button type="button" class="btn btn-success btn-xs"
+                      (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                <span class="glyphicon glyphicon-upload"></span> Upload
+              </button>
+              <button type="button" class="btn btn-warning btn-xs"
+                      (click)="item.cancel()" [disabled]="!item.isUploading">
+                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+              </button>
+              <button type="button" class="btn btn-danger btn-xs"
+                      (click)="item.remove()">
+                <span class="glyphicon glyphicon-trash"></span> Remove
+              </button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+
       <button
         type="submit"
         class="btn btn-success"
@@ -56,25 +112,6 @@
       >
         Submit
       </button>
-      <!-- <button
-        type="button"
-        class="btn btn-default"
-        (click)="newMachine(); machineForm.reset()"
-      >
-        New Machine
-      </button>
-      <i>with</i> reset &nbsp;&nbsp;
-      <button type="button" class="btn btn-default" (click)="newMachine()">
-        New Machine
-      </button> -->
-      <!-- <i>without</i> reset -->
-
-      <!-- NOT SHOWN IN DOCS -->
-      <!-- <div>
-        <hr />
-        Name via form.controls = {{ showFormControls(machineForm) }}
-      </div> -->
-      <!-- - -->
     </form>
   </div>
 

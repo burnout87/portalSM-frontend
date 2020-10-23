@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Machine } from "../machine";
+import { Machine, MachineType } from "../machine";
 import { ConnectivityService } from "../connectivity.service";
+import { FileUploader } from 'ng2-file-upload';
+
+const URL = 'http://localhost:3000/api/upload';
 
 @Component({
   selector: "app-machine-form",
@@ -8,14 +11,29 @@ import { ConnectivityService } from "../connectivity.service";
   styleUrls: ["./machine-form.component.css"],
 })
 export class MachineFormComponent implements OnInit {
-  constructor(private csService: ConnectivityService) {}
+  constructor(private csService: ConnectivityService) {
+    this.uploader = new FileUploader({
+      url: URL,
+      itemAlias: 'photo',
+    });
+    this.uploader.response.subscribe( res => this.response = res );
+    this.hasBaseDropZoneOver = false;
+    this.response = '';
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      console.log('FileUpload:uploaded:', item, status, response);
+      alert('File uploaded successfully');
+    };
+  }
 
-  types = ["first", "Second", "Third", "Fourth"];
-
+  types = Object.keys(MachineType);
+  uploader: FileUploader;
+  hasBaseDropZoneOver: boolean;
   machine = new Machine();
-
+  response: string;
   submitted = false;
 
   onSubmit() {
@@ -31,17 +49,11 @@ export class MachineFormComponent implements OnInit {
     this.submitted = true;
   }
 
-  newMachine() {
-    this.machine = new Machine(3, "", "", 1988);
-  }
-
-  skyDog(): Machine {
-    let myMachine = new Machine(2, "SkyDog", "fifth", 1988);
-    console.log("My machine is called " + myMachine.name); // "My hero is called SkyDog"
-    return myMachine;
-  }
-
   showFormControls(form: any) {
     return form && form.controls["name"] && form.controls["name"].value;
+  }
+
+  public fileOverBase(e: any): void {
+    this.hasBaseDropZoneOver = e;
   }
 }

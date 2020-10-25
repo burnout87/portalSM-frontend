@@ -28,7 +28,7 @@ export class MachineFormComponent implements OnInit {
         name: new FormControl(null, Validators.required),
         type: new FormControl(null, Validators.required),
         year: new FormControl(null, Validators.required),
-        image: new FormControl(null, Validators.required),
+        images: new FormControl(null, Validators.required),
       });
     this.uploader = new FileUploader({
       url: URL,
@@ -38,11 +38,6 @@ export class MachineFormComponent implements OnInit {
     this.hasBaseDropZoneOver = false;
     this.response = '';
   }
-
-  // @HostListener('change', ['$event.target.files']) emitFiles( event: FileList ) {
-  //   const file = event && event.item(0);
-  //   this.file = file;
-  // }
 
   ngOnInit(): void {
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
@@ -65,7 +60,7 @@ export class MachineFormComponent implements OnInit {
 
     for ( const key of Object.keys(data) ) {
 
-      if(key == 'image') {
+      if(key == 'images') {
         data[key].forEach(element => {
           formData.append(key, element);  
         });

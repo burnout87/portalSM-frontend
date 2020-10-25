@@ -41,8 +41,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
   }
 
    onFileChange($event) {
-     console.log($event);
-     this.file = $event.target.files[0];
+    //  this.file = $event.target.files[0];
      this.files.push($event.target.files[0]);
      this.onChange(this.files);
    }

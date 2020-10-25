@@ -10,13 +10,13 @@ import { environment } from "src/environments/environment";
 export class ConnectivityService {
   constructor(private http: HttpClient) {}
 
-  public InsertNewMachine(data: Machine): Rx.Observable<object> {
+  public InsertNewMachine(data: FormData): Rx.Observable<object> {
     const httpOptions = {
       headers: new HttpHeaders({
-        "Content-Type": "application/json",
+        "enctype": "multipart/form-data"
       }),
     };
-    return this.http.post(environment.addSms, data, httpOptions);
+    return this.http.post(environment.addSms, data);
   }
 
   public GetMachines(): Rx.Observable<object[]> {

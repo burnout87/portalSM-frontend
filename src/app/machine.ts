@@ -11,13 +11,15 @@ export class Machine {
     public name?: string;
     public type?: MachineType;
     public year?: number;
+    public image?: Object;
 
-    constructor(id?: number, name?: string, type?: string, year?: number)
+    constructor(id?: number, name?: string, type?: string, year?: number, image?: Object)
        {  
          this.id = id;
          this.name = name;
          this.type = MachineType[type];
          this.year = year;
+         this.image = image;
        }
     
     }

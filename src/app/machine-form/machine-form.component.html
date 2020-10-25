@@ -1,77 +1,50 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Sewing Machine Form</h1>
-    <form (ngSubmit)="onSubmit()" #machineForm="ngForm">
+    <form [formGroup]="newMachine" (ngSubmit)="onSubmit(newMachine.value)" >
       <div class="form-group">
         <label for="name">Name</label>
         <input
           type="text"
           class="form-control"
-          id="name"
+          formControlName="name"
           required
-          [(ngModel)]="machine.name"
-          name="name"
-          #name="ngModel"
-        />
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          Name is required
-        </div>
+          />
       </div>
 
       <div class="form-group">
-        <label for="alterEgo">Year</label>
+        <label for="year">Year</label>
         <input
           type="text"
           class="form-control"
-          id="alterEgo"
-          [(ngModel)]="machine.year"
-          name="alterEgo"
-        />
+          formControlName="year"
+          />
       </div>
 
       <div class="form-group">
-        <label for="power">Type</label>
+        <label for="type">Type</label>
         <select
           class="form-control"
-          id="power"
-          required
-          [(ngModel)]="machine.type"
-          name="power"
-          #power="ngModel"
-        >
+          formControlName="type"
+          >
           <option *ngFor="let type of types" [value]="type">{{ type }}</option>
         </select>
-        <div
-          [hidden]="power.valid || power.pristine"
-          class="alert alert-danger"
-        >
-          Type is required
-        </div>
       </div>
 
       <div class="form-group">
-        <div ng2FileDrop
-          [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
-           (fileOver)="fileOverBase($event)"
-           [uploader]="uploader"
-           class="well my-drop-zone">
-        Base drop zone
+        <label for="image">Image</label>
+        <app-file-upload formControlName="image"></app-file-upload>
       </div>
-      <input type="file" 
-            name="photo" 
-            ng2FileSelect [uploader]="uploader" 
-            accept="image/x-png,image/gif,image/jpeg" />
-      </div>
-      
-      <table class="table">
+
+      <!-- <table class="table">
         <thead>
         <tr>
           <th width="50%">Name</th>
           <th>Size</th>
           <th>Progress</th>
-          <th>Status</th>
+          <th>Status</th> -->
           <!-- <th>Actions</th> -->
-        </tr>
+        <!-- </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of uploader.queue">
@@ -81,7 +54,7 @@
               <div class="progress" style="margin-bottom: 0;">
                 <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
               </div>
-            </td>
+            </td> -->
             <!-- <td class="text-center">
               <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
               <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
@@ -101,14 +74,13 @@
                 <span class="glyphicon glyphicon-trash"></span> Remove
               </button>
             </td> -->
-          </tr>
+          <!-- </tr>
         </tbody>
-      </table>
+      </table> -->
 
       <button
         type="submit"
         class="btn btn-success"
-        [disabled]="!machineForm.form.valid"
       >
         Submit
       </button>
@@ -119,15 +91,15 @@
     <h2>You submitted the following:</h2>
     <div class="row">
       <div class="col-xs-3">Name</div>
-      <div class="col-xs-9">{{ machine.name }}</div>
+      <div class="col-xs-9">{{ newMachine.value.name }}</div>
     </div>
     <div class="row">
       <div class="col-xs-3">Type</div>
-      <div class="col-xs-9">{{ machine.type }}</div>
+      <div class="col-xs-9">{{ newMachine.value.type }}</div>
     </div>
     <div class="row">
       <div class="col-xs-3">Year</div>
-      <div class="col-xs-9">{{ machine.year }}</div>
+      <div class="col-xs-9">{{ newMachine.value.year }}</div>
     </div>
     <br />
     <button class="btn btn-primary" (click)="submitted = false">Edit</button>

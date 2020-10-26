@@ -10,16 +10,18 @@ export class Machine {
     public id?: number;
     public name?: string;
     public type?: MachineType;
+    public description?: string;
     public year?: number;
-    public image?: Object;
+    public images?: Array<Object>;
 
-    constructor(id?: number, name?: string, type?: string, year?: number, image?: Object)
+    constructor(id?: number, name?: string, type?: string, description?: string, year?: number, images?: Array<Object>)
        {  
          this.id = id;
          this.name = name;
          this.type = MachineType[type];
+         this.description = description;
          this.year = year;
-         this.image = image;
+         this.images = images;
        }
     
     }

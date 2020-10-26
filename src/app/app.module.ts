@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MachineFormComponent } from "./machine-form/machine-form.component";
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent],
-  imports: [BrowserModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
+  imports: [BrowserModule, BrowserAnimationsModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],
 })

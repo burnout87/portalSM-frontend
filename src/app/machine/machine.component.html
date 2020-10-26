@@ -1,1 +1,2 @@
-<p>{{machineData.name}}, {{machineData.year}}, {{machineData.type}}</p>
+<p>{{machineData.name}}, {{machineData.year}}, {{machineData.type}}, {{machineData.description}}</p>
+<img *ngFor="let img of machineData.images" src='data:{{img.type}};base64,{{img.data}}' />

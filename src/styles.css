@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dist/fonts/'; */
+
+/* @import "~material-design-icons-iconfont/src/material-design-icons.scss"; */

@@ -29,6 +29,7 @@ export class MachineFormComponent implements OnInit {
         type: new FormControl(null, Validators.required),
         year: new FormControl(null, Validators.required),
         images: new FormControl(null, Validators.required),
+        description: new FormControl(null, Validators.required),
       });
     this.uploader = new FileUploader({
       url: URL,
@@ -60,14 +61,15 @@ export class MachineFormComponent implements OnInit {
 
     for ( const key of Object.keys(data) ) {
 
-      if(key == 'images') {
-        data[key].forEach(element => {
+      if(typeof(data[key]) == 'object') {
+        data[key]?.forEach(element => {
           formData.append(key, element);  
         });
       }
-
-      const value = data[key];
-      formData.append(key, value);
+      else {
+        const value = data[key];
+        formData.append(key, value);
+      }
     }
 
     return formData;

@@ -1,40 +1,50 @@
 <div class="container">
   <div [hidden]="submitted">
-    <h1>Sewing Machine Form</h1>
     <form [formGroup]="newMachine" (ngSubmit)="onSubmit(newMachine.value)" >
       <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="name"
-          required
-          />
+        <mat-form-field appearance="fill">
+          <mat-label for="name">Nome</mat-label>
+          <input matInput
+            type="text"
+            formControlName="name"
+            required
+            />
+        </mat-form-field>
+        <!-- class="form-control" -->
       </div>
 
       <div class="form-group">
-        <label for="year">Year</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="year"
-          />
+        <mat-form-field appearance="fill">
+          <mat-label for="year">Anno</mat-label>
+          <input matInput
+            type="text"
+            formControlName="year"
+            />
+        </mat-form-field>
       </div>
 
       <div class="form-group">
-        <label for="type">Type</label>
-        <select
-          class="form-control"
-          formControlName="type"
-          >
-          <option *ngFor="let type of types" [value]="type">{{ type }}</option>
-        </select>
+        <mat-form-field appearance="fill">
+          <mat-label for="type">Tipo</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Descrizione</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
       </div>
 
-      <div class="form-group">
-        <label for="images">Image</label>
-        <app-file-upload formControlName="images"></app-file-upload>
-      </div>
+      <!-- <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label for="images">Foto</mat-label> -->
+          <app-file-upload formControlName="images"></app-file-upload>
+        <!-- </mat-form-field>
+      </div> -->
 
       <!-- <table class="table">
         <thead>

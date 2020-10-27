@@ -13,10 +13,11 @@ import { ListMachineComponent } from './list-machine/list-machine.component';
 import { FileUploadModule } from "ng2-file-upload";
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CommonModule } from '@angular/common';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
   declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
+  imports: [BrowserModule, BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],
 })

@@ -1,9 +1,50 @@
-.my-drop-zone {
-  border: dotted 3px lightgray;
+.machine-card {
+  width: 350px;
+  padding: 30px;
+  margin: 10px;
 }
-.nv-file-over {
-  border: dotted 3px red;
-} /* Default class applied to drop zones on over */
-.another-file-over-class {
-  border: dotted 3px green;
+
+.desc {
+  text-align: center;
+}
+
+swiper {
+  max-width: 300px;
+}
+
+.swiper-wrapper {
+  box-sizing: border-box;
+}
+
+.swiper-container-fade .swiper-slide-active .swiper-slide {
+  pointer-events: auto;
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-top {
+  height: 80%;
+  width: 100%;
+}
+
+.gallery-thumbs {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.6;
+}
+.gallery-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
 }

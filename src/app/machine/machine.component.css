@@ -43,8 +43,5 @@ swiper {
 .gallery-thumbs .swiper-slide {
   width: 25%;
   height: 100%;
-  opacity: 0.6;
-}
-.gallery-thumbs .swiper-slide-thumb-active {
-  opacity: 1;
+  /* opacity: 0.6; */
 }

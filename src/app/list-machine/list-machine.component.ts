@@ -32,6 +32,12 @@ export class ListMachineComponent implements OnInit {
     })
   }
 
+  machineRemovedHandler(machine: Machine) {
+    var index: number = this.machines.indexOf(machine, 0);
+    if(index > -1)
+      this.machines.splice(index, 1);
+  }
+
   ngOnInit(): void {
   }
 

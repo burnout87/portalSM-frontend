@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Machine } from '../machine';
 import { SwiperOptions, Swiper } from 'swiper/bundle';
 import { SwiperComponent } from 'ngx-useful-swiper';
+import { ConnectivityService } from '../connectivity.service';
 
 @Component({
   selector: 'app-machine',
@@ -10,8 +11,9 @@ import { SwiperComponent } from 'ngx-useful-swiper';
 })
 export class MachineComponent implements OnInit, AfterViewInit  {
 
-  constructor() { }
+  constructor(private csService: ConnectivityService) { }
 
+  @Output() machineRemovedEvent: EventEmitter<Machine> = new EventEmitter()
   @Input() machineData: Machine;
   @ViewChild('galleryTop',{static: false}) galleryTop: SwiperComponent;
   @ViewChild('galleryThumbs',{static: false}) galleryThumbs: SwiperComponent;
@@ -24,6 +26,14 @@ export class MachineComponent implements OnInit, AfterViewInit  {
     this.configTop.thumbs = {};
     this.configTop.thumbs.swiper = this.galleryThumbs.swiper;
     this.updateThumbSlidesOpacity();
+  }
+
+  deleteMachine() {
+    this.csService.RemoveMachine(this.machineData._id).subscribe(response => {
+      console.log(response);
+      if(response.state == 1)
+        this.machineRemovedEvent.emit(this.machineData);
+    });
   }
 
   slideToThis(index) {

@@ -7,16 +7,16 @@ export enum MachineType {
 
 export class Machine {
 
-    public id?: number;
+    public _id?: number;
     public name?: string;
     public type?: MachineType;
     public description?: string;
     public year?: number;
     public images?: Array<Object>;
 
-    constructor(id?: number, name?: string, type?: string, description?: string, year?: number, images?: Array<Object>)
+    constructor(_id?: number, name?: string, type?: string, description?: string, year?: number, images?: Array<Object>)
        {  
-         this.id = id;
+         this._id = _id;
          this.name = name;
          this.type = MachineType[type];
          this.description = description;

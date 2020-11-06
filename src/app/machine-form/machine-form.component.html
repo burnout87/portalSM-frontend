@@ -1,8 +1,8 @@
 <div class="container">
   <div [hidden]="submitted">
     <form [formGroup]="newMachine" (ngSubmit)="onSubmit(newMachine.value)" >
-      <div class="form-group">
-        <mat-form-field appearance="fill">
+      <div >
+        <mat-form-field appearance="fill" style="width: 50%;">
           <mat-label for="name">Nome</mat-label>
           <input matInput
             type="text"
@@ -13,8 +13,8 @@
         <!-- class="form-control" -->
       </div>
 
-      <div class="form-group">
-        <mat-form-field appearance="fill">
+      <div >
+        <mat-form-field appearance="fill"  style="width: 50%;">
           <mat-label for="year">Anno</mat-label>
           <input matInput
             type="text"
@@ -23,8 +23,8 @@
         </mat-form-field>
       </div>
 
-      <div class="form-group">
-        <mat-form-field appearance="fill">
+      <div>
+        <mat-form-field appearance="fill"  style="width: 50%;">
           <mat-label for="type">Tipo</mat-label>
           <mat-select formControlName="type">
             <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
@@ -32,8 +32,8 @@
         </mat-form-field>
       </div>
     
-      <div class="form-group">
-        <mat-form-field appearance="fill">
+      <div>
+        <mat-form-field appearance="fill"  style="width: 50%;">
           <mat-label>Descrizione</mat-label>
           <textarea matInput formControlName="description"></textarea>
         </mat-form-field>

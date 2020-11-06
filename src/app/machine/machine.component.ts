@@ -30,8 +30,7 @@ export class MachineComponent implements OnInit, AfterViewInit  {
 
   deleteMachine() {
     this.csService.RemoveMachine(this.machineData._id).subscribe(response => {
-      console.log(response);
-      if(response.state == 1)
+      if((response as any).state == 1)
         this.machineRemovedEvent.emit(this.machineData);
     });
   }

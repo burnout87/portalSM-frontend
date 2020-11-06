@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  sms: "http://localhost:4000/api/sms",
-  addSms: "http://localhost:4000/api/sms/add",
+  sms: "http://localhost:4000/api/sms"
 };
 
 /*

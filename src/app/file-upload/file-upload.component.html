@@ -13,6 +13,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th  width="25%">Preview</th>
       <th width="50%">Name</th>
       <th>Size</th>
       <th>Actions</th>
@@ -20,6 +21,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let file of files">
+      <td>
+        <div class="containerImagePreview">
+          <img src='{{file?.imageURL}}' class="imagePreview"/>
+        </div>
+      </td>
       <td><strong>{{ file?.name }}</strong></td>
       <td nowrap>{{ file?.size/1024/1024 | number:'.2' }} MB</td>
       <td nowrap>

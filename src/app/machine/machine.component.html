@@ -18,8 +18,9 @@
 		<div *ngIf="machineData.images.length > 1" class="swiper-button-prev swiper-button-white"></div>
     </swiper>
     <swiper [config]="configThumbs" #galleryThumbs>
-        <div class="swiper-wrapper gallery-thumbs">
-            <img (click)="slideToThis(indexOfelement)" class="swiper-slide" *ngFor="let img of machineData.images; let indexOfelement=index;" src='data:{{img.type}};base64,{{img.data}}' />        </div>
+      <div class="swiper-wrapper gallery-thumbs">
+        <img (click)="slideToThis(indexOfelement)" class="swiper-slide" *ngFor="let img of machineData.images; let indexOfelement=index;" src='data:{{img.type}};base64,{{img.data}}' />
+      </div>
     </swiper>
 
     <mat-card-content>

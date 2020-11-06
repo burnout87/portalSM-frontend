@@ -11,14 +11,14 @@ export class ConnectivityService {
   constructor(private http: HttpClient) {}
 
   public InsertNewMachine(data: FormData): Rx.Observable<object> {
-    return this.http.post(environment.addSms, data);
+    return this.http.post(environment.sms, data);
   }
 
   public RemoveMachine(id: Number): Rx.Observable<object> {
-    return this.http.delete(environment.addSms + '/' + id);
+    return this.http.delete(environment.sms + '/' + id);
   }
 
   public GetMachines(): Rx.Observable<object[]> {
-    return this.http.get<object[]> (environment.sms);
+    return this.http.get<object[]>(environment.sms);
   }
 }

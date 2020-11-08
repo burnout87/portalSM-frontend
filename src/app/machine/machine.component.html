@@ -8,13 +8,11 @@
 
   <mat-card-content>
     <ks-carousel 
-      [id]="1"
+      [id]="id"
       [images]="machineData.images"
       [carouselConfig]="{
-        maxWidth: '766px', 
-        maxHeight: '400px', 
         showArrows: true, 
-        objectFit: 'cover', 
+        objectFit: 'scale-down',
         keyboardEnable: false, 
         modalGalleryEnable: true, 
         legacyIE11Mode: false,
@@ -25,12 +23,9 @@
       [previewConfig]="{
         visible: true, 
         number: 4, 
-        size: 
-        {
-          width: 'auto', 
-          height: '85px'
-        }
-      }">
+        size: { width: '30px', height: '30px' }
+      }"
+      >
     </ks-carousel>
     <p>
       {{machineData.description}}

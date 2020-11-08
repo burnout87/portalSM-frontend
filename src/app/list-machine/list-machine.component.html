@@ -3,7 +3,7 @@
 <section class="container-members">
     <div class="flex-item voltibox">
         <div class="card-container">
-            <app-machine *ngFor="let machine of machines" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine></app-machine>
+            <app-machine *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>
         </div>
     </div>
 </section>

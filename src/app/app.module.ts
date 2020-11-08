@@ -12,6 +12,7 @@ import { MaterialModule } from './material.modules';
 import { ListMachineComponent } from './list-machine/list-machine.component';
 import { FileUploadModule } from "ng2-file-upload";
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { NgxUsefulSwiperModule  } from 'ngx-useful-swiper';
 import 'hammerjs';
@@ -19,7 +20,7 @@ import 'mousetrap';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent],
+  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent],
   imports: [BrowserModule, GalleryModule.forRoot(), BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],

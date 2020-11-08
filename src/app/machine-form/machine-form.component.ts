@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from "@angular/core";
 import { MachineType } from "../machine";
 import { ConnectivityService } from "../connectivity.service";
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FileUploader } from 'ng2-file-upload';
 
 const URL = 'http://localhost:3000/api/upload';
@@ -13,7 +13,7 @@ const URL = 'http://localhost:3000/api/upload';
 })
 export class MachineFormComponent implements OnInit {
   
-  newMachine;
+  newMachine:FormGroup;
   types = Object.keys(MachineType);
   uploader: FileUploader;
   hasBaseDropZoneOver: boolean;

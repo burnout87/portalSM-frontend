@@ -1,3 +1,5 @@
+import { Image } from '@ks89/angular-modal-gallery';
+
 export enum MachineType {
   first = "first",
   second = "second",
@@ -12,9 +14,15 @@ export class Machine {
     public type?: MachineType;
     public description?: string;
     public year?: number;
-    public images?: Array<Object>;
+    public images?: Image[];
 
-    constructor(_id?: number, name?: string, type?: string, description?: string, year?: number, images?: Array<Object>)
+    constructor(
+      _id?: number, 
+      name?: string, 
+      type?: string, 
+      description?: string, 
+      year?: number, 
+      images?: Image[])
        {  
          this._id = _id;
          this.name = name;

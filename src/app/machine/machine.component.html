@@ -1,34 +1,44 @@
-<!-- <p>{{machineData.name}}, {{machineData.year}}, {{machineData.type}}, {{machineData.description}}</p>
-<img *ngFor="let img of machineData.images" src='data:{{img.type}};base64,{{img.data}}' /> -->
-
 <mat-card class="machine-card">
-    <mat-card-header>
-      <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-title>{{machineData.name}}</mat-card-title>
-      <mat-card-subtitle>{{machineData.type}} - {{machineData.year}}</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-    <!-- <img class="img" mat-card-image *ngFor="let img of machineData.images" src='data:{{img.type}};base64,{{img.data}}' /> -->
-    
-    <swiper [config]="configTop" #galleryTop>
-        <div class="swiper-wrapper gallery-top">
-            <img class="swiper-slide" *ngFor="let img of machineData.images" src='data:{{img.type}};base64,{{img.data}}' />
-        </div>
-        <div *ngIf="machineData.images.length > 1" class="swiper-button-next swiper-button-white"></div>
-		<div *ngIf="machineData.images.length > 1" class="swiper-button-prev swiper-button-white"></div>
-    </swiper>
-    <swiper [config]="configThumbs" #galleryThumbs>
-      <div class="swiper-wrapper gallery-thumbs">
-        <img (click)="slideToThis(indexOfelement)" class="swiper-slide" *ngFor="let img of machineData.images; let indexOfelement=index;" src='data:{{img.type}};base64,{{img.data}}' />
-      </div>
-    </swiper>
+  
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>{{machineData.name}}</mat-card-title>
+    <mat-card-subtitle>{{machineData.type}} - {{machineData.year}}</mat-card-subtitle>
+  </mat-card-header>
 
-    <mat-card-content>
-      <p>
-        {{machineData.description}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button (click)="deleteMachine()" mat-button><i class="material-icons" style="vertical-align: middle;">delete</i></button>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-content>
+    <ks-carousel 
+      [id]="1"
+      [images]="machineData.images"
+      [carouselConfig]="{
+        maxWidth: '766px', 
+        maxHeight: '400px', 
+        showArrows: true, 
+        objectFit: 'cover', 
+        keyboardEnable: false, 
+        modalGalleryEnable: true, 
+        legacyIE11Mode: false,
+        infinite: true
+      }"
+      [carouselImageConfig]="{description: customDescription}"
+      [playConfig]="{autoPlay: false}"
+      [previewConfig]="{
+        visible: true, 
+        number: 4, 
+        size: 
+        {
+          width: 'auto', 
+          height: '85px'
+        }
+      }">
+    </ks-carousel>
+    <p>
+      {{machineData.description}}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button (click)="deleteMachine()" mat-button><i class="material-icons" style="vertical-align: middle;">delete</i></button>
+  </mat-card-actions>
+
+</mat-card>

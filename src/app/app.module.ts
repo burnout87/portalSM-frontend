@@ -14,10 +14,13 @@ import { FileUploadModule } from "ng2-file-upload";
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CommonModule } from '@angular/common';
 import { NgxUsefulSwiperModule  } from 'ngx-useful-swiper';
+import 'hammerjs';
+import 'mousetrap';
+import { GalleryModule } from '@ks89/angular-modal-gallery';
 
 @NgModule({
   declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
+  imports: [BrowserModule, GalleryModule.forRoot(), BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],
 })

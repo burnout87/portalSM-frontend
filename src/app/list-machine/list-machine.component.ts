@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConnectivityService } from '../connectivity.service';
 import { ImageService } from '../image.service';
 import { Machine } from '../machine';
+import { Image } from '@ks89/angular-modal-gallery';
 
 @Component({
   selector: 'app-list-machine',
@@ -17,13 +18,8 @@ export class ListMachineComponent implements OnInit {
       if(typeof data == 'object') {
         data.forEach(element => {
           // if(element['images'] || element['image'])
-            element['images']?.forEach(imgData => {
-              if (typeof imgData?.data != 'string')
-                this.imgService.arrayBufferToBase64(imgData?.data);
-            });
-            element['image']?.forEach(imgData => {
-              if (typeof imgData?.data != 'string')
-                this.imgService.arrayBufferToBase64(imgData?.data);
+            element['images']?.forEach((imgData, index) => {
+                element['images'][index] = new Image(index, {img: 'data:' + imgData.type + ';base64,' + imgData.data});
             });
         });
 

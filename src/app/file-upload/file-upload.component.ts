@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,12 +15,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor  {
 
-  public files: Array<File> = new Array();;
+  public files: Array<File> = new Array();
   onChange: Function;
+  @Input() progress;
 
   constructor() { }
 
-  writeValue(obj: any): void { }
+  writeValue(obj: any): void { 
+    this.cleanFilesList();
+  }
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -41,6 +44,10 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     }
     reader.readAsDataURL($event.target.files[0]);
     this.onChange(this.files);
+  }
+
+  cleanFilesList() {
+    this.files = new Array();
   }
 
    removeFileFromList(file) {

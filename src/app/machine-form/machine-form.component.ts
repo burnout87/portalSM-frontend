@@ -1,10 +1,8 @@
-import { Component, HostListener, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MachineType } from "../machine";
 import { ConnectivityService } from "../connectivity.service";
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FileUploader } from 'ng2-file-upload';
-
-const URL = 'http://localhost:3000/api/upload';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: "app-machine-form",
@@ -14,46 +12,38 @@ const URL = 'http://localhost:3000/api/upload';
 export class MachineFormComponent implements OnInit {
   
   newMachine:FormGroup;
+  progress = -1;
   types = Object.keys(MachineType);
-  uploader: FileUploader;
-  hasBaseDropZoneOver: boolean;
-  // machine = new Machine();
-  response: string;
   submitted = false;
-  private file: File | null = null;
 
   constructor(private csService: ConnectivityService,
           private formBuilder: FormBuilder) {
       this.newMachine = this.formBuilder.group({
-        name: new FormControl(null, Validators.required),
-        type: new FormControl(null, Validators.required),
-        year: new FormControl(null, Validators.required),
-        images: new FormControl(null, Validators.required),
-        description: new FormControl(null, Validators.required),
+        name: new FormControl(null),
+        type: new FormControl(null),
+        year: new FormControl(null),
+        images: new FormControl(null),
+        description: new FormControl(null),
       });
-    this.uploader = new FileUploader({
-      url: URL,
-      itemAlias: 'image',
-    });
-    this.uploader.response.subscribe( res => this.response = res );
-    this.hasBaseDropZoneOver = false;
-    this.response = '';
   }
 
   ngOnInit(): void {
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log('FileUpload:uploaded:', item, status, response);
-      alert('File uploaded successfully');
-    };
-
   }
 
   onSubmit(machineData) {
-    this.csService.InsertNewMachine(this.toFormData(machineData)).subscribe((data) => {
-      console.log(data);
+    this.csService.InsertNewMachine(this.toFormData(machineData)).subscribe((event) => {
+    
+      if (event.type && event.type === HttpEventType.UploadProgress ) {
+        this.progress = Math.round((100 * event.loaded) / event.total);
+      }
+
+      if (event.type && event.type === HttpEventType.Response ) {
+        console.log(event.body);
+        this.newMachine.reset();
+        this.progress = -1;
+      }
+      
     });
-    this.submitted = true;
   }
 
   private toFormData<T>(data:T) {
@@ -78,29 +68,4 @@ export class MachineFormComponent implements OnInit {
   showFormControls(form: any) {
     return form && form.controls["name"] && form.controls["name"].value;
   }
-
-  // onFileChange(event) {
-  //   console.log(event);
-    // const reader = new FileReader();
-    
-    // if(event.target.files && event.target.files.length) {
-    //   const [file] = event.target.files;
-    //   reader.readAsDataURL(file);
-    
-    //   reader.onload = () => {
-   
-    //     this.imageSrc = reader.result as string;
-     
-    //     this.myForm.patchValue({
-    //       fileSource: reader.result
-    //     });
-   
-    //   };
-   
-    // }
-  // }
-
-  // public fileOverBase(e: any): void {
-  //   this.hasBaseDropZoneOver = e;
-  // }
 }

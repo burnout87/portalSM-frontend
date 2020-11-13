@@ -1,5 +1,5 @@
 <div class="container">
-  <div [hidden]="submitted">
+  <div>
     <form [formGroup]="newMachine" (ngSubmit)="onSubmit(newMachine.value)" >
       <div >
         <mat-form-field appearance="fill" style="width: 50%;">
@@ -10,7 +10,6 @@
             required
             />
         </mat-form-field>
-        <!-- class="form-control" -->
       </div>
 
       <div >
@@ -39,32 +38,15 @@
         </mat-form-field>
       </div>
 
-      <app-file-upload formControlName="images"></app-file-upload>
+      <app-file-upload [progress]="progress" formControlName="images"></app-file-upload>
       
       <button
         type="submit"
         class="btn btn-success"
+        [disabled]="!newMachine.valid"
       >
         Submit
       </button>
     </form>
-  </div>
-
-  <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Name</div>
-      <div class="col-xs-9">{{ newMachine.value.name }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Type</div>
-      <div class="col-xs-9">{{ newMachine.value.type }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Year</div>
-      <div class="col-xs-9">{{ newMachine.value.year }}</div>
-    </div>
-    <br />
-    <button class="btn btn-primary" (click)="submitted = false">Edit</button>
   </div>
 </div>

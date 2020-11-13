@@ -13,7 +13,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th  width="25%">Preview</th>
+      <th width="25%">Preview</th>
       <th width="50%">Name</th>
       <th>Size</th>
       <th>Actions</th>
@@ -37,3 +37,6 @@
     </tr>
   </tbody>
 </table>
+<div>
+  <mat-progress-bar *ngIf="progress >= 0" mode="determinate" value="progress"></mat-progress-bar>
+</div>

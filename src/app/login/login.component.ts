@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
     const val = this.form.value;
 
     if (val.password) {
-        this.authService.login(val.password)
-            .subscribe(
-                () => {
-                    console.log("User is logged in");
-                    this.router.navigateByUrl('/');
-                }
-            );
+        // this.authService.login(val.password)
+        //     .subscribe(
+        //         () => {
+        //             console.log("User is logged in");
+        //             this.router.navigateByUrl('/');
+        //         }
+        //     );
     }
 }
 

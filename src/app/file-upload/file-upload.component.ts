@@ -17,7 +17,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
 
   public files: Array<File> = new Array();
   onChange: Function;
-  @Input() progress;
+  // @Input() progress;
 
   constructor() { }
 

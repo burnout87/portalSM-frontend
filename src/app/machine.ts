@@ -11,25 +11,29 @@ export class Machine {
 
     public _id?: number;
     public name?: string;
-    public type?: MachineType;
-    public description?: string;
+    public brand?: string;
+    public model?: string;
+    public serialNumber?: string;
+    // anno di fabbricazione
     public year?: number;
+    // accertato o presunto (digitale  A/P)
+    public color?: string;
+    // variante
+    public variation?: string;
+    public pedal?: string;
+    // manovella
+    public handle?: string;
+    public engine?: string;
+    // Con tavolo o armadietto (digitale)
+    public typeBox?: string;
+    // note
+    public description?: string;
+    public type?: MachineType;
     public images?: Image[];
 
-    constructor(
-      _id?: number, 
-      name?: string, 
-      type?: string, 
-      description?: string, 
-      year?: number, 
-      images?: Image[])
-       {  
-         this._id = _id;
-         this.name = name;
-         this.type = MachineType[type];
-         this.description = description;
-         this.year = year;
-         this.images = images;
-       }
+    public recordingTime?: Date;
+    public lastUpdateTime?: Date;
+    public cancellingTime?: Date; 
+    public cancellingNote?: string;
     
-    }
+  }

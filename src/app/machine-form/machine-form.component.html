@@ -38,9 +38,14 @@
         </mat-form-field>
       </div>
 
-      <app-file-upload [progress]="progress" formControlName="images"></app-file-upload>
+      <app-file-upload formControlName="images"></app-file-upload>
       
+      <div>
+        <mat-progress-bar *ngIf="progress > -1" mode="indeterminate"></mat-progress-bar>
+      </div>
+
       <button
+        *ngIf="progress == -1"
         type="submit"
         class="btn btn-success"
         [disabled]="!newMachine.valid"

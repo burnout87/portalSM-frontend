@@ -17,14 +17,15 @@ export class ListMachineComponent implements OnInit {
     this.csService.GetMachines().subscribe(data => {
       if(typeof data == 'object') {
         data.forEach(element => {
-          // if(element['images'] || element['image'])
+          var bar = new Promise((resolve, reject) => {
             element['images']?.forEach((imgData, index) => {
-                element['images'][index] = new Image(index, {img: 'data:' + imgData.type + ';base64,' + imgData.data});
+              element['images'][index] = new Image(index, {img: 'data:' + imgData.type + ';base64,' + imgData.data});
+              if(index == element['images'].length - 1) resolve();
             });
+          });
+          bar.then(() =>  this.machines.push(element));
         });
-
       }
-      this.machines = data;
     })
   }
 

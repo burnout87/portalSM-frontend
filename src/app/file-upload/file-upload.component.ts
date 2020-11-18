@@ -36,14 +36,21 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
   ngOnInit(): void { }
 
   onFileChange($event) {
-    this.files.push($event.target.files[0]);
-    // File Preview
-    const reader = new FileReader();
-    reader.onload = () => {
-      $event.target.files[0].imageURL = reader.result as string;
-    }
-    reader.readAsDataURL($event.target.files[0]);
-    this.onChange(this.files);
+    $event.target.files[0].loading = true;
+    var bar = new Promise((resolve, reject) => {
+      this.files.push($event.target.files[0]);
+      // File Preview
+      const reader = new FileReader();
+      reader.onload = () => {
+        $event.target.files[0].imageURL = reader.result as string;
+        resolve();
+      }
+      reader.readAsDataURL($event.target.files[0]);
+    });
+    bar.then(() =>  {
+      $event.target.files[0].loading = false;
+      this.onChange(this.files);
+    });
   }
 
   cleanFilesList() {

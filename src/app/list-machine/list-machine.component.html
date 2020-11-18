@@ -1,8 +1,7 @@
-
-
 <section class="container-members">
     <div class="flex-item voltibox">
         <div class="card-container">
+             <mat-spinner *ngIf="progressing" ></mat-spinner>
             <app-machine *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>
         </div>
     </div>

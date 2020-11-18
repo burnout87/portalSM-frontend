@@ -24,6 +24,9 @@
       <td>
         <div class="containerImagePreview">
           <img src='{{file?.imageURL}}' class="imagePreview"/>
+          <div>
+            <mat-progress-bar *ngIf="file?.loading" mode="indeterminate"></mat-progress-bar>
+          </div>
         </div>
       </td>
       <td><strong>{{ file?.name }}</strong></td>

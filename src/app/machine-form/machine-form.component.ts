@@ -14,7 +14,6 @@ export class MachineFormComponent implements OnInit {
   newMachine:FormGroup;
   progress = -1;
   types = Object.keys(MachineType);
-  submitted = false;
 
   constructor(private csService: ConnectivityService,
           private formBuilder: FormBuilder) {

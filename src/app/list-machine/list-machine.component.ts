@@ -11,9 +11,12 @@ import { Image } from '@ks89/angular-modal-gallery';
 })
 export class ListMachineComponent implements OnInit {
 
+  progressing = false;
   machines:Array<Machine> = new Array();
+
   constructor(private csService: ConnectivityService, 
     private imgService: ImageService) {
+    this.progressing = true;
     this.csService.GetMachines().subscribe(data => {
       if(typeof data == 'object') {
         data.forEach(element => {
@@ -26,7 +29,8 @@ export class ListMachineComponent implements OnInit {
           bar.then(() =>  this.machines.push(element));
         });
       }
-    })
+      this.progressing = false;
+    });
   }
 
   machineRemovedHandler(machine: Machine) {

@@ -23,6 +23,12 @@ export class MachineFormComponent implements OnInit {
         year: new FormControl(null),
         images: new FormControl(null),
         description: new FormControl(null),
+        color: new FormControl(null),
+        variation: new FormControl(null),
+        pedal: new FormControl(null),
+        handle: new FormControl(null),
+        engine: new FormControl(null),
+        typeBox: new FormControl(null),
       });
   }
 
@@ -30,6 +36,8 @@ export class MachineFormComponent implements OnInit {
   }
 
   onSubmit(machineData) {
+    // adding record creation date
+    machineData.recordingTime = new Date().getTime();
     this.csService.InsertNewMachine(this.toFormData(machineData)).subscribe((event) => {
     
       if (event.type && event.type === HttpEventType.UploadProgress ) {
@@ -50,7 +58,7 @@ export class MachineFormComponent implements OnInit {
 
     for ( const key of Object.keys(data) ) {
 
-      if(typeof(data[key]) == 'object') {
+      if(typeof(data[key]) == 'object' && key == 'images') {
         data[key]?.forEach(element => {
           formData.append(key, element);  
         });
@@ -64,7 +72,4 @@ export class MachineFormComponent implements OnInit {
     return formData;
   }
 
-  showFormControls(form: any) {
-    return form && form.controls["name"] && form.controls["name"].value;
-  }
 }

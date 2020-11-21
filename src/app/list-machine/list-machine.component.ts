@@ -18,15 +18,19 @@ export class ListMachineComponent implements OnInit {
     private imgService: ImageService) {
     this.progressing = true;
     this.csService.GetMachines().subscribe(data => {
-      if(typeof data == 'object') {
+      if(typeof data == 'object' && Array.isArray(data)) {
         data.forEach(element => {
           var bar = new Promise((resolve, reject) => {
-            element['images']?.forEach((imgData, index) => {
-              element['images'][index] = new Image(index, {img: 'data:' + imgData.type + ';base64,' + imgData.data});
-              if(index == element['images'].length - 1) resolve();
-            });
+            if(element['images'] && element['images'].length > 0) {
+              element['images']?.forEach((imgData, index) => {
+                element['images'][index] = new Image(index, {img: 'data:' + imgData.type + ';base64,' + imgData.data});
+                if(index == element['images'].length - 1) resolve();
+              });
+            } 
+            else
+              resolve();
           });
-          bar.then(() =>  this.machines.push(element));
+          bar.then(() =>  this.machines.push(new Machine(element)));
         });
       }
       this.progressing = false;

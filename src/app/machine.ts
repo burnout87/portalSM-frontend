@@ -35,5 +35,16 @@ export class Machine {
     public lastUpdateTime?: Date;
     public cancellingTime?: Date; 
     public cancellingNote?: string;
+
+    constructor(data: any) {
+      for ( const key of Object.keys(data) ) {
+        if(key == 'recordingTime' || 
+        key == 'lastUpdateTime' || 
+        key == 'cancellingTime')
+          this[key] = new Date(parseInt(data[key]));
+        else
+          this[key] = data[key];
+      }
+    }
     
   }

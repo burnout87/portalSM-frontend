@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FileItem } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-file-upload',
@@ -17,7 +18,6 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
 
   public files: Array<File> = new Array();
   onChange: Function;
-  // @Input() progress;
 
   constructor() { }
 
@@ -36,19 +36,21 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
   ngOnInit(): void { }
 
   onFileChange($event) {
-    $event.target.files[0].loading = true;
+    var fileImg: any = $event.target.files[0];
+    fileImg.loading = true;
     var bar = new Promise((resolve, reject) => {
-      this.files.push($event.target.files[0]);
+      this.files.push(fileImg);
       // File Preview
       const reader = new FileReader();
       reader.onload = () => {
-        $event.target.files[0].imageURL = reader.result as string;
+        fileImg.imageURL = reader.result as string;
         resolve();
       }
-      reader.readAsDataURL($event.target.files[0]);
+      reader.readAsDataURL(fileImg);
     });
     bar.then(() =>  {
-      $event.target.files[0].loading = false;
+      fileImg.loading = false;
+      $event.target.value = null;
       this.onChange(this.files);
     });
   }

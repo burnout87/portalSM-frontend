@@ -43,7 +43,9 @@ export class Machine {
         key == 'cancellingTime')
           this[key] = new Date(parseInt(data[key]));
         else
+        {
           this[key] = data[key];
+        }
       }
     }
     

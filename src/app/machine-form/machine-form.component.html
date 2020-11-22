@@ -1,9 +1,9 @@
 <div class="container">
   <div>
-    <form [formGroup]="newMachine" (ngSubmit)="onSubmit(newMachine.value)" >
+    <form [formGroup]="newMachine" (ngSubmit)="onSubmit()" >
       <div >
         <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label for="name">Nome</mat-label>
+          <mat-label>Nome</mat-label>
           <input matInput
             type="text"
             formControlName="name"
@@ -14,7 +14,7 @@
 
       <div >
         <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label for="year">Anno</mat-label>
+          <mat-label>Anno fabbricazione</mat-label>
           <input matInput
             type="text"
             formControlName="year"
@@ -24,7 +24,7 @@
 
       <div>
         <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label for="type">Tipo</mat-label>
+          <mat-label>Tipo</mat-label>
           <mat-select formControlName="type">
             <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
           </mat-select>
@@ -33,7 +33,7 @@
 
       <div>
         <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label for="color">Colore</mat-label>
+          <mat-label>Colore</mat-label>
           <input matInput 
           type="text" formControlName="color" />
         </mat-form-field>
@@ -41,7 +41,7 @@
 
       <div>
         <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label for="variation">Variazione</mat-label>
+          <mat-label>Variazione</mat-label>
           <input matInput 
           type="text" formControlName="variation" />
         </mat-form-field>
@@ -49,7 +49,7 @@
  
       <div>
         <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label for="pedal">Pedale</mat-label>
+          <mat-label>Pedale</mat-label>
           <input matInput 
           type="text" formControlName="pedal" />
         </mat-form-field>

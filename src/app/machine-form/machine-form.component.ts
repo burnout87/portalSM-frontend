@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { MachineType } from "../machine";
 import { ConnectivityService } from "../connectivity.service";
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
 
 @Component({
@@ -14,6 +14,7 @@ export class MachineFormComponent implements OnInit {
   newMachine:FormGroup;
   progress = -1;
   types = Object.keys(MachineType);
+  @ViewChild(FormGroupDirective) myForm;
 
   constructor(private csService: ConnectivityService,
           private formBuilder: FormBuilder) {
@@ -35,19 +36,22 @@ export class MachineFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(machineData) {
+  onSubmit() {
     // adding record creation date
-    machineData.recordingTime = new Date().getTime();
-    this.csService.InsertNewMachine(this.toFormData(machineData)).subscribe((event) => {
+    var fdNewMachine:FormData = this.toFormData(this.newMachine.value);
+    fdNewMachine.append('recordingTime', new Date().getTime().toString())
+    this.csService.InsertNewMachine(fdNewMachine).subscribe((event) => {
     
       if (event.type && event.type === HttpEventType.UploadProgress ) {
         this.progress = Math.round((100 * event.loaded) / event.total);
       }
 
       if (event.type && event.type === HttpEventType.Response ) {
-        console.log(event.body);
-        this.newMachine.reset();
-        this.progress = -1;
+        if(event.body && event.body.success == true) {
+          this.newMachine.reset();
+          this.myForm.resetForm();
+          this.progress = -1;
+        }
       }
       
     });
@@ -57,15 +61,16 @@ export class MachineFormComponent implements OnInit {
     const formData = new FormData();
 
     for ( const key of Object.keys(data) ) {
-
-      if(typeof(data[key]) == 'object' && key == 'images') {
-        data[key]?.forEach(element => {
-          formData.append(key, element);  
-        });
-      }
-      else {
-        const value = data[key];
-        formData.append(key, value);
+      if(data[key] != null) {
+        if(typeof(data[key]) == 'object' && key == 'images') {
+          data[key]?.forEach(element => {
+            formData.append(key, element);  
+          });
+        }
+        else {
+          const value = data[key];
+          formData.append(key, value);
+        }
       }
     }
 

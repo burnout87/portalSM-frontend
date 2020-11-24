@@ -5,8 +5,13 @@ export class Owner {
     public postCode?: string;
     public city?: string;
     public country?: string;
-    public phone1?: string;
-    public phone2?: string;
+    public phone?: string;
     public mail?: string;
     public notes?: string;
+
+    constructor(data: any) {
+        for ( const key of Object.keys(data) ) {
+            this[key] = data[key];
+        }
+    }
 }

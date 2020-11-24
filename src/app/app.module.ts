@@ -18,9 +18,10 @@ import { NgxUsefulSwiperModule  } from 'ngx-useful-swiper';
 import 'hammerjs';
 import 'mousetrap';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
+import { OwnerFormComponent } from './owner-form/owner-form.component';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent],
+  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent],
   imports: [BrowserModule, GalleryModule.forRoot(), BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],

@@ -86,6 +86,8 @@
         </mat-form-field>
       </div>
 
+      <app-owner-form (ownerUpdate)="updateOwnerData($event)"></app-owner-form>
+
       <app-file-upload formControlName="images"></app-file-upload>
       
       <div>

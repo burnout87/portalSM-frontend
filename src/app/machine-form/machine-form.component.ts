@@ -12,6 +12,7 @@ import { HttpEventType } from '@angular/common/http';
 export class MachineFormComponent implements OnInit {
   
   newMachine:FormGroup;
+  ownerData: FormGroup;
   progress = -1;
   types = Object.keys(MachineType);
   @ViewChild(FormGroupDirective) myForm;
@@ -30,10 +31,25 @@ export class MachineFormComponent implements OnInit {
         handle: new FormControl(null),
         engine: new FormControl(null),
         typeBox: new FormControl(null),
+        ownerData: this.formBuilder.group({
+          name: new FormControl(null),
+          surname: new FormControl(null),
+          address: new FormControl(null),
+          cap: new FormControl(null),
+          city: new FormControl(null),
+          country: new FormControl(null),
+          phone: new FormControl(null),
+          mail: new FormControl(null),
+        }),
       });
   }
 
   ngOnInit(): void {
+  }
+
+  updateOwnerData(ownerForm: FormGroup) {
+    this.ownerData = ownerForm;
+    this.newMachine.patchValue({ownerData: this.ownerData.value});
   }
 
   onSubmit() {
@@ -62,10 +78,21 @@ export class MachineFormComponent implements OnInit {
 
     for ( const key of Object.keys(data) ) {
       if(data[key] != null) {
-        if(typeof(data[key]) == 'object' && key == 'images') {
-          data[key]?.forEach(element => {
-            formData.append(key, element);  
-          });
+        if(typeof(data[key]) == 'object') {
+          if(key == 'images') {
+            data[key]?.forEach(element => {
+              formData.append(key, element);
+            });
+          } 
+          else if(key == 'ownerData') {
+            // formData.append('ownerData', JSON.stringify(data[key]));
+            for ( const ownerKey of Object.keys(data[key]) ) {
+              if(data[key][ownerKey] != null)
+                formData.append(`ownerData[${ownerKey}]`, data[key][ownerKey]);
+              
+            }
+          }
+          
         }
         else {
           const value = data[key];

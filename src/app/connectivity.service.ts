@@ -25,4 +25,8 @@ export class ConnectivityService {
   public GetMachines(): Rx.Observable<object[]> {
     return this.http.get<object[]>(environment.sms);
   }
+
+  public GetOwners(queryObj): Rx.Observable<object[]> {
+    return this.http.get<object[]>(environment.owners);
+  }
 }

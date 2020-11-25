@@ -32,14 +32,14 @@ export class OwerSearchComponent implements OnInit {
       $or: [
           {
               name: {
-                  '$regex': "/*" + value.toLowerCase() + "/*",
-                  '$options': "i"
+                  $regex: "/*" + value.toLowerCase() + "/*",
+                  $options: "i"
               }
           },
           {
               surname: {
-                  '$regex': "/*" + value.toLowerCase() + "/*",
-                  '$options': "i"
+                  $regex: "/*" + value.toLowerCase() + "/*",
+                  $options: "i"
               }
           }
       ]

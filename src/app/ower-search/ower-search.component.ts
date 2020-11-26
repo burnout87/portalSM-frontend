@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {empty, Observable, of} from 'rxjs';
+import {debounceTime, delay, finalize, map, startWith, switchMap, tap} from 'rxjs/operators';
 import { ConnectivityService } from '../connectivity.service';
+import { Owner } from '../owner';
 
 @Component({
   selector: 'app-ower-search',
@@ -12,41 +13,65 @@ import { ConnectivityService } from '../connectivity.service';
 export class OwerSearchComponent implements OnInit {
 
   myControl = new FormControl();
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
+  isLoading = false;
+  filteredOwners: Owner[];
 
   constructor(private cs: ConnectivityService) { }
 
+  // The debounceTime checks if the keypress is less than the time provided,
+  // then cancels the further events
+
   ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges
+    this.myControl
+      .valueChanges
       .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+        debounceTime(1500),
+        tap(() => {
+          this.filteredOwners = [];
+          this.isLoading = true;
+        }),
+        // map(value => typeof value === 'string' ? value : ''),
+        switchMap(value => this.getOwners(value)
+          .pipe(
+            finalize(() => {
+              this.isLoading = false;
+            }),
+          )
+        )
+      )
+      .subscribe(data => {
+        if (data == undefined) {
+          this.filteredOwners = [];
+        } else {
+          this.filteredOwners = data;
+        }
+      })
   }
 
-  private _filter(value: string): string[] {
-    value.toLowerCase();
-    // define the options, which means retrieve the users
-    const filterObj = {
-      $or: [
-          {
-              name: {
-                  $regex: "/*" + value.toLowerCase() + "/*",
-                  $options: "i"
-              }
-          },
-          {
-              surname: {
-                  $regex: "/*" + value.toLowerCase() + "/*",
-                  $options: "i"
-              }
-          }
-      ]
-  }; 
-    
-    this.cs.GetOwners(filterObj);
-    // return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  private getOwners(filterValue: string): Observable<object[]> {
+    if (typeof(filterValue) == 'string') {
+      const filterObj = {
+        $or: [ {
+                name: {
+                    $regex: "/*" + filterValue.toLowerCase() + "/*",
+                    $options: "i"
+                }
+              }, {
+                surname: {
+                    $regex: "/*" + filterValue.toLowerCase() + "/*",
+                    $options: "i"
+                }
+            }]
+      };
+      return this.cs.GetOwnersQuery(filterObj);
+    } else {
+       return of();
+
+    }
+  }
+
+  displayFn(owner: Owner): string {
+    return owner && owner.name ? owner.name + ' ' + owner.surname : '';
   }
 
 }

@@ -26,7 +26,11 @@ export class ConnectivityService {
     return this.http.get<object[]>(environment.sms);
   }
 
-  public GetOwners(queryObj): Rx.Observable<object[]> {
+  public GetOwners(): Rx.Observable<object[]> {
     return this.http.get<object[]>(environment.owners);
+  }
+
+  public GetOwnersQuery(queryObj): Rx.Observable<object[]> {
+    return this.http.post<object[]>(environment.owners, queryObj);
   }
 }

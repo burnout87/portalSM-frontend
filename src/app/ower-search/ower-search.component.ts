@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {empty, Observable, of} from 'rxjs';
 import {debounceTime, delay, finalize, map, startWith, switchMap, tap} from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { Owner } from '../owner';
 })
 export class OwerSearchComponent implements OnInit {
 
+  @Output() ownerFoundEvent: EventEmitter<Owner> = new EventEmitter();
   myControl = new FormControl();
   isLoading = false;
   filteredOwners: Owner[];
@@ -25,12 +26,13 @@ export class OwerSearchComponent implements OnInit {
     this.myControl
       .valueChanges
       .pipe(
-        debounceTime(1500),
+        debounceTime(1000),
         tap(() => {
           this.filteredOwners = [];
           this.isLoading = true;
         }),
         // map(value => typeof value === 'string' ? value : ''),
+        // map(value => typeof(value) === 'object' || ( typeof(value) == 'string' && value != '' )),
         switchMap(value => this.getOwners(value)
           .pipe(
             finalize(() => {
@@ -50,23 +52,13 @@ export class OwerSearchComponent implements OnInit {
 
   private getOwners(filterValue: string): Observable<object[]> {
     if (typeof(filterValue) == 'string') {
-      const filterObj = {
-        $or: [ {
-                name: {
-                    $regex: "/*" + filterValue.toLowerCase() + "/*",
-                    $options: "i"
-                }
-              }, {
-                surname: {
-                    $regex: "/*" + filterValue.toLowerCase() + "/*",
-                    $options: "i"
-                }
-            }]
-      };
-      return this.cs.GetOwnersQuery(filterObj);
+      if( filterValue != '')
+        return this.cs.GetOwnersQuery(filterValue);
+      return of();  
     } else {
-       return of();
-
+      // send the value of the form up to the parent component
+      this.ownerFoundEvent.emit(filterValue);
+      return of();
     }
   }
 

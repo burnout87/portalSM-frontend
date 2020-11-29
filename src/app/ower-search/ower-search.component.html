@@ -10,7 +10,7 @@
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <ng-container *ngIf="!isLoading">
             <mat-option *ngFor="let owner of filteredOwners" [value]="owner">
-            {{owner.address}}
+            {{owner.name}} {{owner.surname}}
             </mat-option>
         </ng-container>
       </mat-autocomplete>

@@ -14,7 +14,7 @@ export class MachineComponent implements OnInit, AfterViewInit  {
 
   constructor(private csService: ConnectivityService) { }
 
-  @Output() machineRemovedEvent: EventEmitter<Machine> = new EventEmitter()
+  @Output() machineRemovedEvent: EventEmitter<Machine> = new EventEmitter();
   @Input() machineData: Machine;
   @Input() id: Number;
   // @ViewChild('galleryTop',{static: false}) galleryTop: SwiperComponent;

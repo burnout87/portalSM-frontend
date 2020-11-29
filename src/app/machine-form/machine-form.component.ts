@@ -3,6 +3,7 @@ import { MachineType } from "../machine";
 import { ConnectivityService } from "../connectivity.service";
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
+import { OwnerFormComponent } from '../owner-form/owner-form.component';
 
 @Component({
   selector: "app-machine-form",
@@ -16,6 +17,7 @@ export class MachineFormComponent implements OnInit {
   progress = -1;
   types = Object.keys(MachineType);
   @ViewChild(FormGroupDirective) myForm;
+  @ViewChild(OwnerFormComponent) private ownerForm: OwnerFormComponent;
 
   constructor(private csService: ConnectivityService,
           private formBuilder: FormBuilder) {
@@ -40,6 +42,7 @@ export class MachineFormComponent implements OnInit {
           country: new FormControl(null),
           phone: new FormControl(null),
           mail: new FormControl(null),
+          _id: new FormControl(null),
         }),
       });
   }
@@ -66,6 +69,7 @@ export class MachineFormComponent implements OnInit {
         if(event.body && event.body.success == true) {
           this.newMachine.reset();
           this.myForm.resetForm();
+          this.ownerForm.resetForm();
           this.progress = -1;
         }
       }

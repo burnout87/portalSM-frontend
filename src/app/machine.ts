@@ -1,4 +1,5 @@
 import { Image } from '@ks89/angular-modal-gallery';
+import { Owner } from './owner';
 
 export enum MachineType {
   first = "first",
@@ -35,6 +36,8 @@ export class Machine {
     public lastUpdateTime?: Date;
     public cancellingTime?: Date; 
     public cancellingNote?: string;
+
+    public ownerData: Owner;
 
     constructor(data: any) {
       for ( const key of Object.keys(data) ) {

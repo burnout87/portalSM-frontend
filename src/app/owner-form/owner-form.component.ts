@@ -22,10 +22,22 @@ export class OwnerFormComponent implements OnInit {
         country: new FormControl(null),
         phone: new FormControl(null),
         mail: new FormControl(null),
+        _id: new FormControl(null),
       });
   }
 
+  public resetForm() {
+    this.newOwner.reset();
+    this.myForm.resetForm();
+  }
+
   onDataOwnerChange($event) {
+    this.ownerUpdate.emit(this.newOwner);
+  }
+
+  ownerFound($event) {
+    // this.newOwner.setValue($event);
+    this.newOwner.patchValue($event);
     this.ownerUpdate.emit(this.newOwner);
   }
 

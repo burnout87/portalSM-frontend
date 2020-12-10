@@ -20,9 +20,10 @@ import 'mousetrap';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { OwnerFormComponent } from './owner-form/owner-form.component';
 import { OwerSearchComponent } from './ower-search/ower-search.component';
+import { SearchMachineComponent } from './search-machine/search-machine.component';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent],
+  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent, SearchMachineComponent],
   imports: [BrowserModule, GalleryModule.forRoot(), BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],

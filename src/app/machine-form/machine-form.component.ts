@@ -25,6 +25,7 @@ export class MachineFormComponent implements OnInit {
         name: new FormControl(null),
         type: new FormControl(null),
         year: new FormControl(null),
+        brand:  new FormControl(null),
         images: new FormControl(null),
         description: new FormControl(null),
         color: new FormControl(null),

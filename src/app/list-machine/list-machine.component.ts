@@ -13,9 +13,20 @@ export class ListMachineComponent implements OnInit {
 
   progressing = false;
   machines:Array<Machine> = new Array();
+  brands:Array<string> = new Array();
 
   constructor(private csService: ConnectivityService, 
     private imgService: ImageService) {
+    
+  }
+
+  machineRemovedHandler(machine: Machine) {
+    var index: number = this.machines.indexOf(machine, 0);
+    if(index > -1)
+      this.machines.splice(index, 1);
+  }
+
+  ngOnInit(): void {
     this.progressing = true;
     this.csService.GetMachines().subscribe(data => {
       if(typeof data == 'object' && Array.isArray(data)) {
@@ -30,20 +41,16 @@ export class ListMachineComponent implements OnInit {
             else
               resolve();
           });
-          bar.then(() =>  this.machines.push(new Machine(element)));
+          bar.then(() =>  {
+            var m: Machine = new Machine(element);
+            this.machines.push(m);
+            if(this.brands.indexOf(m.brand) == -1)
+              this.brands.push(m.brand);
+          });
         });
       }
       this.progressing = false;
     });
-  }
-
-  machineRemovedHandler(machine: Machine) {
-    var index: number = this.machines.indexOf(machine, 0);
-    if(index > -1)
-      this.machines.splice(index, 1);
-  }
-
-  ngOnInit(): void {
   }
 
 }

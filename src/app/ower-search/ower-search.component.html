@@ -4,12 +4,15 @@
              placeholder="Cerca un proprietario"
              aria-label="Number"
              matInput
-             [formControl]="myControl"
+             [formControl]="ownerSearchControl"
              [matAutocomplete]="auto"
              >
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngIf="isLoading" class="is-loading">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-option>  
         <ng-container *ngIf="!isLoading">
-            <mat-option *ngFor="let owner of filteredOwners" [value]="owner">
+            <mat-option (click)="selectOption(owner)" *ngFor="let owner of filteredOwners" [value]="owner">
             {{owner.name}} {{owner.surname}}
             </mat-option>
         </ng-container>

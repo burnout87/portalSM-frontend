@@ -36,9 +36,11 @@ export class OwnerFormComponent implements OnInit {
   }
 
   ownerFound($event) {
-    // this.newOwner.setValue($event);
-    this.newOwner.patchValue($event);
-    this.ownerUpdate.emit(this.newOwner);
+    if($event){
+      // this.newOwner.setValue($event);
+      this.newOwner.patchValue($event);
+      this.ownerUpdate.emit(this.newOwner);
+    }
   }
 
   ngOnInit(): void {

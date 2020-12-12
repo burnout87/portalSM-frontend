@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {empty, Observable, of} from 'rxjs';
-import {debounceTime, delay, finalize, map, startWith, switchMap, tap} from 'rxjs/operators';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {FormControl, FormGroupDirective} from '@angular/forms';
+import { Observable, of} from 'rxjs';
+import { debounceTime, finalize, switchMap, tap} from 'rxjs/operators';
 import { ConnectivityService } from '../connectivity.service';
 import { Owner } from '../owner';
 
@@ -13,7 +13,8 @@ import { Owner } from '../owner';
 export class OwerSearchComponent implements OnInit {
 
   @Output() ownerFoundEvent: EventEmitter<Owner> = new EventEmitter();
-  myControl = new FormControl();
+  ownerSearchControl = new FormControl();
+  // @ViewChild(FormGroupDirective) myForm;
   isLoading = false;
   filteredOwners: Owner[];
 
@@ -23,14 +24,15 @@ export class OwerSearchComponent implements OnInit {
   // then cancels the further events
 
   ngOnInit(): void {
-    this.myControl
+    this.ownerSearchControl
       .valueChanges
       .pipe(
-        debounceTime(1000),
+        
         tap(() => {
           this.filteredOwners = [];
           this.isLoading = true;
         }),
+        debounceTime(1700),
         // map(value => typeof value === 'string' ? value : ''),
         // map(value => typeof(value) === 'object' || ( typeof(value) == 'string' && value != '' )),
         switchMap(value => this.getOwners(value)
@@ -50,16 +52,19 @@ export class OwerSearchComponent implements OnInit {
       })
   }
 
+  selectOption(ownerData: any) {
+    // send the value of the form up to the parent component
+    this.ownerFoundEvent.emit(ownerData);
+    // reset the text input field
+    this.ownerSearchControl.reset();
+    // this.myForm.resetForm();
+  }
+
   private getOwners(filterValue: string): Observable<object[]> {
-    if (typeof(filterValue) == 'string') {
-      if( filterValue != '')
-        return this.cs.GetOwnersQuery(filterValue);
-      return of();  
-    } else {
-      // send the value of the form up to the parent component
-      this.ownerFoundEvent.emit(filterValue);
-      return of();
+    if(filterValue && typeof(filterValue) == 'string' && filterValue != '') {
+      return this.cs.GetOwnersQuery(filterValue);
     }
+    return of();
   }
 
   displayFn(owner: Owner): string {

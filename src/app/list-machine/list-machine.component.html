@@ -1,4 +1,4 @@
-<app-search-machine [brands]="brands"></app-search-machine>
+<app-search-machine [brands]="brands" (brandChecked)="brandsFilterChanged($event)"></app-search-machine>
 
 <section class="container-members">
     <div class="flex-item voltibox">

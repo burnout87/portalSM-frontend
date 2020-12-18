@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Input } from '@angular/core';
 import { Machine } from '../machine';
 
@@ -7,19 +7,18 @@ import { Machine } from '../machine';
   templateUrl: './search-machine.component.html',
   styleUrls: ['./search-machine.component.css']
 })
-export class SearchMachineComponent implements OnInit, OnChanges {
+export class SearchMachineComponent implements OnInit {
 
   @Input() brands: Array<string>;
+  @Output() brandChecked: EventEmitter<any> = new EventEmitter();
+
+  checkedBrands = {};
 
   constructor() { }
   
-  ngOnChanges(changes: SimpleChanges): void {
-    // this.machines.forEach(element => {
-    //   this.brands.push(element.brand);
-    // });
-  }
+  ngOnInit(): void {  }
 
-  ngOnInit(): void {
+  checkBrand() {
+    this.brandChecked.emit(this.checkedBrands);
   }
-
 }

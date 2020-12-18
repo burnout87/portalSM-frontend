@@ -1,3 +1,6 @@
-<p *ngFor="let brand of brands;">
-    {{brand}}
-</p>
+<mat-checkbox 
+    *ngFor="let brand of brands;" 
+    (change)="checkBrand();"
+    [(ngModel)]="checkedBrands[brand]">
+      {{brand}}
+</mat-checkbox>

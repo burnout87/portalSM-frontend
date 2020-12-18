@@ -33,8 +33,6 @@ export class OwerSearchComponent implements OnInit {
           this.isLoading = true;
         }),
         debounceTime(1000),
-        // map(value => typeof value === 'string' ? value : ''),
-        // map(value => typeof(value) === 'object' || ( typeof(value) == 'string' && value != '' )),
         switchMap(value => this.getOwners(value)
           .pipe(
             finalize(() => {

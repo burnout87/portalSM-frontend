@@ -26,6 +26,10 @@ export class ListMachineComponent implements OnInit {
       this.machines.splice(index, 1);
   }
 
+  brandsFilterChanged(data) {
+    console.log(data);
+  }
+
   ngOnInit(): void {
     this.progressing = true;
     this.csService.GetMachines().subscribe(data => {

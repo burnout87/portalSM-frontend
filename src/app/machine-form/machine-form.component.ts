@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { MachineType } from "../machine";
 import { ConnectivityService } from "../connectivity.service";
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
 import { OwnerFormComponent } from '../owner-form/owner-form.component';
+import { ActivationType, ContainerType } from "../machine";
 
 @Component({
   selector: "app-machine-form",
@@ -15,7 +15,8 @@ export class MachineFormComponent implements OnInit {
   newMachine:FormGroup;
   ownerData: FormGroup;
   progress = -1;
-  types = Object.keys(MachineType);
+  activationTypes = Object.values(ActivationType);
+  containerTypes = Object.values(ContainerType);
   @ViewChild(FormGroupDirective) myForm;
   @ViewChild(OwnerFormComponent) private ownerForm: OwnerFormComponent;
 
@@ -23,17 +24,14 @@ export class MachineFormComponent implements OnInit {
           private formBuilder: FormBuilder) {
       this.newMachine = this.formBuilder.group({
         name: new FormControl(null),
-        type: new FormControl(null),
         year: new FormControl(null),
+        activationType: new FormControl(null),
+        containerType: new FormControl(null),
         brand:  new FormControl(null),
         images: new FormControl(null),
         description: new FormControl(null),
         color: new FormControl(null),
         variation: new FormControl(null),
-        pedal: new FormControl(null),
-        handle: new FormControl(null),
-        engine: new FormControl(null),
-        typeBox: new FormControl(null),
         ownerData: this.formBuilder.group({
           name: new FormControl(null),
           surname: new FormControl(null),
@@ -99,6 +97,10 @@ export class MachineFormComponent implements OnInit {
           }
           
         }
+        // if(typeof(data[key]) == 'number') {
+        //   const value: number = data[key];
+        //   formData.append(key, value);
+        // }
         else {
           const value = data[key];
           formData.append(key, value);

@@ -1,6 +1,27 @@
-<mat-checkbox 
+<!--  brands -->
+<!-- (change)="checkBrand();" -->
+<div>
+  <mat-checkbox 
     *ngFor="let brand of brands;" 
-    (change)="checkBrand();"
     [(ngModel)]="checkedBrands[brand]">
-      {{brand}}
-</mat-checkbox>
+    {{brand}}
+  </mat-checkbox>
+</div>
+
+<!-- year -->
+<div>
+  <mat-form-field appearance="fill"  style="width: 20%;">
+    <mat-label>Dal</mat-label>
+    <input matInput 
+    type="text"
+    [(ngModel)]="yearsRange['from']" />
+  </mat-form-field>
+  <mat-form-field appearance="fill"  style="width: 20%;">
+    <mat-label>Al</mat-label>
+    <input matInput 
+    type="text"
+    [(ngModel)]="yearsRange['to']" />
+  </mat-form-field>
+</div>
+
+<button mat-raised-button color="warn" (click)="searchResults()">Search</button>

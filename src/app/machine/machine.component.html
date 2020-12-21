@@ -3,7 +3,7 @@
   <mat-card-header>
     <!-- <div mat-card-avatar class="example-header-image"></div> -->
     <mat-card-title>{{machineData.name}}</mat-card-title>
-    <mat-card-subtitle>{{machineData.type}} - {{machineData.year}}</mat-card-subtitle>
+    <mat-card-subtitle>{{machineData.activationType}} - {{machineData.containerType}} - {{machineData.year}}</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -32,7 +32,7 @@
       {{machineData.description}}
     </p>
     <p>
-      {{machineData.ownerData.name}} {{machineData.ownerData.surname}}
+      {{machineData.ownerData?.name}} {{machineData.ownerData?.surname}}
     </p>
   </mat-card-content>
 

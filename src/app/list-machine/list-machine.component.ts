@@ -43,23 +43,31 @@ export class ListMachineComponent implements OnInit {
       bar.then(() =>  {
         var m: Machine = new Machine(element);
         this.machines.push(m);
-        if(this.brands.indexOf(m.brand) == -1)
+        if(m.brand && this.brands.indexOf(m.brand) == -1)
           this.brands.push(m.brand);
       });
     });
   }
 
-  brandsFilterChanged(data: object) {
-    // remove those with false
-    for(const brand of Object.keys(data)){
-      if(!data[brand]) 
-        delete data[brand];
+  searchClicked(data: object) {
+    this.searchingObject = {};
+    // brands
+    if(data['brands']) {
+      this.searchingObject['brands'] = data['brands'];
+      // // remove those with false
+      // for(const brand of Object.keys(data['brands'])){
+      //   if(!data['brands'][brand]) 
+      //     delete data['brands'][brand];
+      // }
+      // if(Object.entries(data['brands']).length > 0) 
+      //   // filtered search to be applied 
+      // else
+      //   delete this.searchingObject['brands'];
     }
-    if(Object.entries(data).length > 0) 
-      // filtered search to be applied 
-      this.searchingObject['brands'] = data;
-    else
-      delete this.searchingObject['brands'];
+
+    if(data['years']) {
+      this.searchingObject['years'] = data['years'];
+    }
 
     this.progressing = true;
     this.csService.SearchMachines(this.searchingObject)

@@ -14,7 +14,7 @@ export class SearchMachineComponent implements OnInit {
 
   checkedBrands = {};
   yearsRange = {};
-  
+  pickedColor = "";
   searchingObject: object = {}
 
   constructor() { }
@@ -49,6 +49,12 @@ export class SearchMachineComponent implements OnInit {
     }
     if(!this.searchingObject['years'] || Object.entries(this.searchingObject['years']).length == 0)
       delete this.searchingObject['years'];
+
+    if(this.pickedColor)
+      this.searchingObject['color'] = this.pickedColor;
+    else
+      this.searchingObject['color'];
+    
     this.searchClicked.emit(this.searchingObject);
   }
 }

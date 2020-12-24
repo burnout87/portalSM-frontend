@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Input } from '@angular/core';
-import { Machine } from '../machine';
+import { ActivationType, ContainerType, Machine } from '../machine';
 
 @Component({
   selector: 'app-search-machine',
@@ -14,14 +14,30 @@ export class SearchMachineComponent implements OnInit {
 
   checkedBrands = {};
   yearsRange = {};
+  containerTypes =["Tutti i tipi"];
+  containerType = "";
+  activationTypes = ["Tutti i tipi"];
+  activationType = "";
   pickedColor = "";
   searchingObject: object = {}
 
-  constructor() { }
+  constructor() {
+    // build list of ativation type
+    for ( const type of Object.values(ActivationType) ) {
+      this.activationTypes.push(type);
+    }
+    this.activationType = this.activationTypes[0];
+    // build list of container type
+    for ( const type of Object.values(ContainerType) ) {
+      this.containerTypes.push(type);
+    }
+    this.containerType = this.containerTypes[0];
+  }
   
   ngOnInit(): void {  }
 
   searchResults() {
+    // brands
     if(this.checkedBrands)
     {
       for(const brand of Object.keys(this.checkedBrands)){
@@ -33,8 +49,8 @@ export class SearchMachineComponent implements OnInit {
         this.searchingObject['brands'] = this.checkedBrands;
       else
         delete this.searchingObject['brands'];
-
     }
+    // years range
     if(this.yearsRange && Object.entries(this.yearsRange).length > 0)
     {
       this.searchingObject['years'] = { };
@@ -49,12 +65,21 @@ export class SearchMachineComponent implements OnInit {
     }
     if(!this.searchingObject['years'] || Object.entries(this.searchingObject['years']).length == 0)
       delete this.searchingObject['years'];
-
+    // color
     if(this.pickedColor)
       this.searchingObject['color'] = this.pickedColor;
     else
       this.searchingObject['color'];
-    
+    // activation type
+    if(this.activationType && this.activationType != "Tutti i tipi")
+      this.searchingObject['activationType'] = this.activationType;
+    else
+      delete this.searchingObject['activationType'];
+    // container type
+    if(this.containerType && this.containerType != "Tutti i tipi")
+      this.searchingObject['containerType'] = this.containerType;
+    else
+      delete this.searchingObject['containerType'];
     this.searchClicked.emit(this.searchingObject);
   }
 }

@@ -50,25 +50,7 @@ export class ListMachineComponent implements OnInit {
   }
 
   searchClicked(data: object) {
-    this.searchingObject = {};
-    // brands
-    if(data['brands']) {
-      this.searchingObject['brands'] = data['brands'];
-      // // remove those with false
-      // for(const brand of Object.keys(data['brands'])){
-      //   if(!data['brands'][brand]) 
-      //     delete data['brands'][brand];
-      // }
-      // if(Object.entries(data['brands']).length > 0) 
-      //   // filtered search to be applied 
-      // else
-      //   delete this.searchingObject['brands'];
-    }
-
-    if(data['years']) {
-      this.searchingObject['years'] = data['years'];
-    }
-
+    this.searchingObject = data;
     this.progressing = true;
     this.csService.SearchMachines(this.searchingObject)
       .subscribe(data => {

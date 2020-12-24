@@ -22,9 +22,10 @@ import { OwnerFormComponent } from './owner-form/owner-form.component';
 import { OwerSearchComponent } from './ower-search/ower-search.component';
 import { SearchMachineComponent } from './search-machine/search-machine.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { CapitalizeFirstPipe } from './capitalize-first.pipe';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent, SearchMachineComponent],
+  declarations: [AppComponent, MachineFormComponent, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent, SearchMachineComponent, CapitalizeFirstPipe],
   imports: [BrowserModule, GalleryModule.forRoot(), BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule, ColorPickerModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],

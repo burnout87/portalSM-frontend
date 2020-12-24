@@ -1,7 +1,38 @@
-<mat-card class="machine-card">
+<div id="e0_4">
+  <div id="e0_11" *ngIf="machineData.images.length > 0">
+    <ks-carousel *ngIf="machineData.images.length > 0"
+      [id]="id"
+      [images]="machineData.images"
+      [carouselConfig]="{
+        showArrows: true, 
+        objectFit: 'scale-down',
+        keyboardEnable: false, 
+        modalGalleryEnable: true, 
+        legacyIE11Mode: false,
+        infinite: true
+      }"
+      [carouselImageConfig]="{description: customDescription}"
+      [playConfig]="{autoPlay: false}"
+      [previewConfig]="{
+        visible: false, 
+        number: 4, 
+        maxHeight: '85px',
+        size: { width: '30px', height: '30px' }
+      }"
+      >
+    </ks-carousel>
+  </div>
+  <span id="e0_17">{{ machineData.name }}</span>
+
+  <span id="e0_21">Numero di serie</span>
+  <span id="e0_48">202 056 293</span>
+</div>
+
+
+<!-- <div mat-card-avatar class="example-header-image"></div> -->
+<!-- <mat-card class="machine-card">
   
   <mat-card-header>
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
     <mat-card-title>{{machineData.name}}</mat-card-title>
     <mat-card-subtitle>{{machineData.activationType}} - {{machineData.containerType}} - {{machineData.year}}</mat-card-subtitle>
   </mat-card-header>
@@ -40,4 +71,4 @@
     <button (click)="deleteMachine()" mat-button><i class="material-icons" style="vertical-align: middle;">delete</i></button>
   </mat-card-actions>
 
-</mat-card>
+</mat-card> -->

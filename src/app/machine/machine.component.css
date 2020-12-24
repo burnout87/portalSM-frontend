@@ -1,3 +1,72 @@
+#e0_4 {
+  width: 397px;
+  height: 605px;
+
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.20000000298023224);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(51.6474px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border: 0px solid
+    rgba(150.9600019454956, 150.9600019454956, 150.9600019454956, 1);
+  border-radius: 21px;
+}
+
+#e0_11 {
+  position: absolute;
+  width: 370px;
+  height: 263px;
+
+  filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.5));
+  border-radius: 8px;
+}
+
+#e0_17 {
+  position: absolute;
+  width: 129px;
+  height: 31px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#e0_21 {
+  position: relative;
+  color: rgb(145, 52, 52);
+  opacity: 1;
+  width: 234px;
+  height: 14px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: undefined;
+}
+
+#e0_48 {
+  position: absolute;
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  width: 161px;
+  height: 20px;
+  font-family: AndaleMono;
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: undefined;
+}
+
+/*
 .machine-card {
   width: 450px;
   padding: 30px;
@@ -8,7 +77,7 @@
   text-align: center;
 }
 
-/*
+
 .my-app-custom-plain-container-row {
   align-items: center;
   display: flex;

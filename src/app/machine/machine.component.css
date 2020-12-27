@@ -1,12 +1,17 @@
 #e0_4 {
   width: 397px;
-  height: 605px;
-
+  min-height: 605px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 28px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.20000000298023224);
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(51.6474px);
-  /* Note: backdrop-filter has minimal browser support */
+  /* backdrop-filter: blur(51.6474px); */
+  /* Note: backdrop-filter has minimal browser support, 
+  screws up the modal gallery effect */
 
   border: 0px solid
     rgba(150.9600019454956, 150.9600019454956, 150.9600019454956, 1);
@@ -14,47 +19,48 @@
 }
 
 #e0_11 {
-  position: absolute;
-  width: 370px;
-  height: 263px;
-
-  filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.5));
-  border-radius: 8px;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 350px;
+  margin-bottom: 10px;
+  /* filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.5)); */
+  /* do not use! screws-up the modal gallery view*/
 }
 
-#e0_17 {
-  position: absolute;
-  width: 129px;
-  height: 31px;
+#e0_15 {
+  float: right;
+  margin-right: 15px;
+  /* identical to box height */
+}
 
+#e0_16 {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  object-fit: scale-down;
+}
+
+#e0_16_img_user {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+
+#e0_19 {
   font-family: Raleway;
   font-style: normal;
   font-weight: 900;
   font-size: 20px;
   line-height: 23px;
   text-align: center;
+
   color: #ffffff;
   text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-#e0_21 {
-  position: relative;
-  color: rgb(145, 52, 52);
-  opacity: 1;
-  width: 234px;
-  height: 14px;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: left;
-  letter-spacing: 0;
-  line-height: undefined;
+  margin-left: 13px;
+  margin-top: 350px;
 }
 
 #e0_48 {
-  position: absolute;
   color: rgba(255, 255, 255, 1);
   opacity: 1;
   width: 161px;
@@ -64,6 +70,56 @@
   font-size: 15px;
   letter-spacing: 0;
   line-height: undefined;
+  margin-left: 18px;
+}
+
+#e15_0 {
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  width: 129px;
+  height: 31px;
+}
+
+#e16_0 {
+  margin-left: 13px;
+}
+
+#e0_23 {
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  width: 234px;
+  height: 14px;
+  font-family: Raleway;
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0;
+  margin: auto;
+  line-height: undefined;
+}
+
+#e17_0 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 13px;
+  background: #283c64;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 9px;
+  padding: 7px;
+  /* display: inline-flex; */
+  max-width: fit-content;
+}
+
+#e0_49 {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  /* display: inline-table; */
+  /* identical to box height */
+
+  color: #ffffff;
 }
 
 /*

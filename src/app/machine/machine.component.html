@@ -5,7 +5,7 @@
       [images]="machineData.images"
       [carouselConfig]="{
         showArrows: true, 
-        objectFit: 'scale-down',
+        objectFit: 'cover',
         keyboardEnable: false, 
         modalGalleryEnable: true, 
         legacyIE11Mode: false,
@@ -14,7 +14,7 @@
       [carouselImageConfig]="{description: customDescription}"
       [playConfig]="{autoPlay: false}"
       [previewConfig]="{
-        visible: false, 
+        visible: true, 
         number: 4, 
         maxHeight: '85px',
         size: { width: '30px', height: '30px' }
@@ -22,10 +22,33 @@
       >
     </ks-carousel>
   </div>
-  <span id="e0_17">{{ machineData.name }}</span>
 
-  <span id="e0_21">Numero di serie</span>
-  <span id="e0_48">202 056 293</span>
+  <div id="e0_15">
+    <div id="e0_16" >
+      <img  id="e0_16_img_user" src="/assets/profile_icon.svg" />
+    </div>
+    <span id="e0_23">Profilo proprietario</span>
+  </div>
+
+  <!-- <div id="e15_0"> -->
+    <span id="e0_19">{{ machineData.name }}</span>
+  <!-- </div> -->
+  
+  <div id="e16_0"><span id="e0_23">Numero di serie</span></div>
+  <div id="e16_0"><span id="e0_48">202 056 293</span></div>
+
+  <div id="e16_0"><span id="e0_23">Anno di fabbricazione</span></div>
+  <div id="e16_0"><span id="e0_48">{{ machineData.year }}</span></div>
+
+  <div id="e16_0"><span id="e0_23">Numero di serie</span></div>
+  <div id="e16_0"><span id="e0_48">202 056 293</span></div>
+
+  <div id="e16_0"><span id="e0_23">Numero di serie</span></div>
+  <div id="e16_0"><span id="e0_48">202 056 293</span></div>
+
+  <div *ngIf="machineData.activationType" id="e17_0"><span id="e0_49">{{ machineData.activationType }}</span></div>
+  <div *ngIf="machineData.containerType" id="e17_0"><span id="e0_49">{{ machineData.containerType }}</span></div>
+
 </div>
 
 

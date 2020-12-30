@@ -24,9 +24,9 @@
   </div>
 
   <div id="e0_15">
-    <div id="e0_16" >
-      <img  id="e0_16_img_user" src="/assets/profile_icon.svg" />
-    </div>
+      <div (click)="openDialog($event)" id="e0_16">
+        <img id="e0_16_img_user" src="/assets/profile_icon.svg" />
+      </div>
     <span id="e0_23">Profilo proprietario</span>
   </div>
 
@@ -50,6 +50,12 @@
   <div *ngIf="machineData.containerType" id="e17_0"><span id="e0_49">{{ machineData.containerType }}</span></div>
 
 </div>
+
+<!-- <jw-modal [id]="machineData._id">
+  <h1>A Custom Modal Window!</h1>
+  <p>Home page text: {{ machineData.ownerData?.name }} {{ machineData.ownerData?.surname }}</p>
+  <button (click)="closeModal($event);">Close</button>
+</jw-modal> -->
 
 
 <!-- <div mat-card-avatar class="example-header-image"></div> -->

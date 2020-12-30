@@ -1,3 +1,13 @@
+.custom-dialog-backdrop-class {
+  overflow: visible;
+  position: fixed;
+}
+
+.custom-dialog-panel-class {
+  overflow: visible;
+  position: fixed;
+}
+
 #e0_4 {
   width: 397px;
   min-height: 605px;

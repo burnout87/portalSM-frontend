@@ -1,0 +1,27 @@
+#e0_167 {
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  width: 8px;
+  height: 14px;
+  font-family: Raleway;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: undefined;
+  margin: auto;
+}
+#e0_163 {
+  border-radius: 500px;
+  background-color: rgba(
+    183.05086076259613,
+    48.99123854935169,
+    52.81631089746952,
+    1
+  );
+  opacity: 1;
+  border: 0px solid
+    rgba(150.9600019454956, 150.9600019454956, 150.9600019454956, 1);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  float: right;
+}

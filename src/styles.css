@@ -11,3 +11,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.custom-dialog-panel-class .mat-dialog-container {
+  padding: 0px !important;
+  border-radius: 21px;
+}

@@ -1,12 +1,13 @@
-.custom-dialog-backdrop-class {
-  overflow: visible;
+/* .custom-dialog-backdrop-class {
+  overflow: hidden;
   position: fixed;
-}
-
-.custom-dialog-panel-class {
-  overflow: visible;
-  position: fixed;
-}
+  width: 350px;
+  height: 391px;
+  background: rgba(215, 215, 215, 0.65);
+  border: 0px solid #969696;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 21px;
+}*/
 
 #e0_4 {
   width: 397px;

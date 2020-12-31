@@ -74,7 +74,6 @@ export class MachineComponent implements OnInit, AfterViewInit  {
         top:  bottom + 'px',
         left: left + 'px'
       };
-      dialogConfig.width = '600px' ;
       this.ownerDataDialog = this.dialog.open(
         DialogContentUserDialog, 
         dialogConfig

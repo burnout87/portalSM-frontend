@@ -8,6 +8,17 @@
   padding-right: 0%;
 }
 
+.container-search-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 4%;
+  padding-bottom: 0%;
+  padding-left: 0%;
+  padding-right: 0%;
+  float: left;
+}
+
 .flex-item {
   padding: 10px;
   margin: auto;
@@ -18,5 +29,4 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 4%;
 }

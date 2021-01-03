@@ -60,8 +60,8 @@ export class MachineComponent implements OnInit, AfterViewInit  {
   openDialog(event) {
     
     if(this.machineData.ownerData) {
-      const bottom = event.target.getBoundingClientRect().bottom - (event.target.getBoundingClientRect().height / 2);
-      const left  = event.target.getBoundingClientRect().left + event.target.getBoundingClientRect().width;
+      const bottom = event.target.getBoundingClientRect().bottom - event.target.getBoundingClientRect().height * 2;
+      const left  = event.target.getBoundingClientRect().left + event.target.getBoundingClientRect().width + 10;
       const dialogConfig = new MatDialogConfig();
       dialogConfig.backdropClass = 'custom-dialog-backdrop-class';
       dialogConfig.panelClass = 'custom-dialog-panel-class';
@@ -85,20 +85,6 @@ export class MachineComponent implements OnInit, AfterViewInit  {
     }
   }
 
-  // beforeClose(args: TooltipEventArgs) {
-    // console.log(args.type);
-    // if(!args.target)
-    // args.cancel = true;
-  // }
-
-  // openModal(event) {
-  //   this.modalService.open(this.machineData._id.toString(), event.clientX, event.clientY);
-  // }
-
-  // closeModal(event) {
-  //   this.modalService.close(this.machineData._id.toString());
-  // }
-
   customDescription: Description = {
     strategy: DescriptionStrategy.HIDE_IF_EMPTY
   };
@@ -118,11 +104,7 @@ export class DialogContentUserDialog {
   ngOnInit() {
   }
 
-  onCloseConfirm() {
-    this.thisDialogRef.close('Confirm');
-  }
-
-  onCloseCancel() {
-    this.thisDialogRef.close('Cancel');
+  closeDialog() {
+    this.thisDialogRef.close('user-close');
   }
 }

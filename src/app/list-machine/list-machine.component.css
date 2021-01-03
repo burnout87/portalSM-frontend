@@ -1,7 +1,4 @@
 .container-members {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   padding-top: 0%;
   padding-bottom: 0%;
   padding-left: 0%;
@@ -9,24 +6,19 @@
 }
 
 .container-search-form {
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  padding-top: 4%;
+  padding-top: 0%;
   padding-bottom: 0%;
   padding-left: 0%;
   padding-right: 0%;
-  float: left;
 }
 
 .flex-item {
   padding: 10px;
-  margin: auto;
   width: 100%;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }

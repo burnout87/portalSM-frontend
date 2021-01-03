@@ -7,6 +7,10 @@ import { MachineFormComponent } from './machine-form/machine-form.component';
 
 const routes: Routes = [
 {
+  path: '',
+  component: ListMachineComponent
+},
+{
   path: 'addsm',
   component: MachineFormComponent
 },

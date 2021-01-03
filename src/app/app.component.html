@@ -1,11 +1,15 @@
-<section>
-    <div class="button-container">
-        <button routerLink='/listsms' mat-raised-button color="warn">Lista delle macchine da cucire</button>
-    </div>
-    <div class="button-container">
-        <button routerLink='/addsm' mat-raised-button color="warn">Registra una nuova macchina</button>
-    </div>
-</section>
+<div class="container-main">
+    <div class="container-top-buttons">
+        <div>
+            <button routerLink='/listsms' >Lista delle macchine da cucire</button>
+        </div>
 
+        <div class="button-container-addmachine">
+            <button class="button-addmachine" routerLink='/addsm'>Registra una nuova macchina</button>
+        </div>
+    </div>
 
-<router-outlet></router-outlet>
+    <div class="container-rest">
+        <router-outlet></router-outlet>
+    </div>
+</div>

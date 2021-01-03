@@ -8,3 +8,35 @@
   padding: 10px;
   display: inline-block;
 } */
+
+.button-container-addmachine {
+  margin: 10px;
+  direction: rtl;
+  overflow: hidden;
+}
+
+.button-addmachine {
+  border-radius: 27px;
+  background: rgba(151, 182, 215, 0.8);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  font-family: Raleway;
+  text-align: left;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: undefined;
+}
+
+.container-main {
+  display: block;
+  margin: auto;
+}
+
+/* .container-top-buttons {
+  display: inline-block;
+}
+
+.container-rest {
+  display: inline-block;
+} */

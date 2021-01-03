@@ -6,7 +6,7 @@
 @import "../node_modules/@syncfusion/ej2-angular-popups/styles/material.css";
 /* @import "~material-design-icons-iconfont/src/material-design-icons.scss"; */
 body {
-  opacity: 10;
+  opacity: 1;
   background-image: url("/assets/erectangle.png");
   background-size: cover;
   background-repeat: no-repeat;

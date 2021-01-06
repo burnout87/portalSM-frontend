@@ -3,22 +3,24 @@
   padding-bottom: 0%;
   padding-left: 0%;
   padding-right: 0%;
+  margin: 0 auto;
 }
 
 .container-search-form {
-  flex-wrap: wrap;
   padding-top: 0%;
   padding-bottom: 0%;
   padding-left: 0%;
   padding-right: 0%;
 }
 
-.flex-item {
-  padding: 10px;
-  width: 100%;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-container {
+/* .card-container {
   display: flex;
   flex-wrap: wrap;
-}
+  margin: auto;
+} */

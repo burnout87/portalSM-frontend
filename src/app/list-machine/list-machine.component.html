@@ -1,13 +1,11 @@
-<section class="container-search-form">
-    <app-search-machine style="float: left;" [brands]="brands" (searchClicked)="searchClicked($event)"></app-search-machine>
-</section>
-<section class="container-members">
-    <div class="flex-item voltibox">
-        <div class="card-container">
-            <mat-spinner *ngIf="progressing" ></mat-spinner>
-            <ng-container *ngIf="!progressing">
-                <app-machine *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>
-            </ng-container>
-        </div>
-    </div>
-</section>
+<div class="container">
+    <section class="container-search-form">
+        <app-search-machine [brands]="brands" (searchClicked)="searchClicked($event)"></app-search-machine>
+    </section>
+    <section class="container-members">
+        <mat-spinner *ngIf="progressing" ></mat-spinner>
+        <ng-container *ngIf="!progressing">
+            <app-machine *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>
+        </ng-container>
+    </section>
+</div>

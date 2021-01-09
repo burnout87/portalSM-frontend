@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "portalSM-frontend"
+    }
+  },
+  "defaultProject": "portalSM-frontend",
+  "cli": {
+    "analytics": "1e05fb6f-9f7c-4d60-914d-b13b1e1e6bf7"
+  }
 }

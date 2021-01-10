@@ -80,7 +80,7 @@
   font-size: 15px;
   letter-spacing: 0;
   line-height: undefined;
-  margin-left: 18px;
+  /* margin-left: 18px; */
 }
 
 #e15_0 {
@@ -93,6 +93,10 @@
 
 #e16_0 {
   margin-left: 13px;
+}
+
+#e18_0 {
+  margin-left: 31px;
 }
 
 #e0_23 {

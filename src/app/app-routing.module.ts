@@ -14,10 +14,10 @@ const routes: Routes = [
   path: 'addsm',
   component: MachineFormComponent
 },
-{
-  path: 'listsms',
-  component: ListMachineComponent
-},
+// {
+//   path: 'listsms',
+//   component: ListMachineComponent
+// },
 {
   path: 'login',
   component: LoginComponent

@@ -68,3 +68,15 @@
 .toggle_group{
     border-radius: 25px;
 }
+
+.mat-button-toggle-group {
+    border-radius: 25px;
+}
+
+.mat-button-toggle {
+    background-color: crimson;
+}
+
+.mat-button-toggle-checked {
+    background-color:coral;
+}

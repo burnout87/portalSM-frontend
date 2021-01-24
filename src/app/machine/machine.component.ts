@@ -15,6 +15,7 @@ import { Overlay, ScrollStrategy } from '@angular/cdk/overlay';
   selector: 'app-machine',
   templateUrl: './machine.component.html',
   styleUrls: ['./machine.component.css'],
+  
   // providers: [
   //   { 
   //     provide: MAT_DIALOG_SCROLL_STRATEGY, 

@@ -49,12 +49,12 @@
       
 
       <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Attivazione</mat-label>
-          <mat-select formControlName="activationType">
-            <mat-option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;"> -->
+          <!-- <mat-label>Attivazione</mat-label> -->
+          <select formControlName="activationType">
+            <option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</option>
+          </select>
+        <!-- </mat-form-field> -->
       </div>
 
       <div>

@@ -61,3 +61,10 @@
     color: white;
 }
 
+.toggle_button{
+    background-color: crimson;
+}
+
+.toggle_group{
+    border-radius: 25px;
+}

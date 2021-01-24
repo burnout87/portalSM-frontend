@@ -27,12 +27,12 @@
 
 <!-- Activation type -->
 <div>
-  <mat-button-toggle-group [(ngModel)]="activationType" name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle-group [(ngModel)]="activationType" class= "toggle_group" name="fontStyle" aria-label="Font Style">
     <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
     <mat-button-toggle value="pedal">A pedale</mat-button-toggle>
     <mat-button-toggle value="handle">A manovella</mat-button-toggle>
     <mat-button-toggle value="engine">A motore</mat-button-toggle> -->
-    <mat-button-toggle *ngFor="let at of activationTypes" [value]="at">{{ at | capitalizeFirst }}</mat-button-toggle>
+    <mat-button-toggle *ngFor="let at of activationTypes" class="toggle_button" [value]="at">{{ at | capitalizeFirst }}</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 

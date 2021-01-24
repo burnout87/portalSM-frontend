@@ -1,45 +1,49 @@
 <div class="container">
   <div>
     <form [formGroup]="newMachine" (ngSubmit)="onSubmit()" >
-      <div >
-        <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Nome</mat-label>
-          <input matInput
-            type="text"
+      <div>
+        <!--<mat-form-field appearance="fill" style="width: 50%;">-->
+          <!-- <mat-label>Nome</mat-label> -->
+          <input class="input_text"
+            placeholder="Nome"
+            type="text" 
             formControlName="name"
             required
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
-      <div>
-        <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Numero di serie</mat-label>
-          <input matInput
+      <div class="input_text">
+        <!-- <mat-form-field appearance="fill" style="width: 50%;">
+          <mat-label>Numero di serie</mat-label> -->
+          <input 
+            placeholder="Numero di serie"
             type="text"
             formControlName="serialNumber"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
-      <div>
-        <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Marca</mat-label>
-          <input matInput
+      <div class="input_text">
+        <!-- <mat-form-field appearance="fill" style="width: 50%;">
+          <mat-label>Marca</mat-label> -->
+          <input 
             type="text"
+            placeholder="Marca"
             formControlName="brand"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
-      <div>
-        <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Anno fabbricazione</mat-label>
-          <input matInput
+      <div class="input_text">
+        <!-- <mat-form-field appearance="fill" style="width: 50%;">
+          <mat-label>Anno fabbricazione</mat-label> -->
+          <input 
             type="number"
             formControlName="year"
+            placeholder="Anno di fabbricazione"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
       
@@ -62,27 +66,33 @@
         </mat-form-field>
       </div>
 
-      <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Colore</mat-label>
-          <input matInput 
-          type="text" formControlName="color" />
-        </mat-form-field>
+      <div class="input_text">
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Colore</mat-label> -->
+          <input  
+          placeholder="Colore"
+          type="text" 
+          formControlName="color" />
+        <!-- </mat-form-field> -->
       </div>
 
-      <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Variazione</mat-label>
-          <input matInput 
-          type="text" formControlName="variation" />
-        </mat-form-field>
+      <div class="input_text">
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Variazione</mat-label> -->
+          <input 
+          type="text" 
+          placeholder="Variazione"
+          formControlName="variation" />
+        <!-- </mat-form-field> -->
       </div>
       
-      <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Descrizione</mat-label>
-          <textarea matInput formControlName="description"></textarea>
-        </mat-form-field>
+      <div class="input_text">
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Descrizione</mat-label> -->
+          <textarea  
+          placeholder="Descrizione"
+          formControlName="description"></textarea>
+        <!-- </mat-form-field> -->
       </div>
 
       <app-owner-form (ownerUpdate)="updateOwnerData($event)"></app-owner-form>

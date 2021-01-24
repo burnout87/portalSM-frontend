@@ -10,18 +10,18 @@
 
 <!-- year -->
 <div style="width: 50%;">
-  <mat-form-field appearance="fill">
-    <mat-label>Dal</mat-label>
-    <input matInput 
-    type="text"
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Dal</mat-label>-->
+    <input  class="year_input"
+    type="text" placeholder="Dal"
     [(ngModel)]="yearsRange['from']" />
-  </mat-form-field>
+  <!-- </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Al</mat-label>
-    <input matInput 
-    type="text"
+    <mat-label>Al</mat-label>-->
+    <input  class="year_input"
+    type="text" placeholder="Al"
     [(ngModel)]="yearsRange['to']" />
-  </mat-form-field>
+  <!-- </mat-form-field-->
   <!-- <input style="width: 50px;" [(colorPicker)]="pickedColor" [style.background]="pickedColor"/> -->
 </div>
 
@@ -47,4 +47,5 @@
 </div>
 
 
-<button mat-raised-button color="warn" (click)="searchResults()">Search</button>
+<!-- <button mat-raised-button color="warn" (click)="searchResults()">Search</button> -->
+<button class="search" (click)="searchResults()">Search</button>

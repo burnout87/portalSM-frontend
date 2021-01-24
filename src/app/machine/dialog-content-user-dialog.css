@@ -1,5 +1,5 @@
-#e0_167 {
-  color: rgba(255, 255, 255, 1);
+.close_user_profile_x {
+  color: rgb(255, 255, 255);
   opacity: 1;
   width: 8px;
   height: 14px;
@@ -10,7 +10,7 @@
   margin: auto;
 }
 
-#e0_163 {
+.close_user_profile {
   border-radius: 500px;
   background-color: rgba(
     183.05086076259613,
@@ -20,14 +20,14 @@
   );
   opacity: 1;
   border: 0px solid
-    rgba(150.9600019454956, 150.9600019454956, 150.9600019454956, 1);
+    rgb(255, 0, 0);
   width: 26px;
   height: 26px;
   display: flex;
   float: right;
 }
 
-#e0_19 {
+.SMtitle {
   font-family: Raleway;
   font-style: normal;
   font-weight: 900;
@@ -50,8 +50,8 @@
   margin-top: 13px;
 }
 
-#e0_48 {
-  color: rgba(255, 255, 255, 1);
+.SMtext {
+  color: rgb(255, 255, 255);
   opacity: 1;
   width: 161px;
   height: 20px;

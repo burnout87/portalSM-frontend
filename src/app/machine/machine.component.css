@@ -9,7 +9,7 @@
   border-radius: 21px;
 }*/
 
-#e0_4 {
+.SMcard {
   width: 420px;
   min-height: 605px;
   margin-right: 50px;
@@ -18,8 +18,8 @@
   padding-top: 15px;
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.20000000298023224);
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
-  /* backdrop-filter: blur(51.6474px); */
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.5);
+  /*backdrop-filter: blur(51.6474px);*/
   /* Note: backdrop-filter has minimal browser support, 
   screws up the modal gallery effect */
 
@@ -28,35 +28,36 @@
   border-radius: 21px;
 }
 
-#e0_11 {
-  margin-left: 30px;
-  margin-right: 30px;
+.main_pic {
+  margin-left: auto;
+  margin-right: auto;
   width: 350px;
   margin-bottom: 10px;
+  border-radius: 10px;
   /* filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.5)); */
   /* do not use! screws-up the modal gallery view*/
 }
 
-#e0_15 {
+.user_profile_group {
   float: right;
   margin-right: 15px;
   /* identical to box height */
 }
 
-#e0_16 {
+.user_icon_container {
   width: 80px;
   height: 80px;
   margin: auto;
   object-fit: scale-down;
 }
 
-#e0_16_img_user {
+.user_profile_icon {
   width: 80px;
   height: 80px;
   margin: auto;
 }
 
-#e0_19 {
+.SMtitle {
   font-family: Raleway;
   font-style: normal;
   font-weight: 900;
@@ -70,7 +71,7 @@
   margin-top: 350px;
 }
 
-#e0_48 {
+.SMtext {
   color: rgba(255, 255, 255, 1);
   opacity: 1;
   width: 161px;
@@ -83,9 +84,9 @@
   /* margin-left: 18px; */
 }
 
-#e15_0 {
+.user_profile_group {
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(255, 255, 255);
   opacity: 1;
   width: 129px;
   height: 31px;
@@ -99,8 +100,8 @@
   margin-left: 31px;
 }
 
-#e0_23 {
-  color: rgba(255, 255, 255, 1);
+.header {
+  color: rgb(255, 255, 255);
   opacity: 1;
   width: 234px;
   height: 14px;
@@ -112,7 +113,7 @@
   line-height: undefined;
 }
 
-#e17_0 {
+.SMbutton {
   margin-top: 10px;
   margin-bottom: 15px;
   margin-left: 13px;
@@ -124,7 +125,7 @@
   max-width: fit-content;
 }
 
-#e0_49 {
+.SMbutton_text {
   font-family: Raleway;
   font-style: normal;
   font-weight: bold;

@@ -53,6 +53,7 @@
     border: 3px solid rgb(180, 8, 45);
     border-radius: 30px;
     transition-duration: 0.4s;
+    outline: none;
 }
 
 .search:hover{
@@ -65,18 +66,29 @@
     background-color: crimson;
 }
 
-.toggle_group{
+/* .toggle_group{
     border-radius: 25px;
-}
+} */
 
 .mat-button-toggle-group {
     border-radius: 25px;
+    transition-duration: 0.4s;
+    margin: 10px;
 }
 
 .mat-button-toggle {
-    background-color: crimson;
+    background-color: rgb(0, 89, 255);
+    font-family: Raleway;
+    font-size: 13pt;
+    color: white;
 }
 
+.mat-button-toggle-group:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+} 
+
 .mat-button-toggle-checked {
-    background-color:coral;
+    background-color:rgb(49, 155, 255);
+    color: white;
+    transition-duration: 0.4s;
 }

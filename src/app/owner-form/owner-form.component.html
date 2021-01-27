@@ -2,91 +2,99 @@ Proprietario
 <app-ower-search (ownerFoundEvent)="ownerFound($event)"></app-ower-search>
 <form [formGroup]="newOwner" >
     <div>
-      <mat-form-field appearance="fill" style="width: 50%;">
-        <mat-label>Nome</mat-label>
-        <input matInput
+      <!-- <mat-form-field appearance="fill" style="width: 50%;">
+        <mat-label>Nome</mat-label> -->
+        <input class="text_input"
           type="text"
+          placeholder="Nome"
           formControlName="name"
           (change)="onDataOwnerChange($event)"
           />
-      </mat-form-field>
+      <!-- </mat-form-field> -->
     </div>
 
     <div>
-      <mat-form-field appearance="fill"  style="width: 50%;">
-        <mat-label>Cognome</mat-label>
-        <input matInput
+      <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+        <mat-label>Cognome</mat-label> -->
+        <input class="text_input"
           type="text"
+          placeholder="Cognome"
           formControlName="surname"
           (change)="onDataOwnerChange($event)"
           />
-      </mat-form-field>
+      <!-- </mat-form-field> -->
     </div>
 
     <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Indirizzo</mat-label>
-          <input matInput
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Indirizzo</mat-label> -->
+          <input class="text_input"
             type="text"
+            placeholder="Indirizzo"
             formControlName="address"
             (change)="onDataOwnerChange($event)"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
       <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>CAP</mat-label>
-          <input matInput
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>CAP</mat-label> -->
+          <input class="text_input"
             type="text"
+            placeholder="CAP"
             formControlName="cap"
             (change)="onDataOwnerChange($event)"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
       <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Citta</mat-label>
-          <input matInput
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Citta</mat-label> -->
+          <input class="text_input"
             type="text"
+            placeholder="Città"
             formControlName="city"
             (change)="onDataOwnerChange($event)"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
       <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Paese</mat-label>
-          <input matInput
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Paese</mat-label> -->
+          <input class="text_input"
             type="text"
+            placeholder="Paese"
             formControlName="country"
             (change)="onDataOwnerChange($event)"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
       <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Telefono</mat-label>
-          <input matInput
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Telefono</mat-label> -->
+          <input class="text_input"
             type="text"
+            placeholder="Telefono"
             formControlName="phone"
             (change)="onDataOwnerChange($event)"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
       <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>E-mail</mat-label>
-          <input matInput
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>E-mail</mat-label> -->
+          <input class="text_input"
             type="text"
+            placeholder="e-mail"
             formControlName="mail"
             (change)="onDataOwnerChange($event)"
             />
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
 
 </form>

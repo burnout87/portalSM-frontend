@@ -13,10 +13,10 @@
         <!-- </mat-form-field> -->
       </div>
 
-      <div class="input_text">
+      <div >
         <!-- <mat-form-field appearance="fill" style="width: 50%;">
           <mat-label>Numero di serie</mat-label> -->
-          <input 
+          <input class="input_text"
             placeholder="Numero di serie"
             type="text"
             formControlName="serialNumber"
@@ -24,10 +24,10 @@
         <!-- </mat-form-field> -->
       </div>
 
-      <div class="input_text">
+      <div >
         <!-- <mat-form-field appearance="fill" style="width: 50%;">
           <mat-label>Marca</mat-label> -->
-          <input 
+          <input class="input_text"
             type="text"
             placeholder="Marca"
             formControlName="brand"
@@ -35,10 +35,10 @@
         <!-- </mat-form-field> -->
       </div>
 
-      <div class="input_text">
+      <div >
         <!-- <mat-form-field appearance="fill" style="width: 50%;">
           <mat-label>Anno fabbricazione</mat-label> -->
-          <input 
+          <input class="input_text"
             type="number"
             formControlName="year"
             placeholder="Anno di fabbricazione"
@@ -48,7 +48,7 @@
 
       
 
-      <div>
+      <div class="select_field">
         <!-- <mat-form-field appearance="fill"  style="width: 50%;"> -->
           <!-- <mat-label>Attivazione</mat-label> -->
           <select formControlName="activationType">
@@ -57,39 +57,40 @@
         <!-- </mat-form-field> -->
       </div>
 
-      <div>
-        <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Contenitore</mat-label>
-          <mat-select formControlName="containerType">
-            <mat-option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div class="select_field">
+        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
+          <mat-label>Contenitore</mat-label> -->
+          <select formControlName="containerType">
+            <option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</option>
+          </select>
+            <!-- </mat-select>
+        </mat-form-field> -->
       </div>
 
-      <div class="input_text">
+      <div >
         <!-- <mat-form-field appearance="fill"  style="width: 50%;">
           <mat-label>Colore</mat-label> -->
-          <input  
+          <input class="input_text"
           placeholder="Colore"
           type="text" 
           formControlName="color" />
         <!-- </mat-form-field> -->
       </div>
 
-      <div class="input_text">
+      <div >
         <!-- <mat-form-field appearance="fill"  style="width: 50%;">
           <mat-label>Variazione</mat-label> -->
-          <input 
+          <input class="input_text"
           type="text" 
           placeholder="Variazione"
           formControlName="variation" />
         <!-- </mat-form-field> -->
       </div>
       
-      <div class="input_text">
+      <div >
         <!-- <mat-form-field appearance="fill"  style="width: 50%;">
           <mat-label>Descrizione</mat-label> -->
-          <textarea  
+          <textarea  class="input_text"
           placeholder="Descrizione"
           formControlName="description"></textarea>
         <!-- </mat-form-field> -->

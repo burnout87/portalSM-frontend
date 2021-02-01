@@ -1,5 +1,7 @@
 <!--  brands -->
 <!-- (change)="checkBrand();" -->
+
+<div class="machine_search">
 <div style="width: 50%;">
   <mat-checkbox 
     *ngFor="let brand of brands;" 
@@ -8,21 +10,19 @@
   </mat-checkbox>
 </div>
 
+<!-- <label class="container"> Checkbox name
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label> -->
+
 <!-- year -->
 <div style="width: 50%;">
-  <!-- <mat-form-field appearance="fill">
-    <mat-label>Dal</mat-label>-->
     <input  class="year_input"
     type="text" placeholder="Dal"
     [(ngModel)]="yearsRange['from']" />
-  <!-- </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Al</mat-label>-->
     <input  class="year_input"
     type="text" placeholder="Al"
     [(ngModel)]="yearsRange['to']" />
-  <!-- </mat-form-field-->
-  <!-- <input style="width: 50px;" [(colorPicker)]="pickedColor" [style.background]="pickedColor"/> -->
 </div>
 
 <!-- Activation type -->
@@ -46,5 +46,5 @@
   </mat-button-toggle-group>
 </div>
 
-<!-- <button mat-raised-button color="warn" (click)="searchResults()">Search</button> -->
 <button class="search" (click)="searchResults()">Search</button>
+</div>

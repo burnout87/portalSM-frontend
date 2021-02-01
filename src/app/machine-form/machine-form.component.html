@@ -1,101 +1,79 @@
 <div class="container">
   <div>
+    <h2>Dati Macchina</h2>
     <form [formGroup]="newMachine" (ngSubmit)="onSubmit()" >
       <div>
-        <!--<mat-form-field appearance="fill" style="width: 50%;">-->
-          <!-- <mat-label>Nome</mat-label> -->
           <input class="input_text"
             placeholder="Nome"
             type="text" 
             formControlName="name"
             required
             />
-        <!-- </mat-form-field> -->
       </div>
 
       <div >
-        <!-- <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Numero di serie</mat-label> -->
-          <input class="input_text"
-            placeholder="Numero di serie"
-            type="text"
-            formControlName="serialNumber"
-            />
-        <!-- </mat-form-field> -->
+        <input class="input_text"
+          placeholder="Numero di serie"
+          type="text"
+          formControlName="serialNumber"
+        />
       </div>
 
       <div >
-        <!-- <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Marca</mat-label> -->
-          <input class="input_text"
-            type="text"
-            placeholder="Marca"
-            formControlName="brand"
-            />
-        <!-- </mat-form-field> -->
+        <input class="input_text"
+          type="text"
+          placeholder="Marca"
+          formControlName="brand"
+        />
       </div>
 
       <div >
-        <!-- <mat-form-field appearance="fill" style="width: 50%;">
-          <mat-label>Anno fabbricazione</mat-label> -->
-          <input class="input_text"
-            type="number"
-            formControlName="year"
-            placeholder="Anno di fabbricazione"
-            />
-        <!-- </mat-form-field> -->
+        <input class="input_text"
+          type="number"
+          formControlName="year"
+          placeholder="Anno di fabbricazione"
+        />
       </div>
 
       
 
       <div class="select_field">
-        <!-- <mat-form-field appearance="fill"  style="width: 50%;"> -->
-          <!-- <mat-label>Attivazione</mat-label> -->
-          <select formControlName="activationType">
-            <option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</option>
-          </select>
-        <!-- </mat-form-field> -->
+        <select formControlName="activationType">
+        <option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</option>
+        </select>
       </div>
 
       <div class="select_field">
-        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Contenitore</mat-label> -->
-          <select formControlName="containerType">
-            <option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</option>
-          </select>
-            <!-- </mat-select>
-        </mat-form-field> -->
+        <select formControlName="containerType">
+        <option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</option>
+        </select>
       </div>
 
-      <div >
-        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Colore</mat-label> -->
-          <input class="input_text"
+      <div>
+        <input class="input_text"
           placeholder="Colore"
           type="text" 
-          formControlName="color" />
-        <!-- </mat-form-field> -->
+          formControlName="color" 
+          />
       </div>
 
-      <div >
-        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Variazione</mat-label> -->
+      <div>
           <input class="input_text"
-          type="text" 
-          placeholder="Variazione"
-          formControlName="variation" />
-        <!-- </mat-form-field> -->
+            type="text" 
+            placeholder="Variazione"
+            formControlName="variation" 
+            />
       </div>
       
-      <div >
-        <!-- <mat-form-field appearance="fill"  style="width: 50%;">
-          <mat-label>Descrizione</mat-label> -->
-          <textarea  class="input_text"
+      <div>
+        <textarea  class="input_text"
           placeholder="Descrizione"
-          formControlName="description"></textarea>
-        <!-- </mat-form-field> -->
+          formControlName="description">
+        </textarea>
       </div>
 
+
+      <h2>Dati Proprietario</h2>
       <app-owner-form (ownerUpdate)="updateOwnerData($event)"></app-owner-form>
 
       <app-file-upload formControlName="images"></app-file-upload>

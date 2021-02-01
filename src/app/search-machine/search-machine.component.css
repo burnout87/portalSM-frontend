@@ -92,3 +92,26 @@
     color: white;
     transition-duration: 0.4s;
 }
+
+.machine_search{
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    backdrop-filter: blur(30px);
+   /* fixed position will keep it always visible */
+    position: fixed;
+   /* absolute position will make it so that it goes with the scroll  */
+   /* position: absolute; */ 
+    top: 60px;
+    left: 50px;
+    width: 25%;
+}
+
+.mat-checkbox {
+    color: white;
+    font-family: Raleway;
+    font-size: 15pt;
+    /* position: fixed; */
+    top: 20px;
+    left: 20px;
+}

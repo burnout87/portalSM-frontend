@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConnectivityService } from './connectivity.service';
 import { Machine } from './machine';
 
@@ -10,6 +11,8 @@ import { Machine } from './machine';
 export class AppComponent {
   title = 'portalSM-frontend';
 
-  constructor() { }
+  constructor(public router: Router) { }
+
+
 
 }

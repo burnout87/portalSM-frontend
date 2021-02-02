@@ -1,21 +1,10 @@
-/* section {
-  display: table;
-  padding: 30px;
-  margin: 0 auto;
-}
-
 .button-container {
-  padding: 10px;
-  display: inline-block;
-} */
-
-.button-container-addmachine {
   margin: 10px;
   direction: rtl;
   overflow: hidden;
 }
 
-.button-addmachine {
+.button {
   border-radius: 27px;
   background: rgba(151, 182, 215, 0.8);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -32,11 +21,3 @@
   display: block;
   margin: auto;
 }
-
-/* .container-top-buttons {
-  display: inline-block;
-}
-
-.container-rest {
-  display: inline-block;
-} */

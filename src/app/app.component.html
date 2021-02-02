@@ -1,11 +1,11 @@
 <div class="container-main">
     <div class="container-top-buttons">
-        <div>
-            <button routerLink='/listsms' >Lista delle macchine da cucire</button>
+        <div class="button-container" *ngIf="router.url == '/addsm'">
+            <button class="button" routerLink='/'><span dir=ltr>Lista delle macchine da cucire</span></button>
         </div>
 
-        <div class="button-container-addmachine">
-            <button class="button-addmachine" routerLink='/addsm'><span dir=ltr>+ Registra una nuova macchina</span> </button>
+        <div class="button-container" *ngIf="router.url == '/'">
+            <button class="button" routerLink='/addsm'><span dir=ltr>+ Registra una nuova macchina</span></button>
         </div>
     </div>
 

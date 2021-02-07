@@ -1,14 +1,24 @@
+.machine_search {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    backdrop-filter: blur(30px);
+   /* fixed position will keep it always visible */
+    position: fixed;
+    width: 25%;
+}
+
 /* Year input text box  */
-.year_input{
+.year_input {
     border: solid 3px;
     border-color: rgb(255, 255, 255);
     border-radius: 30px;
     width: 100%;
-    margin: 10px;
+    margin: 5px;
     padding: 10px;
     font-family: Raleway;
-    font-weight:900;
-    font-size: 25px;
+    font-weight: 800;
+    font-size: 11px;
     letter-spacing: 1px;
     
     /* outline:none (here below) removes the highlight when the text box is selected */
@@ -23,28 +33,28 @@
     transition-duration: 0.4s;
 }
 
-.year_input:hover{
+.year_input:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
     /* the placeholder below changes the temporary text in the text box */
-::placeholder{
+::placeholder {
     color: rgba(255, 255, 255, 0.6);
     font-family: Raleway;
     font-weight: 900;
-    font-size: 25px;
+    font-size: 15px;
     text-align: left;
 }
 
 
 /* Search button below  */
-.search{
+.search {
     background-color: rgba(255, 255, 255,);
     font-family: Raleway;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 15px;
     color: rgb(105, 105, 105);
-    padding: 10px;
+    padding: 5px;
     /* border-radius: 30px;
     border-color:rgb(250, 59, 97);
     border: solid 2px; */
@@ -56,30 +66,24 @@
     outline: none;
 }
 
-.search:hover{
+.search:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: crimson;
     color: white;
 }
 
-.toggle_button{
-    background-color: crimson;
-}
-
-/* .toggle_group{
-    border-radius: 25px;
-} */
-
 .mat-button-toggle-group {
     border-radius: 25px;
     transition-duration: 0.4s;
-    margin: 10px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    background-color: rgb(0, 89, 255);
 }
 
 .mat-button-toggle {
     background-color: rgb(0, 89, 255);
     font-family: Raleway;
-    font-size: 13pt;
+    font-size: 10pt;
     color: white;
 }
 
@@ -93,24 +97,10 @@
     transition-duration: 0.4s;
 }
 
-.machine_search{
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    backdrop-filter: blur(30px);
-   /* fixed position will keep it always visible */
-    position: fixed;
-   /* absolute position will make it so that it goes with the scroll  */
-   /* position: absolute;  */
-    top: 60px;
-    left: 50px;
-    /* width: 25%; */
-}
-
 .mat-checkbox {
     color: white;
     font-family: Raleway;
-    font-size: 15pt;
+    font-size: 10pt;
     /* position: fixed; */
     top: 20px;
     left: 20px;

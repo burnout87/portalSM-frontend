@@ -1,11 +1,11 @@
-<!-- <div class="container">
-    <div class="container-search-form">
+<div class="container">
+    <div>
         <app-search-machine [brands]="brands" (searchClicked)="searchClicked($event)"></app-search-machine>
-    </div> -->
-    <div class="container_members">
-        <mat-spinner *ngIf="progressing" ></mat-spinner>
+    </div>
+    <div class="container-members-column">
+        <mat-spinner class="spinner" *ngIf="progressing" ></mat-spinner>
         <ng-container *ngIf="!progressing">
-            <app-machine class="column" *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>
+            <app-machine *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>
         </ng-container>
     </div>
-<!-- </div> -->
+</div>

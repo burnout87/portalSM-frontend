@@ -2,49 +2,49 @@
 <!-- (change)="checkBrand();" -->
 
 <div class="machine_search">
-<div style="width: 50%;">
-  <mat-checkbox 
-    *ngFor="let brand of brands;" 
-    [(ngModel)]="checkedBrands[brand]">
-    {{brand}}
-  </mat-checkbox>
-</div>
+  <div style="width: 50%;">
+    <mat-checkbox 
+      *ngFor="let brand of brands;" 
+      [(ngModel)]="checkedBrands[brand]">
+      {{brand}}
+    </mat-checkbox>
+  </div>
 
-<!-- <label class="container"> Checkbox name
-  <input type="checkbox" checked="checked">
-  <span class="checkmark"></span>
-</label> -->
+  <!-- <label class="container"> Checkbox name
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+  </label> -->
 
-<!-- year -->
-<div>
-    <input  class="year_input"
-    type="text" placeholder="Dal"
-    [(ngModel)]="yearsRange['from']" />
-    <input  class="year_input"
-    type="text" placeholder="Al"
-    [(ngModel)]="yearsRange['to']" />
-</div>
+  <!-- year -->
+  <div>
+      <input  class="year_input"
+      type="text" placeholder="Dal"
+      [(ngModel)]="yearsRange['from']" />
+      <input  class="year_input"
+      type="text" placeholder="Al"
+      [(ngModel)]="yearsRange['to']" />
+  </div>
 
-<!-- Activation type -->
-<div>
-  <mat-button-toggle-group [(ngModel)]="activationType" name="activationType" aria-label="Font Style">
-    <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
-    <mat-button-toggle value="pedal">A pedale</mat-button-toggle>
-    <mat-button-toggle value="handle">A manovella</mat-button-toggle>
-    <mat-button-toggle value="engine">A motore</mat-button-toggle> -->
-    <mat-button-toggle *ngFor="let at of activationTypes" [value]="at">{{ at | capitalizeFirst }}</mat-button-toggle>
-  </mat-button-toggle-group>
-</div>
+  <!-- Activation type -->
+  <div>
+    <mat-button-toggle-group [(ngModel)]="activationType" name="activationType" aria-label="Font Style">
+      <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
+      <mat-button-toggle value="pedal">A pedale</mat-button-toggle>
+      <mat-button-toggle value="handle">A manovella</mat-button-toggle>
+      <mat-button-toggle value="engine">A motore</mat-button-toggle> -->
+      <mat-button-toggle *ngFor="let at of activationTypes" [value]="at">{{ at | capitalizeFirst }}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
 
-<!-- Container type -->
-<div>
-  <mat-button-toggle-group [(ngModel)]="containerType" name="containerType">
-    <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
-    <mat-button-toggle value="table">Tavolo</mat-button-toggle>
-    <mat-button-toggle value="cabinet">Armadietto</mat-button-toggle> -->
-    <mat-button-toggle *ngFor="let ct of containerTypes" [value]="ct">{{ ct | capitalizeFirst }}</mat-button-toggle>
-  </mat-button-toggle-group>
-</div>
+  <!-- Container type -->
+  <div>
+    <mat-button-toggle-group [(ngModel)]="containerType" name="containerType">
+      <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
+      <mat-button-toggle value="table">Tavolo</mat-button-toggle>
+      <mat-button-toggle value="cabinet">Armadietto</mat-button-toggle> -->
+      <mat-button-toggle *ngFor="let ct of containerTypes" [value]="ct">{{ ct | capitalizeFirst }}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
 
-<button class="search" (click)="searchResults()">Search</button>
+  <button class="search" (click)="searchResults()">Cerca</button>
 </div>

@@ -40,6 +40,7 @@
 
       <div class="select_field">
         <select formControlName="activationType">
+        <option value="" disabled selected >OPTION SELECT</option>
         <option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</option>
         </select>
       </div>

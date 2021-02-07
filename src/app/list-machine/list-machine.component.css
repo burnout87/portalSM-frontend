@@ -1,52 +1,26 @@
-* {
-  box-sizing: border-box;
-}
-
-.container_members {
-
-  margin: 0 -5px;
-
-  /* this is what makes there be 3 columns. change the first value in the  bracket for more/less coloumns */
-  /* grid-template-columns: repeat(3, 1fr); */
-}
-
-.container_members:after{
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.container-search-form {
-  padding-top: 0%;
-  padding-bottom: 0%;
-  padding-left: 0%;
-  padding-right: 0%;
-
-}
-
-.container {
-  justify-content: center;
-  align-items: center;
-  /* background-color: blueviolet; */
-
-}
-
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+  * {
+    box-sizing: border-box;
   }
-}
 
-/* .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-} */
+  .container {
+    margin: 0 -5px;
+    width: 100%;
+  }
+
+  .container::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .container-members-column {
+    float: right;
+    width: 75%;
+    padding: 0 10px;
+  }
+
+  .spinner {
+  width: 100%;
+  margin: 0 auto;
+  }
+

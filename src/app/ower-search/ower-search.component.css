@@ -1,0 +1,19 @@
+.example-full-width{
+    font-family: Raleway;
+    left: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.mat-option{
+    color: white;
+    font-family: Raleway;
+    background-color:royalblue;
+    transition-duration: 0.4s;
+    border-radius: 30px;
+    outline: none;
+}
+
+.mat-option:hover{
+    background-color: darkblue;
+}

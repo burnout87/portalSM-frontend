@@ -7,5 +7,30 @@
 }
 
 .table {
-  width: 50%;
+  width: 100%;
+}
+
+.mat-raised-button{
+  font-family: Raleway;
+  font-size: 14pt;
+  color: white;
+  background-color: royalblue;
+  margin: 10px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 40px;
+  transition-duration: 0.4s;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.11), 0 17px 50px 0 rgba(0,0,0,0.11);
+}
+
+.mat-raised-button:hover {
+  background-color: darkblue;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.3);
+}
+
+th{
+  font-family: Raleway;
+  font-size: 12pt;
+  color: rgba(255, 255, 255, 0.7);
 }

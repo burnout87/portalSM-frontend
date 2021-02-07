@@ -15,6 +15,8 @@ export class MachineFormComponent implements OnInit {
   newMachine:FormGroup;
   ownerData: FormGroup;
   progress = -1;
+  initValueActivationType: any;
+  initValueContainerType: any;
   activationTypes = Object.values(ActivationType);
   containerTypes = Object.values(ContainerType);
   @ViewChild(FormGroupDirective) myForm;
@@ -45,6 +47,8 @@ export class MachineFormComponent implements OnInit {
           _id: new FormControl(null),
         }),
       });
+    this.initValueActivationType = "empty";
+    this.initValueContainerType = "empty";
   }
 
   ngOnInit(): void {

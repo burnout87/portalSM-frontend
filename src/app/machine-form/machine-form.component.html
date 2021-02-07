@@ -36,18 +36,18 @@
         />
       </div>
 
-      
 
       <div class="select_field">
-        <select formControlName="activationType">
-        <option value="" disabled selected >OPTION SELECT</option>
-        <option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</option>
+        <select formControlName="activationType" [(ngModel)]="initValueActivationType">
+          <option value="empty" disabled selected>Attivazione</option>
+          <option *ngFor="let activationType of activationTypes" [value]="activationType">{{ activationType }}</option>
         </select>
       </div>
 
       <div class="select_field">
-        <select formControlName="containerType">
-        <option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</option>
+        <select formControlName="containerType" [(ngModel)]="initValueContainerType">
+          <option value="empty" disabled selected>Contenitore</option>
+          <option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</option>
         </select>
       </div>
 

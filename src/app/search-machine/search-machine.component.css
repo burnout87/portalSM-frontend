@@ -49,7 +49,7 @@
     border-color:rgb(250, 59, 97);
     border: solid 2px; */
     margin: 15px;
-    width: 50%;
+    /* width: 50%; */
     border: 3px solid rgb(180, 8, 45);
     border-radius: 30px;
     transition-duration: 0.4s;
@@ -101,10 +101,10 @@
    /* fixed position will keep it always visible */
     position: fixed;
    /* absolute position will make it so that it goes with the scroll  */
-   /* position: absolute; */ 
+   /* position: absolute;  */
     top: 60px;
     left: 50px;
-    width: 25%;
+    /* width: 25%; */
 }
 
 .mat-checkbox {
@@ -114,4 +114,35 @@
     /* position: fixed; */
     top: 20px;
     left: 20px;
+    background-color: red;
+    border-color: blue;
+    padding:10px;
+    margin: 30px;
+    border-width: 10px;
+}
+
+.mat-checkbox-label{
+    padding: 80px;
+    margin: 150px;
+
+}
+
+/* changes the text around the box */
+.mat-checkbox-checked{
+    background-color: green;
+    color:hotpink;
+}
+.mat-checkbox-ripple{
+    color:indigo;
+    background-color: darkolivegreen;
+}
+
+.mat-checkbox-background{
+    color:mediumturquoise;
+    background-color: cornflowerblue;
+}
+
+.mat-ripple{
+    color: coral;
+    background-color: coral;
 }

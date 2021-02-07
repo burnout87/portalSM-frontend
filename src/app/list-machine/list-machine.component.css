@@ -1,9 +1,19 @@
-.container-members {
-  padding-top: 0%;
-  padding-bottom: 0%;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
+}
+
+.container_members {
+
+  margin: 0 -5px;
+
+  /* this is what makes there be 3 columns. change the first value in the  bracket for more/less coloumns */
+  /* grid-template-columns: repeat(3, 1fr); */
+}
+
+.container_members:after{
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .container-search-form {
@@ -11,12 +21,28 @@
   padding-bottom: 0%;
   padding-left: 0%;
   padding-right: 0%;
+
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: blueviolet; */
+
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
 }
 
 /* .card-container {

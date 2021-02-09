@@ -10,7 +10,7 @@
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.20000000298023224);
   box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.5);
-  /*backdrop-filter: blur(51.6474px);*/
+  /* backdrop-filter: blur(51.6474px); */
   /* Note: backdrop-filter has minimal browser support, 
   screws up the modal gallery effect */
 
@@ -42,15 +42,16 @@
 }
 
 .user_icon_container {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin: auto;
   object-fit: scale-down;
+
 }
 
 .user_profile_icon {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin: auto;
 }
 
@@ -82,11 +83,14 @@
 }
 
 .user_profile_group {
-  overflow: hidden;
-  background-color: rgb(255, 255, 255);
-  opacity: 1;
-  width: 129px;
-  height: 31px;
+  /* opacity: 1; */
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+
+  padding: 10px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.11), 0 17px 50px 0 rgba(0,0,0,0.11);
+
 }
 
 #e16_0 {
@@ -108,6 +112,7 @@
   letter-spacing: 0;
   margin: auto;
   line-height: undefined;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .SMbutton {

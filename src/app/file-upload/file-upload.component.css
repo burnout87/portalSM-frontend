@@ -34,3 +34,48 @@ th{
   font-size: 12pt;
   color: rgba(255, 255, 255, 0.7);
 }
+
+.btn{
+background-color: royalblue;
+outline: none;
+}
+
+.btn-danger{
+border-color: white;
+border-width: 2px;
+border-radius: 15px;
+outline:none;
+}
+
+.btn-xs{
+background-color: rgba(255 , 255, 255, 0.5);
+border-radius: 30px;
+font-family: Raleway;
+outline: none;
+color: darkblue;
+animation-duration: 0.4s;
+padding: 10px;
+}
+
+.btn-xs:hover{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-xs:active{
+  outline: none;
+  background-color: rgb(92, 162, 255);
+  border-color: white;
+  color: darkblue;
+}
+
+td{
+  font-family: Raleway;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.trash-icon{
+  width: 18px;
+  height: 18px;
+}
+

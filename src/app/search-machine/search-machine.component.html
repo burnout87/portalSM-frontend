@@ -2,9 +2,9 @@
 <!-- (change)="checkBrand();" -->
 
 <div class="machine_search">
-  <div style="width: 50%;">
+  <div class="container_brands">
     <mat-checkbox 
-      *ngFor="let brand of brands;" 
+      *ngFor="let brand of brands;"
       [(ngModel)]="checkedBrands[brand]">
       {{brand}}
     </mat-checkbox>

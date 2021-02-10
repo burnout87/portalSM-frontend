@@ -78,14 +78,16 @@
     transition-duration: 0.4s;
     margin-bottom: 5px;
     flex-wrap: wrap;
-    background-color: rgb(0, 89, 255);
+    background-color: rgb(45,46,131);
+    border-width: 0mm;
 }
 
 .mat-button-toggle {
-    background-color: rgb(0, 89, 255);
+    background-color: rgb(45,46,131);
     font-family: Raleway;
     font-size: 10pt;
     color: white;
+    border-width: 0mm;
 }
 
 .mat-button-toggle-group:hover {
@@ -93,9 +95,10 @@
 } 
 
 .mat-button-toggle-checked {
-    background-color:rgb(49, 155, 255);
+    background-color:rgb(54,169,255);
     color: white;
     transition-duration: 0.4s;
+    border-width: 0mm;
 }
 
 .mat-checkbox {
@@ -141,7 +144,7 @@
 }
 
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
-    background-color: blue !important;
+    background-color: rgb(30, 33, 223) !important;
   }
 
 

@@ -2,8 +2,15 @@
     width: 100%; 
     overflow-y: scroll; 
     height: 90px;
-    background-color: aqua;
-    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition-duration: 0.7s;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1), 0 5px 50px 0 rgba(0,0,0,0.1);
+}
+
+.container_brands:hover{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 17px 50px 0 rgba(0,0,0,0.2);
 }
 
 .machine_search {
@@ -24,6 +31,7 @@
     border-radius: 30px;
     width: 100%;
     margin: 5px;
+    margin-bottom: 20px;
     padding: 10px;
     font-family: Raleway;
     font-weight: 800;

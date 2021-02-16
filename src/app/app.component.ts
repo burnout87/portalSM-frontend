@@ -13,6 +13,8 @@ export class AppComponent {
 
   constructor(public router: Router) { }
 
-
+  goToTheTop() {
+    window.scrollTo(0, 0);
+  }
 
 }

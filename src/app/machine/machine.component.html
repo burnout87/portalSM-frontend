@@ -23,13 +23,14 @@
       </ks-carousel>
     </div>
   
+  <div class="owner-profile">
     <div class="user_profile_group">
         <div (click)="openDialog($event)" class="user_icon_container">
           <img class="user_profile_icon" src="/assets/user.svg" />
         </div>
       <span class="header">Profilo proprietario</span>
     </div>
-  
+  </div>
     <span class="SMtitle">{{ machineData.brand }} {{ machineData.name }}</span>
     
     <div id="e16_0" *ngIf="machineData.serialNumber"><span class="header">Numero di serie</span></div>
@@ -47,4 +48,5 @@
     <div *ngIf="machineData.activationType" class="SMbutton"><span class="SMbutton_text">{{ machineData.activationType }}</span></div>
     <div *ngIf="machineData.containerType" class="SMbutton"><span class="SMbutton_text">{{ machineData.containerType }}</span></div>
   
-  </div>
+ 
+</div>

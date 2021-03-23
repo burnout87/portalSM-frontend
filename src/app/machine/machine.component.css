@@ -137,6 +137,11 @@
   color: #ffffff;
 }
 
+.owner-profile{
+  position: relative;
+
+}
+
 /*
 .machine-card {
   width: 450px;

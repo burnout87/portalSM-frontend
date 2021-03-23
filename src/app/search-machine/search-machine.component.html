@@ -3,11 +3,19 @@
 
 <div class="machine_search">
   <div class="container_brands"> 
-    <mat-checkbox 
+    <!--<mat-checkbox 
       *ngFor="let brand of brands;"
       [(ngModel)]="checkedBrands[brand]">
       {{brand}}
-    </mat-checkbox>
+    </mat-checkbox>-->
+    
+    <mat-grid-list cols="2" rowHeight="50px">
+      <mat-grid-tile *ngFor="let brand of brands">
+          <mat-checkbox [(ngModel)]="checkedBrands[brand]">
+            {{brand}}
+          </mat-checkbox>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 
 

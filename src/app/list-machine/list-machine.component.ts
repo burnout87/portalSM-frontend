@@ -30,8 +30,8 @@ export class ListMachineComponent implements OnInit {
 
   buildMachinesList(data: Array<object>) {
     this.machines.splice(0, this.machines.length);
-    data = _.orderBy(data, ['brand']);
-    data.forEach(element => {
+    // data = _.orderBy(data, ['brand']);
+    data.forEach((element, i) => {
       var bar = new Promise<void>((resolve, reject) => {
         if(element['images'] && element['images'].length > 0) {
           element['images']?.forEach((imgData, index) => {
@@ -47,6 +47,8 @@ export class ListMachineComponent implements OnInit {
         this.machines.push(m);
         if(m.brand && this.brands.indexOf(m.brand) == -1)
           this.brands.push(m.brand);
+        if(i == data.length - 1)
+          this.brands = _.orderBy(this.brands);
       });
     });
   }

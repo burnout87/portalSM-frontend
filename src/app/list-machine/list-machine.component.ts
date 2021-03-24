@@ -3,6 +3,7 @@ import { ConnectivityService } from '../connectivity.service';
 import { ImageService } from '../image.service';
 import { Machine } from '../machine';
 import { Image } from '@ks89/angular-modal-gallery';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-list-machine',
@@ -29,6 +30,7 @@ export class ListMachineComponent implements OnInit {
 
   buildMachinesList(data: Array<object>) {
     this.machines.splice(0, this.machines.length);
+    data = _.orderBy(data, ['brand']);
     data.forEach(element => {
       var bar = new Promise<void>((resolve, reject) => {
         if(element['images'] && element['images'].length > 0) {

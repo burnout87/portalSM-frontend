@@ -25,9 +25,10 @@ import { SearchMachineComponent } from './search-machine/search-machine.componen
 import { ColorPickerModule } from 'ngx-color-picker';
 import { CapitalizeFirstPipe } from './capitalize-first.pipe';
 import { TooltipModule } from '@syncfusion/ej2-angular-popups';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
-  declarations: [AppComponent, MachineFormComponent, DialogContentUserDialog, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent, SearchMachineComponent, CapitalizeFirstPipe],
+  declarations: [AppComponent, MachineFormComponent, DialogContentUserDialog, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent, SearchMachineComponent, CapitalizeFirstPipe, OrderByPipe],
   imports: [TooltipModule, ModalModule, BrowserModule, GalleryModule.forRoot(), BrowserAnimationsModule, NgxUsefulSwiperModule, CommonModule, ReactiveFormsModule, FormsModule, AppRoutingModule, FileUploadModule, MaterialModule, HttpClientModule, ColorPickerModule],
   providers: [ConnectivityService],
   bootstrap: [AppComponent],

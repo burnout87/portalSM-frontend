@@ -1,7 +1,7 @@
 .container_brands {
     width: 100%; 
     overflow-y: scroll; 
-    height: 90px;
+    height: 150px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     margin-bottom: 20px;
@@ -20,7 +20,7 @@
     backdrop-filter: blur(30px);
    /* fixed position will keep it always visible */
     position: fixed;
-    width: 25%;
+    width: 350px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2), 0 17px 50px 0 rgba(0,0,0,0.2);
 }
 
@@ -168,4 +168,30 @@
 .search-icon{
     width: 17px;
     margin: 0 7px 0;
+}
+
+h4, h5{
+    font-family: Raleway;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+h4{
+    font-size: 16pt;
+    left: 10px;
+
+}
+
+h5{
+    padding-left: 15px;
+    font-size: 14pt;
+}
+
+.mat-grid-tile .mat-figure {
+    justify-content: flex-start !important ;
+    align-items: flex-start !important;
+}
+
+.w-100{
+    width: 100% !important;
 }

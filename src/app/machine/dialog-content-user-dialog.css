@@ -70,7 +70,8 @@
 }
 
 .Combined_Shape {
-  width: 420px;
+  width: 380px;
+  /* height: 465px; */
   height: auto;
   border-radius: 21px;
   padding: 10px !important;

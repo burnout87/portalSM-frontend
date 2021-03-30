@@ -2,20 +2,25 @@
 <!-- (change)="checkBrand();" -->
 
 <div class="machine_search">
+  <h4>Filtra per:</h4>
+  <h5>Marca</h5>
   <div class="container_brands"> 
+
     <!--<mat-checkbox 
       *ngFor="let brand of brands;"
       [(ngModel)]="checkedBrands[brand]">
       {{brand}}
     </mat-checkbox>-->
-    
-    <mat-grid-list cols="2" rowHeight="50px">
+    <!-- <h5>Marca</h5> -->
+    <mat-grid-list cols="1" rowHeight="25px">
       <mat-grid-tile *ngFor="let brand of brands">
           <mat-checkbox [(ngModel)]="checkedBrands[brand]">
             {{brand}}
           </mat-checkbox>
-      </mat-grid-tile>
-    </mat-grid-list>
+          </mat-grid-tile>
+      <!-- </mat-grid-tile> -->
+      </mat-grid-list>
+    <!-- </mat-grid-list> -->
   </div>
 
 
@@ -26,6 +31,7 @@
 
   <!-- year -->
   <div>
+    <h5>Anno</h5>
       <input  class="year_input"
       type="text" placeholder="Dal"
       [(ngModel)]="yearsRange['from']" />
@@ -36,6 +42,7 @@
 
   <!-- Activation type -->
   <div>
+    <h5>Attivazione</h5>
     <mat-button-toggle-group [(ngModel)]="activationType" name="activationType" aria-label="Font Style">
       <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
       <mat-button-toggle value="pedal">A pedale</mat-button-toggle>
@@ -47,6 +54,7 @@
 
   <!-- Container type -->
   <div>
+    <h5>Contenitore</h5>
     <mat-button-toggle-group [(ngModel)]="containerType" name="containerType">
       <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
       <mat-button-toggle value="table">Tavolo</mat-button-toggle>

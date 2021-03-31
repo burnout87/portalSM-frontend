@@ -24,8 +24,13 @@ export class ListMachineComponent implements OnInit {
 
   machineRemovedHandler(machine: Machine) {
     var index: number = this.machines.indexOf(machine, 0);
-    if(index > -1)
+    if(index > -1) {
       this.machines.splice(index, 1);
+      var indexBrand = this.brands.indexOf(machine.brand, 0);
+      if(indexBrand > -1) {
+        this.brands.splice(indexBrand, 1);
+      }
+    }
   }
 
   buildMachinesList(data: Array<object>) {

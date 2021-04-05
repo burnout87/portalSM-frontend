@@ -54,14 +54,17 @@ export class ListMachineComponent implements OnInit {
         /* next line works with strings and numbers, 
          * and you may want to customize it to your needs
          */
-        var valueCompareA = a[property];
-        var valueCompareB = b[property];
-        if(typeof valueCompareA != 'number'){
-          valueCompareA = valueCompareA.toUpperCase();
-          valueCompareB = valueCompareB.toUpperCase();
-        } 
-        var result = (valueCompareA < valueCompareB) ? -1 : (valueCompareA > valueCompareB) ? 1 : 0;
-        return result * sortOrder;
+        if(a[property] && b[property]) {
+          var valueCompareA = a[property];
+          var valueCompareB = b[property];
+          if(typeof valueCompareA != 'number'){
+            valueCompareA = valueCompareA.toUpperCase();
+            valueCompareB = valueCompareB.toUpperCase();
+          } 
+          var result = (valueCompareA < valueCompareB) ? -1 : (valueCompareA > valueCompareB) ? 1 : 0;
+          return result * sortOrder;
+        }
+        return a[property] ? -1 : 1;
     }
 }
 

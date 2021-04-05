@@ -7,7 +7,7 @@
             <p>Ordina per</p>
             <div class="select_field">
                 <select (change)="changeOrdering($event.target.value)" [(ngModel)]="orderingType">
-                    <option *ngFor="let ot of orderingTypes" [value]="ot.key">{{ ot.key | capitalizeFirst }}</option>
+                    <option *ngFor="let ot of orderingTypes" [value]="ot.key">{{ ot.value | capitalizeFirst }}</option>
                 </select>
             </div>
         </div>

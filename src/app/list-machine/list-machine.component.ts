@@ -33,6 +33,11 @@ export class ListMachineComponent implements OnInit {
       key: "brand",
       value: "Marchio"
     },
+    {
+      id: 4,
+      key: "recordingTime",
+      value: "Data d'inserimento"
+    },
   ];
 
   constructor(private csService: ConnectivityService, 
@@ -57,7 +62,7 @@ export class ListMachineComponent implements OnInit {
         if(a[property] && b[property]) {
           var valueCompareA = a[property];
           var valueCompareB = b[property];
-          if(typeof valueCompareA != 'number'){
+          if(typeof valueCompareA == 'string'){
             valueCompareA = valueCompareA.toUpperCase();
             valueCompareB = valueCompareB.toUpperCase();
           } 
@@ -66,8 +71,7 @@ export class ListMachineComponent implements OnInit {
         }
         return a[property] ? -1 : 1;
     }
-}
-
+  }
 
   machineRemovedHandler(machine: Machine) {
     var index: number = this.machines.indexOf(machine, 0);

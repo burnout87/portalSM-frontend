@@ -3,6 +3,14 @@
         <app-search-machine [brands]="brands" (searchClicked)="searchClicked($event)"></app-search-machine>
     </div>
     <div class="container-members-column">
+        <div>
+            <p>Ordina per</p>
+            <div class="select_field">
+                <select (change)="changeOrdering($event.target.value)" [(ngModel)]="orderingType">
+                    <option *ngFor="let ot of orderingTypes" [value]="ot.key">{{ ot.key | capitalizeFirst }}</option>
+                </select>
+            </div>
+        </div>
         <mat-spinner class="spinner" *ngIf="progressing" ></mat-spinner>
         <ng-container *ngIf="!progressing">
             <app-machine *ngFor="let machine of machines;let indexOfelement=index;" (machineRemovedEvent)="machineRemovedHandler($event)" [machineData]=machine [id]=(indexOfelement+1)></app-machine>

@@ -15,12 +15,56 @@ export class ListMachineComponent implements OnInit {
   progressing = false;
   machines:Array<Machine> = new Array();
   brands:Array<string> = new Array();
-  searchingObject: object = {}
+  searchingObject: object = {};
+  orderingType = "name";
+  orderingTypes = [
+    {
+      id: 1,
+      key: "name",
+      value: "Nome"
+    },
+    {
+      id: 2,
+      key: "year",
+      value: "Anno"
+    },
+    {
+      id: 3,
+      key: "brand",
+      value: "Marchio"
+    },
+  ];
 
   constructor(private csService: ConnectivityService, 
     private imgService: ImageService) {
-    
+      this.machines.sort(this.dynamicSort('name'));
   }
+
+  changeOrdering(value) {
+    this.machines.sort(this.dynamicSort(value));
+  }
+
+  dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a, b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        var valueCompareA = a[property];
+        var valueCompareB = b[property];
+        if(typeof valueCompareA != 'number'){
+          valueCompareA = valueCompareA.toUpperCase();
+          valueCompareB = valueCompareB.toUpperCase();
+        } 
+        var result = (valueCompareA < valueCompareB) ? -1 : (valueCompareA > valueCompareB) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
 
   machineRemovedHandler(machine: Machine) {
     var index: number = this.machines.indexOf(machine, 0);

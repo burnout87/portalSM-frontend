@@ -21,22 +21,32 @@ export class ListMachineComponent implements OnInit {
     {
       id: 1,
       key: "name",
-      value: "Nome"
+      value: "Nome A...Z"
     },
     {
       id: 2,
+      key: "-name",
+      value: "Nome Z...A"
+    },
+    {
+      id: 3,
       key: "year",
       value: "Anno"
     },
     {
-      id: 3,
+      id: 4,
       key: "brand",
       value: "Marchio"
     },
     {
-      id: 4,
+      id: 5,
       key: "recordingTime",
       value: "Data d'inserimento"
+    },
+    {
+      id: 6,
+      key: "ownerData",
+      value: "Proprietario"
     },
   ];
 
@@ -65,7 +75,13 @@ export class ListMachineComponent implements OnInit {
           if(typeof valueCompareA == 'string'){
             valueCompareA = valueCompareA.toUpperCase();
             valueCompareB = valueCompareB.toUpperCase();
-          } 
+          } else {
+            if(property == "ownerData"){
+              valueCompareA = (valueCompareA["surname"] + " " + valueCompareA["name"]).toUpperCase();
+              valueCompareB = (valueCompareB["surname"] + " " + valueCompareB["name"]).toUpperCase();
+            }
+
+          }
           var result = (valueCompareA < valueCompareB) ? -1 : (valueCompareA > valueCompareB) ? 1 : 0;
           return result * sortOrder;
         }

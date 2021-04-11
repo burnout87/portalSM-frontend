@@ -47,9 +47,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     else { padding = 0; }
 
     base64StringLength = base64String.length;
-    console.log(base64StringLength);
     inBytes = (base64StringLength / 4) * 3 - padding;
-    console.log(inBytes);
     return inBytes;
   }
 

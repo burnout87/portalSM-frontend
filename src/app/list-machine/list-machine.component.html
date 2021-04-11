@@ -3,7 +3,7 @@
         <app-search-machine [brands]="brands" (searchClicked)="searchClicked($event)"></app-search-machine>
     </div>
     <div class="container-members-column">
-        <div>
+        <div class="order-by">
             <p>Ordina per</p>
             <div class="select_field">
                 <select (change)="changeOrdering($event.target.value)" [(ngModel)]="orderingType">

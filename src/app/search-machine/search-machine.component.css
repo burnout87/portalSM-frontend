@@ -21,6 +21,7 @@
    /* fixed position will keep it always visible */
     position: fixed;
     width: 350px;
+    height: 100%;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2), 0 17px 50px 0 rgba(0,0,0,0.2);
     overflow-y:auto;
 }
@@ -188,11 +189,20 @@ h5{
     font-size: 14pt;
 }
 
-.mat-grid-tile .mat-figure {
+/* .mat-grid-tile .mat-figure {
     justify-content: flex-start !important ;
     align-items: flex-start !important;
-}
+} */
 
 .w-100{
     width: 100% !important;
+}
+
+/* ::ng-deep md-grid-tile.mat-grid-tile .mat-figure {
+    align-items: flex-start;  vertical alignment
+    justify-content: flex-start;  horizontal alignment
+} */
+
+.brand-checkbox >::ng-deep .mat-figure{
+    justify-content: flex-start;
 }

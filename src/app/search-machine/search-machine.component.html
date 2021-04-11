@@ -13,7 +13,7 @@
     </mat-checkbox>-->
     <!-- <h5>Marca</h5> -->
     <mat-grid-list cols="1" rowHeight="25px">
-      <mat-grid-tile *ngFor="let brand of brands">
+      <mat-grid-tile coslpan="1" class="brand-checkbox" *ngFor="let brand of brands">
           <mat-checkbox [(ngModel)]="checkedBrands[brand]">
             {{brand}}
           </mat-checkbox>

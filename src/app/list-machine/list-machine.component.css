@@ -23,3 +23,43 @@
   width: 100%;
   margin: 0 auto;
   }
+  .select_field {
+    /* color changes the text and arrow color  */
+    color: rgb(255, 255, 255);
+    outline: none;
+}
+
+.select_field select {
+    /* background color is the text box color  */
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    background-color: rgba(0, 87, 248, 0.7);
+    backdrop-filter: blur(30px);
+    width: 90%;
+    border-radius: 30px;
+    border-width: 0;
+    padding: 10px;
+    margin: 10px;
+    font-family: Raleway;
+    font-size: 10pt;
+    outline: none;
+    transition-duration: 1ms;
+}
+
+p{
+  color: white;
+  font-family: Raleway;
+  font-size: 12pt;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.order-by{
+  backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  border-width: 0;
+  width: 15%;
+  padding: 10px;
+  position: relative;
+  left: 85%;
+}

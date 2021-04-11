@@ -57,6 +57,10 @@ export class MachineComponent implements OnInit, AfterViewInit  {
     });
   }
 
+  editMachine() {
+    
+  }
+
   // tooltip/dialog stuff
   openDialog(event) {
     

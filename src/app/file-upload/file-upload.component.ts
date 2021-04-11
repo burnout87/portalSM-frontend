@@ -30,10 +30,27 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     // Performs an init-like operation in case it is an edit operation
     if (this.inputFiles) {
       for (let file of this.inputFiles) {
+        var base64Str = file.modal.img.split(',');
+        file.size = this.calculateImageSize(base64Str[1]);
         this.files.push(file);
       }
      this.inputFiles = null;
     }
+  }
+
+  private calculateImageSize(base64String) {
+    let padding;
+    let inBytes;
+    let base64StringLength;
+    if (base64String.endsWith('==')) { padding = 2; }
+    else if (base64String.endsWith('=')) { padding = 1; }
+    else { padding = 0; }
+
+    base64StringLength = base64String.length;
+    console.log(base64StringLength);
+    inBytes = (base64StringLength / 4) * 3 - padding;
+    console.log(inBytes);
+    return inBytes;
   }
 
   registerOnChange(fn: any): void {

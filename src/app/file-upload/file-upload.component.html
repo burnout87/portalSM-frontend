@@ -23,13 +23,14 @@
     <tr *ngFor="let file of files">
       <td>
         <div class="containerImagePreview">
-          <img src='{{file?.imageURL}}' class="imagePreview"/>
+          <img src='{{file?.imageURL? file?.imageURL: file?.modal.img}}' class="imagePreview"/>
           <div>
             <mat-progress-bar *ngIf="file?.loading" mode="indeterminate"></mat-progress-bar>
           </div>
         </div>
       </td>
-      <td><strong>{{ file?.name }}</strong></td>
+      <!-- <td><strong>{{ file?.name }}</strong></td> -->
+      <td><strong>{{ file?.id }}</strong></td>
       <td nowrap>{{ file?.size/1024/1024 | number:'.2' }} MB</td>
       <td nowrap>
         <button type="button" class="btn btn-danger btn-xs"

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from "@angular/router"
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FileItem } from 'ng2-file-upload';
+import { Image } from '@ks89/angular-modal-gallery';
 
 @Component({
   selector: 'app-file-upload',
@@ -15,14 +17,23 @@ import { FileItem } from 'ng2-file-upload';
   ]
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor  {
-
-  public files: Array<File> = new Array();
+  inputFiles: Array<any> = null;
+  public files: Array<any> = new Array();
   onChange: Function;
 
-  constructor() { }
+  constructor(private router: Router) { 
+    this.inputFiles = this.router.getCurrentNavigation().extras.state?.images as Array<any>;
+  }
 
   writeValue(obj: any): void { 
     this.cleanFilesList();
+    // Performs an init-like operation in case it is an edit operation
+    if (this.inputFiles) {
+      for (let file of this.inputFiles) {
+        this.files.push(file);
+      }
+     this.inputFiles = null;
+    }
   }
 
   registerOnChange(fn: any): void {
@@ -38,7 +49,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
   onFileChange($event) {
     var fileImg: any = $event.target.files[0];
     fileImg.loading = true;
-    var bar = new Promise((resolve, reject) => {
+    var bar = new Promise<void>((resolve, reject) => {
       this.files.push(fileImg);
       // File Preview
       const reader = new FileReader();
@@ -56,12 +67,12 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
   }
 
   cleanFilesList() {
-    this.files = new Array();
+    this.files = new Array<any>();
   }
 
-   removeFileFromList(file) {
+  removeFileFromList(file) {
     const index = this.files.indexOf(file, 0);
     if(index > -1)
-     this.files.splice(index, 1);
-   }
+      this.files.splice(index, 1);
+  }
 }

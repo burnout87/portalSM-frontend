@@ -72,11 +72,11 @@ export class ListMachineComponent implements OnInit {
         if(a[property] && b[property]) {
           var valueCompareA = a[property];
           var valueCompareB = b[property];
-          if(typeof valueCompareA == 'string'){
+          if(typeof valueCompareA == 'string') {
             valueCompareA = valueCompareA.toUpperCase();
             valueCompareB = valueCompareB.toUpperCase();
           } else {
-            if(property == "ownerData"){
+            if(property == "ownerData") {
               valueCompareA = (valueCompareA["surname"] + " " + valueCompareA["name"]).toUpperCase();
               valueCompareB = (valueCompareB["surname"] + " " + valueCompareB["name"]).toUpperCase();
             }

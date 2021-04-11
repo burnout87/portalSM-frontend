@@ -85,13 +85,22 @@
       </div>
 
       <button
-        *ngIf="progress == -1"
+        *ngIf="progress == -1 && !inputMachine"
         type="submit"
         class="btn btn-success"
         [disabled]="!newMachine.valid"
       >
-      <img class="checked-icon" src="/assets/checked-icon.svg" />
-        Submit
+        <img class="checked-icon" src="/assets/checked-icon.svg" />
+        Registra
+      </button>
+      <button
+        *ngIf="progress == -1 && inputMachine"
+        type="submit"
+        class="btn btn-success"
+        [disabled]="!newMachine.valid"
+      >
+        <img class="checked-icon" src="/assets/checked-icon.svg" />
+        Aggiorna
       </button>
     </form>
   </div>

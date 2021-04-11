@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Machine } from '../machine';
 import { Owner } from '../owner';
 import { ConnectivityService } from '../connectivity.service';
@@ -28,7 +29,8 @@ export class MachineComponent implements OnInit, AfterViewInit  {
 
   constructor(private csService: ConnectivityService,
     public dialog: MatDialog,
-    private overlay: Overlay) {
+    private overlay: Overlay,
+    private router : Router) {
      }
 
   @Output() machineRemovedEvent: EventEmitter<Machine> = new EventEmitter();
@@ -58,7 +60,7 @@ export class MachineComponent implements OnInit, AfterViewInit  {
   }
 
   editMachine() {
-    
+    this.router.navigateByUrl('/addsm', { state: this.machineData });
   }
 
   // tooltip/dialog stuff

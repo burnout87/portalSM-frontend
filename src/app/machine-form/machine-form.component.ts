@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, Input } from "@angular/core";
+import { Router } from "@angular/router"
 import { ConnectivityService } from "../connectivity.service";
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
 import { OwnerFormComponent } from '../owner-form/owner-form.component';
-import { ActivationType, ContainerType } from "../machine";
+import { ActivationType, ContainerType, Machine } from "../machine";
 
 @Component({
   selector: "app-machine-form",
@@ -12,7 +13,8 @@ import { ActivationType, ContainerType } from "../machine";
 })
 export class MachineFormComponent implements OnInit {
   
-  newMachine:FormGroup;
+  inputMachine: any = null;
+  newMachine: FormGroup;
   ownerData: FormGroup;
   progress = -1;
   initValueActivationType: any;
@@ -23,32 +25,34 @@ export class MachineFormComponent implements OnInit {
   @ViewChild(OwnerFormComponent) private ownerForm: OwnerFormComponent;
 
   constructor(private csService: ConnectivityService,
-          private formBuilder: FormBuilder) {
+          private formBuilder: FormBuilder,
+          private router: Router) {
+      this.inputMachine = this.router.getCurrentNavigation().extras.state as any;
       this.newMachine = this.formBuilder.group({
-        name: new FormControl(null),
-        year: new FormControl(null),
+        name: new FormControl(this.inputMachine?.name),
+        year: new FormControl(this.inputMachine?.year),
         activationType: new FormControl(null),
         containerType: new FormControl(null),
-        serialNumber: new FormControl(null),
-        brand:  new FormControl(null),
-        images: new FormControl(null),
-        description: new FormControl(null),
-        color: new FormControl(null),
-        variation: new FormControl(null),
+        serialNumber: new FormControl(this.inputMachine?.serialNumber),
+        brand:  new FormControl(this.inputMachine?.brand),
+        images: new FormControl(this.inputMachine?.images),
+        description: new FormControl(this.inputMachine?.description),
+        color: new FormControl(this.inputMachine?.color),
+        variation: new FormControl(this.inputMachine?.variation),
         ownerData: this.formBuilder.group({
-          name: new FormControl(null),
-          surname: new FormControl(null),
-          address: new FormControl(null),
-          cap: new FormControl(null),
-          city: new FormControl(null),
-          country: new FormControl(null),
-          phone: new FormControl(null),
-          mail: new FormControl(null),
-          _id: new FormControl(null),
+          name: new FormControl(this.inputMachine?.ownerData?.name),
+          surname: new FormControl(this.inputMachine?.ownerData?.surname),
+          address: new FormControl(this.inputMachine?.ownerData?.address),
+          cap: new FormControl(this.inputMachine?.ownerData?.postCode),
+          city: new FormControl(this.inputMachine?.ownerData?.city),
+          country: new FormControl(this.inputMachine?.ownerData?.country),
+          phone: new FormControl(this.inputMachine?.ownerData?.phone),
+          mail: new FormControl(this.inputMachine?.ownerData?.mail),
+          _id: new FormControl(this.inputMachine?.ownerData?._id),
         }),
       });
-    this.initValueActivationType = "empty";
-    this.initValueContainerType = "empty";
+      this.initValueActivationType = this.inputMachine?.activationType ? this.inputMachine?.activationType : "empty";
+      this.initValueContainerType = this.inputMachine?.containerType ? this.inputMachine?.containerType : "empty";
   }
 
   ngOnInit(): void {

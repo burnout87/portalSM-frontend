@@ -16,6 +16,7 @@ export class MachineFormComponent implements OnInit {
   inputMachine: any = null;
   newMachine: FormGroup;
   ownerData: FormGroup;
+  updatedMachine: boolean = false;
   progress = -1;
   initValueActivationType: any;
   initValueContainerType: any;

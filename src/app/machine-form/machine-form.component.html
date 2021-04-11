@@ -97,7 +97,7 @@
         *ngIf="progress == -1 && inputMachine"
         type="submit"
         class="btn btn-success"
-        [disabled]="!newMachine.valid"
+        [disabled]="!newMachine.valid || !updatedMachine"
       >
         <img class="checked-icon" src="/assets/checked-icon.svg" />
         Aggiorna

@@ -68,18 +68,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     if (this.inputFiles) {
       for (let file of this.inputFiles) {
         let base64URL = null
+        var fr = new FileReader();
         if(file && file.modal && file.modal.img) {
           base64URL = file.modal.img
-          file = this.dataURLtoFile(file.modal.img,'hello.png');
+          file = this.dataURLtoFile(file.modal.img,'');
         }
-          
-        // let png = file.modal.img.split(',')[1];
-        // let the_file = new Blob([window.atob(png)],  {type: 'image/png'});
-        // let blobImg = this.dataURItoBlob(file.modal.img);
-        // file = new File(file.modal.img, "untitle.png");
-        // let base64Str = file.modal.img.split(',');
-        // file = new File(file.modal.img, "untitle.png");
-        // file.size = this.calculateImageSize(base64Str[1]);
         file.imageURL = base64URL
         this.files.push(file);
       }

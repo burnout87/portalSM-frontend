@@ -17,24 +17,21 @@ import { Image } from '@ks89/angular-modal-gallery';
   ]
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor  {
-  inputFiles: Array<any> = null;
   
   public files: Array<any> = new Array();
   onChange: Function;
 
   constructor(private router: Router) { 
-    this.inputFiles = this.router.getCurrentNavigation().extras.state?.images as Array<any>;
   }
 
   private dataURLtoFile(dataurl, filename) {
-  
     var arr = dataurl.split(','),
         mime = arr[0].match(/:(.*?);/)[1],
         bstr = atob(arr[1]), 
         n = bstr.length, 
         u8arr = new Uint8Array(n);
         
-    while(n--){
+    while(n--) {
         u8arr[n] = bstr.charCodeAt(n);
     }
     
@@ -44,11 +41,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
 
   writeValue(obj: any): void { 
     this.cleanFilesList();
+    let filesInput = obj as Array<any>;
     // Performs an init-like operation in case it is an edit operation
-    if (this.inputFiles) {
-      for (let file of this.inputFiles) {
+    if (filesInput) {
+      for (let file of filesInput) {
         let base64URL = null
-        var fr = new FileReader();
         if(file && file.modal && file.modal.img) {
           base64URL = file.modal.img
           file = this.dataURLtoFile(file.modal.img,'');
@@ -56,26 +53,25 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
         file.imageURL = base64URL
         this.files.push(file);
       }
-      this.inputFiles = null;
     }
   }
 
-private calculateImageSize(base64String) {
-  let padding;
-  let inBytes;
-  let base64StringLength;
-  if (base64String.endsWith('==')) { padding = 2; }
-  else if (base64String.endsWith('=')) { padding = 1; }
-  else { padding = 0; }
+  private calculateImageSize(base64String) {
+    let padding;
+    let inBytes;
+    let base64StringLength;
+    if (base64String.endsWith('==')) { padding = 2; }
+    else if (base64String.endsWith('=')) { padding = 1; }
+    else { padding = 0; }
 
-  base64StringLength = base64String.length;
-  inBytes = (base64StringLength / 4) * 3 - padding;
-  return inBytes;
-}
+    base64StringLength = base64String.length;
+    inBytes = (base64StringLength / 4) * 3 - padding;
+    return inBytes;
+  }
 
-registerOnChange(fn: any): void {
-  this.onChange = fn;
-}
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
 
   registerOnTouched(fn: any): void { }
 

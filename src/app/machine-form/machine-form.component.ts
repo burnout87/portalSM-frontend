@@ -16,7 +16,7 @@ export class MachineFormComponent implements OnInit {
   inputMachine: any = null;
   newMachine: FormGroup;
   ownerData: FormGroup;
-  updatedMachine: boolean = false;
+  updatedMachine: boolean = true;
   progress = -1;
   initValueActivationType: any;
   initValueContainerType: any;
@@ -44,7 +44,7 @@ export class MachineFormComponent implements OnInit {
           name: new FormControl(this.inputMachine?.ownerData?.name),
           surname: new FormControl(this.inputMachine?.ownerData?.surname),
           address: new FormControl(this.inputMachine?.ownerData?.address),
-          cap: new FormControl(this.inputMachine?.ownerData?.postCode),
+          cap: new FormControl(this.inputMachine?.ownerData?.cap),
           city: new FormControl(this.inputMachine?.ownerData?.city),
           country: new FormControl(this.inputMachine?.ownerData?.country),
           phone: new FormControl(this.inputMachine?.ownerData?.phone),
@@ -65,25 +65,48 @@ export class MachineFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // adding record creation date
-    var fdNewMachine:FormData = this.toFormData(this.newMachine.value);
-    fdNewMachine.append('recordingTime', new Date().getTime().toString())
-    this.csService.InsertNewMachine(fdNewMachine).subscribe((event) => {
-    
-      if (event.type && event.type === HttpEventType.UploadProgress ) {
-        this.progress = Math.round((100 * event.loaded) / event.total);
-      }
 
-      if (event.type && event.type === HttpEventType.Response ) {
-        if(event.body && event.body.success == true) {
-          this.newMachine.reset();
-          this.myForm.resetForm();
-          this.ownerForm.resetForm();
-          this.progress = -1;
+    if(this.inputMachine) {
+      // adding record creation date
+      let fdNewMachine:FormData = this.toFormData(this.newMachine.value);
+      // fdNewMachine.append('recordingTime', this.inputMachine.recordingTime);
+      fdNewMachine.append('lastUpdateTime', new Date().getTime().toString());
+      fdNewMachine.append('id', this.inputMachine._id);
+      this.csService.UpdateCard(fdNewMachine).subscribe((event) => {
+        if (event.type && event.type === HttpEventType.UploadProgress ) {
+          this.progress = Math.round((100 * event.loaded) / event.total);
         }
-      }
-      
-    });
+  
+        if (event.type && event.type === HttpEventType.Response ) {
+          if(event.body && event.body.success == true) {
+            this.newMachine.reset();
+            this.myForm.resetForm();
+            this.ownerForm.resetForm();
+            this.progress = -1;
+            this.inputMachine = null;
+          }
+        }
+      });
+    } else {
+      // adding record creation date
+      let fdNewMachine:FormData = this.toFormData(this.newMachine.value);
+      fdNewMachine.append('recordingTime', new Date().getTime().toString())
+      this.csService.InsertNewMachine(fdNewMachine).subscribe((event) => {
+    
+        if (event.type && event.type === HttpEventType.UploadProgress ) {
+          this.progress = Math.round((100 * event.loaded) / event.total);
+        }
+  
+        if (event.type && event.type === HttpEventType.Response ) {
+          if(event.body && event.body.success == true) {
+            this.newMachine.reset();
+            this.myForm.resetForm();
+            this.ownerForm.resetForm();
+            this.progress = -1;
+          }
+        }
+      });
+    }
   }
 
   private toFormData<T>(data:T) {
@@ -102,7 +125,6 @@ export class MachineFormComponent implements OnInit {
             for ( const ownerKey of Object.keys(data[key]) ) {
               if(data[key][ownerKey] != null)
                 formData.append(`ownerData[${ownerKey}]`, data[key][ownerKey]);
-              
             }
           }
           

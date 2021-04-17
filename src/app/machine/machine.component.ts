@@ -42,15 +42,9 @@ export class MachineComponent implements OnInit, AfterViewInit  {
 
   private slideThumb:boolean = true;
 
-  ngOnInit(): void { 
-    // this.tooltipContent = '<ng-template #content>\
-    //       <h3>User profile</h3>\
-    //       <p><strong>Name</strong> ' + this.machineData.ownerData?.name + '\
-    //       <p><strong>Surname</strong> ' + this.machineData.ownerData?.surname + '\
-    //     </ng-template>';
-  }
+  ngOnInit(): void { }
 
-  ngAfterViewInit() {  }
+  ngAfterViewInit() { }
 
   deleteMachine() {
     this.csService.RemoveMachine(this.machineData._id).subscribe(response => {

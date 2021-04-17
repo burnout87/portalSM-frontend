@@ -18,6 +18,7 @@ import { Image } from '@ks89/angular-modal-gallery';
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor  {
   inputFiles: Array<any> = null;
+  
   public files: Array<any> = new Array();
   onChange: Function;
 
@@ -25,35 +26,83 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     this.inputFiles = this.router.getCurrentNavigation().extras.state?.images as Array<any>;
   }
 
+  private dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    let byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], {type:mimeString});
+  }
+
+  private dataURLtoFile(dataurl, filename) {
+  
+    var arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), 
+        n = bstr.length, 
+        u8arr = new Uint8Array(n);
+        
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    
+    return new File([u8arr], filename, {type:mime});
+  }
+
+
   writeValue(obj: any): void { 
     this.cleanFilesList();
     // Performs an init-like operation in case it is an edit operation
     if (this.inputFiles) {
       for (let file of this.inputFiles) {
-        var base64Str = file.modal.img.split(',');
-        file.size = this.calculateImageSize(base64Str[1]);
+        let base64URL = null
+        if(file && file.modal && file.modal.img) {
+          base64URL = file.modal.img
+          file = this.dataURLtoFile(file.modal.img,'hello.png');
+        }
+          
+        // let png = file.modal.img.split(',')[1];
+        // let the_file = new Blob([window.atob(png)],  {type: 'image/png'});
+        // let blobImg = this.dataURItoBlob(file.modal.img);
+        // file = new File(file.modal.img, "untitle.png");
+        // let base64Str = file.modal.img.split(',');
+        // file = new File(file.modal.img, "untitle.png");
+        // file.size = this.calculateImageSize(base64Str[1]);
+        file.imageURL = base64URL
         this.files.push(file);
       }
-     this.inputFiles = null;
+      this.inputFiles = null;
     }
   }
 
-  private calculateImageSize(base64String) {
-    let padding;
-    let inBytes;
-    let base64StringLength;
-    if (base64String.endsWith('==')) { padding = 2; }
-    else if (base64String.endsWith('=')) { padding = 1; }
-    else { padding = 0; }
+private calculateImageSize(base64String) {
+  let padding;
+  let inBytes;
+  let base64StringLength;
+  if (base64String.endsWith('==')) { padding = 2; }
+  else if (base64String.endsWith('=')) { padding = 1; }
+  else { padding = 0; }
 
-    base64StringLength = base64String.length;
-    inBytes = (base64StringLength / 4) * 3 - padding;
-    return inBytes;
-  }
+  base64StringLength = base64String.length;
+  inBytes = (base64StringLength / 4) * 3 - padding;
+  return inBytes;
+}
 
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
+registerOnChange(fn: any): void {
+  this.onChange = fn;
+}
 
   registerOnTouched(fn: any): void { }
 

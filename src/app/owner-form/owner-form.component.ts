@@ -21,7 +21,7 @@ export class OwnerFormComponent implements OnInit {
         name: new FormControl(this.inputOwner?.name),
         surname: new FormControl(this.inputOwner?.surname),
         address: new FormControl(this.inputOwner?.address),
-        cap: new FormControl(this.inputOwner?.postCode),
+        cap: new FormControl(this.inputOwner?.cap),
         city: new FormControl(this.inputOwner?.city),
         country: new FormControl(this.inputOwner?.country),
         phone: new FormControl(this.inputOwner?.phone),

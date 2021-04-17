@@ -18,6 +18,14 @@ export class ConnectivityService {
       });
   }
 
+  public UpdateCard(data: FormData): Rx.Observable<any> {
+    return this.http.post(environment.updateCard, data,
+      {
+        reportProgress: true,
+        observe: 'events'
+      });
+  }
+
   public RemoveMachine(id: Number): Rx.Observable<object> {
     return this.http.delete(environment.sms + '/' + id);
   }

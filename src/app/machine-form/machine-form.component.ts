@@ -67,6 +67,7 @@ export class MachineFormComponent implements OnInit {
   onSubmit() {
 
     if(this.inputMachine) {
+      // update operation
       // adding record creation date
       let fdNewMachine:FormData = this.toFormData(this.newMachine.value);
       // fdNewMachine.append('recordingTime', this.inputMachine.recordingTime);

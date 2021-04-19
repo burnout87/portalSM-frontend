@@ -34,8 +34,8 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     while(n--) {
         u8arr[n] = bstr.charCodeAt(n);
     }
-    
-    return new File([u8arr], filename, {type:mime});
+    let fileExtension = mime.split('/')[1];
+    return new File([u8arr], filename + '.' + fileExtension, {type:mime});
   }
 
 
@@ -44,15 +44,16 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     let filesInput = obj as Array<any>;
     // Performs an init-like operation in case it is an edit operation
     if (filesInput) {
-      for (let file of filesInput) {
+      filesInput.forEach((file, i) => {
         let base64URL = null
         if(file && file.modal && file.modal.img) {
           base64URL = file.modal.img
-          file = this.dataURLtoFile(file.modal.img,'');
+          file = this.dataURLtoFile(file.modal.img, i);
+          file.loading = false;
         }
         file.imageURL = base64URL
         this.files.push(file);
-      }
+      });
     }
   }
 

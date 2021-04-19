@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angula
 import { HttpEventType } from '@angular/common/http';
 import { OwnerFormComponent } from '../owner-form/owner-form.component';
 import { ActivationType, ContainerType, Machine } from "../machine";
+import * as uuid from 'uuid';
 
 @Component({
   selector: "app-machine-form",
@@ -91,13 +92,11 @@ export class MachineFormComponent implements OnInit {
     } else {
       // adding record creation date
       let fdNewMachine:FormData = this.toFormData(this.newMachine.value);
-      fdNewMachine.append('recordingTime', new Date().getTime().toString())
+      fdNewMachine.append('recordingTime', new Date().getTime().toString());
       this.csService.InsertNewMachine(fdNewMachine).subscribe((event) => {
-    
         if (event.type && event.type === HttpEventType.UploadProgress ) {
           this.progress = Math.round((100 * event.loaded) / event.total);
         }
-  
         if (event.type && event.type === HttpEventType.Response ) {
           if(event.body && event.body.success == true) {
             this.newMachine.reset();

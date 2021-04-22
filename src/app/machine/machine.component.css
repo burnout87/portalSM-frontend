@@ -147,7 +147,7 @@
   font-family: Raleway;
   border-radius: 30px;
   font-weight: bolder;
-  left: 62%;
+  left: 53%;
   backdrop-filter: blur(30px);
   margin: 2.5px;
 }
@@ -168,6 +168,10 @@
   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 17px 50px 0 rgba(0,0,0,0.2);
 }
 
+.description_box{
+  overflow-y: auto;
+  height: 80px;
+}
 /*
 .machine-card {
   width: 450px;

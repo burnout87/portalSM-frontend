@@ -62,7 +62,10 @@ export class MachineFormComponent implements OnInit {
 
   updateOwnerData(ownerForm: FormGroup) {
     this.ownerData = ownerForm;
-    this.newMachine.patchValue({ownerData: this.ownerData.value});
+    if(ownerForm)
+      this.newMachine.patchValue({ownerData: this.ownerData.value});
+    else
+      this.newMachine.patchValue({ownerData: this.ownerData.value});
   }
 
   onSubmit() {

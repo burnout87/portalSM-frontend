@@ -11,7 +11,7 @@ import { Owner } from '../owner';
 export class OwnerFormComponent implements OnInit {
   inputOwner: any = null;
   newOwner: FormGroup;
-  @ViewChild(FormGroupDirective) myForm;
+  // @ViewChild(FormGroupDirective) myForm;
   @Output() ownerUpdate: EventEmitter<FormGroup> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder,
@@ -30,16 +30,21 @@ export class OwnerFormComponent implements OnInit {
       });
   }
 
-  public resetForm() {
-    this.newOwner.reset();
-    this.myForm.resetForm();
-  }
-
-  onDataOwnerChange($event) {
+  public resetOwnerData() {
+    this.resetForm();
     this.ownerUpdate.emit(this.newOwner);
   }
 
-  ownerFound($event) {
+  public resetForm() {
+    this.newOwner.reset();
+    // this.myForm.resetForm();
+  }
+
+  public onDataOwnerChange($event) {
+    this.ownerUpdate.emit(this.newOwner);
+  }
+
+  public ownerFound($event) {
     if($event){
       // this.newOwner.setValue($event);
       this.newOwner.patchValue($event);

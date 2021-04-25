@@ -44,15 +44,22 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor  {
     let filesInput = obj as Array<any>;
     // Performs an init-like operation in case it is an edit operation
     if (filesInput) {
+
       filesInput.forEach((file, i) => {
-        let base64URL = null
-        if(file && file.modal && file.modal.img) {
-          base64URL = file.modal.img
-          file = this.dataURLtoFile(file.modal.img, i);
+        var bar = new Promise<void>((resolve, reject) => {
+          let base64URL = null
+          if(file && file.modal && file.modal.img) {
+            base64URL = file.modal.img
+            file = this.dataURLtoFile(file.modal.img, i);
+          }
+          file.imageURL = base64URL as string;
+          this.files.push(file);
+          resolve();
+        });
+        bar.then(() =>  {
           file.loading = false;
-        }
-        file.imageURL = base64URL
-        this.files.push(file);
+          this.onChange(this.files);
+        });
       });
     }
   }

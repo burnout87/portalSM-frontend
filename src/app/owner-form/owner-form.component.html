@@ -1,4 +1,12 @@
 <app-ower-search (ownerFoundEvent)="ownerFound($event)"></app-ower-search>
+
+  <button
+  type="button" 
+  *ngIf="inputOwner"
+  (click)="resetOwnerData()">
+    Resetta dati proprietario
+  </button>
+
 <form [formGroup]="newOwner" >
     <div>
       <!-- <mat-form-field appearance="fill" style="width: 50%;">

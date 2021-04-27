@@ -89,6 +89,7 @@ export class MachineFormComponent implements OnInit {
             this.ownerForm.resetForm();
             this.progress = -1;
             this.inputMachine = null;
+            this.router.navigateByUrl('/');
           }
         }
       });

@@ -24,6 +24,21 @@
 }
 
 .text_input:hover{
-    /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.3);
+}
+
+.ng-star-inserted{
+    color: white;
+    background-color: rgba(17, 0, 255, 0.788);
+    border-radius: 20mm;
+    font-family: Raleway;
+    border-width: 0;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0);
+    position: relative;
+    left: 79%;
+    transition-duration: 0.4s;
+}
+
+.ng-star-inserted:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.3);
 }

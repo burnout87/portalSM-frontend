@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  sms: "http://localhost:4000/api/sms",
+  sms: "http://192.168.1.3:4000/api/sms",
   owners: "http://localhost:4000/api/owners",
-  smsSearch:"http://localhost:4000/api/sms/search",
+  smsSearch:"http://192.168.1.3:4000/api/sms/search",
   updateCard:"http://localhost:4000/api/sms/update",
 };
 

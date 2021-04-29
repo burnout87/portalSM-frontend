@@ -4,10 +4,15 @@
 
 export const environment = {
   production: false,
-  sms: "http://localhost:4000/api/sms",
-  owners: "http://localhost:4000/api/owners",
-  smsSearch:"http://localhost:4000/api/sms/search",
-  updateCard:"http://localhost:4000/api/sms/update",
+  // sms: "http://localhost:4000/api/sms",
+  // owners: "http://localhost:4000/api/owners",
+  // smsSearch:"http://localhost:4000/api/sms/search",
+  // updateCard:"http://localhost:4000/api/sms/update",
+
+  sms: "http://192.168.0.121:4000/api/sms",
+  owners: "http://192.168.0.121:4000/api/owners",
+  smsSearch:"http://192.168.0.121:4000/api/sms/search",
+  updateCard:"http://192.168.0.121:4000/api/sms/update",
 };
 
 /*

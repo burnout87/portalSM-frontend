@@ -27,6 +27,7 @@
     /* color changes the text and arrow color  */
     color: rgb(255, 255, 255);
     outline: none;
+    display: inline-block;
 }
 
 .select_field select {
@@ -58,8 +59,9 @@ p{
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 30px;
   border-width: 0;
-  width: 15%;
+  width: 30%;
   padding: 10px;
   position: relative;
-  left: 85%;
+  display: inline-block;
+  /* left: 85%; */
 }

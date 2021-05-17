@@ -76,6 +76,9 @@ export class MachineFormComponent implements OnInit {
       let fdNewMachine:FormData = this.toFormData(this.newMachine.value);
       // fdNewMachine.append('recordingTime', this.inputMachine.recordingTime);
       fdNewMachine.append('lastUpdateTime', new Date().getTime().toString());
+      if(this.inputMachine.recordingTime) {
+        fdNewMachine.append('recordingTime', this.inputMachine.recordingTime.valueOf());
+      }
       fdNewMachine.append('id', this.inputMachine._id);
       this.csService.UpdateCard(fdNewMachine).subscribe((event) => {
         if (event.type && event.type === HttpEventType.UploadProgress ) {

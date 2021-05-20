@@ -36,6 +36,15 @@ export class SearchMachineComponent implements OnInit {
   
   ngOnInit(): void {  }
 
+  resetResults() {
+    this.searchingObject = {}
+    this.searchClicked.emit(this.searchingObject);
+    this.activationType = "Tutti i tipi"
+    this.containerType = "Tutti i tipi"
+    this.yearsRange['from'] = this.yearsRange['to'] = ""
+    this.checkedBrands = {}
+  }
+
   searchResults() {
     // brands
     if(this.checkedBrands)

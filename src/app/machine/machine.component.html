@@ -31,21 +31,21 @@
       <span class="header">Profilo proprietario</span>
     </div>
   </div>
-  <span class="SMtitle">{{ machineData.brand }} {{ machineData.name }}</span>
+  <span class="SMtitle">{{ machineData.brand }} {{ machineData.name }} {{ machineData.year }}</span>
   
   <div id="e16_0" *ngIf="machineData.serialNumber"><span class="header">Numero di serie</span></div>
   <div id="e18_0" *ngIf="machineData.serialNumber"><span class="SMtext">{{ machineData.serialNumber }}</span></div>
 
-  <div id="e16_0" *ngIf="machineData.year"><span class="header">Anno di fabbricazione</span></div>
-  <div id="e18_0" *ngIf="machineData.year"><span class="SMtext">{{ machineData.year }}</span></div>
+  <!-- <div id="e16_0" *ngIf="machineData.year"><span class="header">Anno di fabbricazione</span></div>
+  <div id="e18_0" *ngIf="machineData.year"><span class="SMtext">{{ machineData.year }}</span></div> -->
 
   <div id="e16_0" *ngIf="machineData.color"><span class="header">Colore</span></div>
   <div id="e18_0" *ngIf="machineData.color"><span class="SMtext">{{ machineData.color }}</span></div>
 
   <div id="e16_0" *ngIf="machineData.description"><span class="header">Descrizione</span></div>
   <div class="description_box">
-  <div id="e18_0" *ngIf="machineData.description"><span class="SMtext">{{ machineData.description }}</span></div>
-</div>
+    <div id="e18_0" *ngIf="machineData.description"><span class="SMtext">{{ machineData.description }}</span></div>
+  </div>
   <div *ngIf="machineData.activationType" class="SMbutton"><span class="SMbutton_text">{{ machineData.activationType }}</span></div>
   <div *ngIf="machineData.baseType" class="SMbutton"><span class="SMbutton_text">{{ machineData.baseType }}</span></div>
 

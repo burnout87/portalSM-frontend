@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Input } from '@angular/core';
-import { ActivationType, ContainerType, Machine } from '../machine';
+import { ActivationType, BaseType, Machine } from '../machine';
 
 @Component({
   selector: 'app-search-machine',
@@ -14,8 +14,8 @@ export class SearchMachineComponent implements OnInit {
 
   checkedBrands = {};
   yearsRange = {};
-  containerTypes =["Tutti i tipi"];
-  containerType = "";
+  baseTypes =["Tutti i tipi"];
+  baseType = "";
   activationTypes = ["Tutti i tipi"];
   activationType = "";
   pickedColor = "";
@@ -28,10 +28,10 @@ export class SearchMachineComponent implements OnInit {
     }
     this.activationType = this.activationTypes[0];
     // build list of container type
-    for ( const type of Object.values(ContainerType) ) {
-      this.containerTypes.push(type);
+    for ( const type of Object.values(BaseType) ) {
+      this.baseTypes.push(type);
     }
-    this.containerType = this.containerTypes[0];
+    this.baseType = this.baseTypes[0];
   }
   
   ngOnInit(): void {  }
@@ -40,7 +40,7 @@ export class SearchMachineComponent implements OnInit {
     this.searchingObject = {}
     this.searchClicked.emit(this.searchingObject);
     this.activationType = "Tutti i tipi"
-    this.containerType = "Tutti i tipi"
+    this.baseType = "Tutti i tipi"
     this.yearsRange['from'] = this.yearsRange['to'] = ""
     this.checkedBrands = {}
   }
@@ -85,10 +85,10 @@ export class SearchMachineComponent implements OnInit {
     else
       delete this.searchingObject['activationType'];
     // container type
-    if(this.containerType && this.containerType != "Tutti i tipi")
-      this.searchingObject['containerType'] = this.containerType;
+    if(this.baseType && this.baseType != "Tutti i tipi")
+      this.searchingObject['baseType'] = this.baseType;
     else
-      delete this.searchingObject['containerType'];
+      delete this.searchingObject['baseType'];
     this.searchClicked.emit(this.searchingObject);
   }
 }

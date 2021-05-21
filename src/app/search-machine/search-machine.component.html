@@ -42,9 +42,9 @@
 
   <!-- Container type -->
   <div>
-    <h5>Contenitore</h5>
-    <mat-button-toggle-group [(ngModel)]="containerType" name="containerType">
-      <mat-button-toggle *ngFor="let ct of containerTypes" [value]="ct">{{ ct | capitalizeFirst }}</mat-button-toggle>
+    <h5>Base</h5>
+    <mat-button-toggle-group [(ngModel)]="baseType" name="baseType">
+      <mat-button-toggle *ngFor="let ct of baseTypes" [value]="ct">{{ ct | capitalizeFirst }}</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
   

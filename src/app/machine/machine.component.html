@@ -36,11 +36,11 @@
   <div id="e16_0" *ngIf="machineData.serialNumber"><span class="header">Numero di serie</span></div>
   <div id="e18_0" *ngIf="machineData.serialNumber"><span class="SMtext">{{ machineData.serialNumber }}</span></div>
 
-  <!-- <div id="e16_0" *ngIf="machineData.year"><span class="header">Anno di fabbricazione</span></div>
-  <div id="e18_0" *ngIf="machineData.year"><span class="SMtext">{{ machineData.year }}</span></div> -->
+  <div id="e16_0" *ngIf="machineData.lastUpdateTime"><span class="header">Data ultima modifica</span></div>
+  <div id="e18_0" *ngIf="machineData.lastUpdateTime"><span class="SMtext">{{ machineData.lastUpdateTime | date : 'dd/MM/yyyy'}}</span></div>
 
   <div id="e16_0" *ngIf="machineData.color"><span class="header">Colore</span></div>
-  <div id="e18_0" *ngIf="machineData.color"><span class="SMtext">{{ machineData.color }}</span></div>
+  <div id="e18_0" *ngIf="machineData.color"><span class="SMtext">{{ machineData.color }}</span></div> 
 
   <div id="e16_0" *ngIf="machineData.description"><span class="header">Descrizione</span></div>
   <div class="description_box">

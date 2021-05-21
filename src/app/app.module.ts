@@ -27,6 +27,14 @@ import { CapitalizeFirstPipe } from './capitalize-first.pipe';
 import { TooltipModule } from '@syncfusion/ej2-angular-popups';
 import { OrderByPipe } from './order-by.pipe';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import localeIt from '@angular/common/locales/it';
+import localeFr from '@angular/common/locales/fr';
+import localeEn from '@angular/common/locales/en';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEn, 'en');
+registerLocaleData(localeIt, 'it');
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [AppComponent, MachineFormComponent, DialogContentUserDialog, MachineComponent, ListMachineComponent, FileUploadComponent, LoginComponent, OwnerFormComponent, OwerSearchComponent, SearchMachineComponent, CapitalizeFirstPipe, OrderByPipe, ConfirmDialogComponent],

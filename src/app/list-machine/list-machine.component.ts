@@ -117,9 +117,10 @@ export class ListMachineComponent implements OnInit {
       bar.then(() =>  {
         var m: Machine = new Machine(element);
         this.machines.push(m);
-        if(m.brand && this.brands.indexOf(m.brand) == -1)
-          this.brands.push(m.brand);
+        if(m.brand && this.brands.indexOf(m.brand.toLowerCase()) == -1)
+          this.brands.push(m.brand.toLowerCase());
         if(i == data.length - 1)
+          // this.brands = _.orderBy(this.brands, [brand => brand.toLowerCase()]);
           this.brands = _.orderBy(this.brands);
       });
     });

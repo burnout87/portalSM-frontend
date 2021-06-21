@@ -7,6 +7,7 @@ import { Description, DescriptionStrategy } from '@ks89/angular-modal-gallery';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA, MAT_DIALOG_SCROLL_STRATEGY } from '@angular/material/dialog';
 import { Overlay, ScrollStrategy } from '@angular/cdk/overlay';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 // export function scrollFactory(overlay: Overlay): () => ScrollStrategy {
 //   return () => overlay.scrollStrategies.reposition();
@@ -47,10 +48,28 @@ export class MachineComponent implements OnInit, AfterViewInit  {
   ngAfterViewInit() { }
 
   deleteMachine() {
-    this.csService.RemoveMachine(this.machineData._id).subscribe(response => {
-      if((response as any).state == 1)
-        this.machineRemovedEvent.emit(this.machineData);
+    // if(confirm("Sei sicuro di voler eliminare i dati di questa macchina?")){
+    //   this.csService.RemoveMachine(this.machineData._id).subscribe(response => {
+    //     if((response as any).state == 1)
+    //       this.machineRemovedEvent.emit(this.machineData);
+    //   });
+    // }
+
+    const confirmDialog = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Rimozione dati macchina',
+        message: 'Sei sicuro di voler eliminare i dati di questa macchina?'
+      }
     });
+    confirmDialog.afterClosed().subscribe(result => {
+      if (result) {
+        this.csService.RemoveMachine(this.machineData._id).subscribe(response => {
+          if((response as any).state == 1)
+            this.machineRemovedEvent.emit(this.machineData);
+        });
+      }
+    });
+
   }
 
   editMachine() {

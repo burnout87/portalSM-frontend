@@ -3,24 +3,16 @@
 
 <div class="machine_search">
   <h4>Filtra per:</h4>
+  
   <h5>Marca</h5>
   <div class="container_brands"> 
-
-    <!--<mat-checkbox 
-      *ngFor="let brand of brands;"
-      [(ngModel)]="checkedBrands[brand]">
-      {{brand}}
-    </mat-checkbox>-->
-    <!-- <h5>Marca</h5> -->
     <mat-grid-list cols="1" rowHeight="25px">
       <mat-grid-tile coslpan="1" class="brand-checkbox" *ngFor="let brand of brands">
           <mat-checkbox [(ngModel)]="checkedBrands[brand]">
             {{brand}}
           </mat-checkbox>
           </mat-grid-tile>
-      <!-- </mat-grid-tile> -->
       </mat-grid-list>
-    <!-- </mat-grid-list> -->
   </div>
 
 
@@ -44,24 +36,18 @@
   <div>
     <h5>Attivazione</h5>
     <mat-button-toggle-group [(ngModel)]="activationType" name="activationType" aria-label="Font Style">
-      <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
-      <mat-button-toggle value="pedal">A pedale</mat-button-toggle>
-      <mat-button-toggle value="handle">A manovella</mat-button-toggle>
-      <mat-button-toggle value="engine">A motore</mat-button-toggle> -->
       <mat-button-toggle *ngFor="let at of activationTypes" [value]="at">{{ at | capitalizeFirst }}</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
 
   <!-- Container type -->
   <div>
-    <h5>Contenitore</h5>
-    <mat-button-toggle-group [(ngModel)]="containerType" name="containerType">
-      <!-- <mat-button-toggle value="any">Tutti i tipi</mat-button-toggle>
-      <mat-button-toggle value="table">Tavolo</mat-button-toggle>
-      <mat-button-toggle value="cabinet">Armadietto</mat-button-toggle> -->
-      <mat-button-toggle *ngFor="let ct of containerTypes" [value]="ct">{{ ct | capitalizeFirst }}</mat-button-toggle>
+    <h5>Base</h5>
+    <mat-button-toggle-group [(ngModel)]="baseType" name="baseType">
+      <mat-button-toggle *ngFor="let ct of baseTypes" [value]="ct">{{ ct | capitalizeFirst }}</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
-
+  
+  <button class="search" (click)="resetResults()"><img class="search-icon"/>Resetta</button>
   <button class="search" (click)="searchResults()"><img class="search-icon" src="/assets/search-icon.svg" />Cerca</button>
 </div>

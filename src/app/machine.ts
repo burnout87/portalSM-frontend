@@ -4,12 +4,13 @@ import { Owner } from './owner';
 export enum ActivationType {
   pedal = "pedale",
   handle = "manovella",
-  engine = "motore",
+  engine = "motore"
 }
 
-export enum ContainerType {
+export enum BaseType {
+  portable = "portatile",
   table = "tavolo",
-  cabinet = "armadietto",
+  cabinet = "armadietto"
 }
 
 export class Machine {
@@ -28,7 +29,7 @@ export class Machine {
     // note
     public description?: string;
     public activationType?: ActivationType;
-    public containerType?: ContainerType; 
+    public baseType?: BaseType; 
     public images?: Image[];
 
     public recordingTime?: Date;

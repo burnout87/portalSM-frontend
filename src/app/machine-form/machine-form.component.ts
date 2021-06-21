@@ -4,7 +4,7 @@ import { ConnectivityService } from "../connectivity.service";
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
 import { OwnerFormComponent } from '../owner-form/owner-form.component';
-import { ActivationType, ContainerType, Machine } from "../machine";
+import { ActivationType, BaseType, Machine } from "../machine";
 import * as uuid from 'uuid';
 
 @Component({
@@ -20,9 +20,9 @@ export class MachineFormComponent implements OnInit {
   updatedMachine: boolean = true;
   progress = -1;
   initValueActivationType: any;
-  initValueContainerType: any;
+  initValueBaseType: any;
   activationTypes = Object.values(ActivationType);
-  containerTypes = Object.values(ContainerType);
+  baseTypes = Object.values(BaseType);
   @ViewChild(FormGroupDirective) myForm;
   @ViewChild(OwnerFormComponent) private ownerForm: OwnerFormComponent;
 
@@ -34,7 +34,7 @@ export class MachineFormComponent implements OnInit {
         name: new FormControl(this.inputMachine?.name),
         year: new FormControl(this.inputMachine?.year),
         activationType: new FormControl(null),
-        containerType: new FormControl(null),
+        baseType: new FormControl(null),
         serialNumber: new FormControl(this.inputMachine?.serialNumber),
         brand:  new FormControl(this.inputMachine?.brand),
         images: new FormControl(this.inputMachine?.images),
@@ -54,7 +54,7 @@ export class MachineFormComponent implements OnInit {
         }),
       });
       this.initValueActivationType = this.inputMachine?.activationType ? this.inputMachine?.activationType : "empty";
-      this.initValueContainerType = this.inputMachine?.containerType ? this.inputMachine?.containerType : "empty";
+      this.initValueBaseType = this.inputMachine?.baseType ? this.inputMachine?.baseType : "empty";
   }
 
   ngOnInit(): void {
@@ -76,6 +76,9 @@ export class MachineFormComponent implements OnInit {
       let fdNewMachine:FormData = this.toFormData(this.newMachine.value);
       // fdNewMachine.append('recordingTime', this.inputMachine.recordingTime);
       fdNewMachine.append('lastUpdateTime', new Date().getTime().toString());
+      if(this.inputMachine.recordingTime) {
+        fdNewMachine.append('recordingTime', this.inputMachine.recordingTime.valueOf());
+      }
       fdNewMachine.append('id', this.inputMachine._id);
       this.csService.UpdateCard(fdNewMachine).subscribe((event) => {
         if (event.type && event.type === HttpEventType.UploadProgress ) {

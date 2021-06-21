@@ -4,6 +4,14 @@
     
     <form [formGroup]="newMachine" (ngSubmit)="onSubmit()" >
       <div>
+        <input class="input_text"
+          type="text"
+          placeholder="Marca"
+          formControlName="brand"
+        />
+      </div>
+
+      <div>
           <input class="input_text"
             placeholder="Nome"
             type="text" 
@@ -12,7 +20,15 @@
             />
       </div>
 
-      <div >
+      <div>
+        <input class="input_text"
+          type="number"
+          formControlName="year"
+          placeholder="Anno di fabbricazione"
+        />
+      </div>
+            
+      <div>
         <input class="input_text"
           placeholder="Numero di serie"
           type="text"
@@ -20,21 +36,6 @@
         />
       </div>
 
-      <div >
-        <input class="input_text"
-          type="text"
-          placeholder="Marca"
-          formControlName="brand"
-        />
-      </div>
-
-      <div >
-        <input class="input_text"
-          type="number"
-          formControlName="year"
-          placeholder="Anno di fabbricazione"
-        />
-      </div>
 
 
       <div class="select_field">
@@ -45,9 +46,9 @@
       </div>
 
       <div class="select_field">
-        <select formControlName="containerType" [(ngModel)]="initValueContainerType">
-          <option value="empty" disabled selected>Contenitore</option>
-          <option *ngFor="let containerType of containerTypes" [value]="containerType">{{ containerType }}</option>
+        <select formControlName="baseType" [(ngModel)]="initValueBaseType">
+          <option value="empty" disabled selected>Base</option>
+          <option *ngFor="let baseType of baseTypes" [value]="baseType">{{ baseType }}</option>
         </select>
       </div>
 

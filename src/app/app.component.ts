@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnectivityService } from './connectivity.service';
 import { Machine } from './machine';
+import { registerLocaleData } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',

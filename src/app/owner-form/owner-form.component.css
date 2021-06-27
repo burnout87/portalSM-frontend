@@ -42,3 +42,28 @@
 .ng-star-inserted:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.3), 0 17px 50px 0 rgba(0,0,0,0.3);
 }
+
+.select_field{
+    color: rgb(255, 255, 255);
+    outline: none;
+}
+
+.select_field select {
+    /* background color is the text box color  */
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    color: white;
+    border-radius: 30px;
+    border-color: white;
+    border-width: 3px;
+    margin: 10px;
+    font-family: Raleway;
+    font-size: 12pt;
+    outline: none;
+    transition-duration: 1ms;
+    padding: 0;
+}
+
+.select_field select:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

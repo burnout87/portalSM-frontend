@@ -177,6 +177,25 @@
   border-radius: 10px;
   background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2),rgba(255,255,255,0.2), rgba(0, 0, 0, 0.4));
 }
+
+.number-header{
+  font-family: Raleway;
+  font-size: 9pt;
+  color: white;
+}
+
+.number-style{
+  font-family: Raleway;
+  font-size: 9pt;
+  color: white;
+}
+
+.last-modified-date{
+  position: relative;
+  left: 60%;
+  top:6px;
+}
+
 /*
 .machine-card {
   width: 450px;

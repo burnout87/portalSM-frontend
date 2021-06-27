@@ -36,8 +36,8 @@
   <div id="e16_0" *ngIf="machineData.serialNumber"><span class="header">Numero di serie</span></div>
   <div id="e18_0" *ngIf="machineData.serialNumber"><span class="SMtext">{{ machineData.serialNumber }}</span></div>
 
-  <div id="e16_0" *ngIf="machineData.lastUpdateTime"><span class="header">Data ultima modifica</span></div>
-  <div id="e18_0" *ngIf="machineData.lastUpdateTime"><span class="SMtext">{{ machineData.lastUpdateTime | date : 'dd/MM/yyyy'}}</span></div>
+  <!-- <div id="e16_0" *ngIf="machineData.lastUpdateTime"><span class="header">Data ultima modifica</span></div>
+  <div id="e18_0" *ngIf="machineData.lastUpdateTime"><span class="SMtext">{{ machineData.lastUpdateTime | date : 'dd/MM/yyyy'}}</span></div> -->
 
   <div id="e16_0" *ngIf="machineData.color"><span class="header">Colore</span></div>
   <div id="e18_0" *ngIf="machineData.color"><span class="SMtext">{{ machineData.color }}</span></div> 
@@ -46,11 +46,19 @@
   <div class="description_box">
     <div id="e18_0" *ngIf="machineData.description"><span class="SMtext">{{ machineData.description }}</span></div>
   </div>
+  
   <div *ngIf="machineData.activationType" class="SMbutton"><span class="SMbutton_text">{{ machineData.activationType }}</span></div>
   <div *ngIf="machineData.baseType" class="SMbutton"><span class="SMbutton_text">{{ machineData.baseType }}</span></div>
 
+<span class="buttom-buttons">
   <button (click)="deleteMachine()" mat-button><i class="material-icons" style="vertical-align: middle;">elimina</i></button>
   <button (click)="editMachine()" mat-button><i class="material-icons" style="vertical-align: middle;">modifica</i></button>
+
+<div class="last-modified-date">
+  <div id="e16_0" *ngIf="machineData.lastUpdateTime"><span class="number-header">Data ultima modifica</span>  </div>
+  <div id="e18_0" *ngIf="machineData.lastUpdateTime"><span class="number-style">{{ machineData.lastUpdateTime | date : 'dd/MM/yyyy'}}</span></div>
+</div>
+</span>
  
 </div>
 </div>
